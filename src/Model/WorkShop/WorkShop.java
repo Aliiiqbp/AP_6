@@ -1,4 +1,4 @@
-package src.Model.Farm.WorkShop;
+package src.Model.WorkShop;
 
 import src.Model.NTT;
 

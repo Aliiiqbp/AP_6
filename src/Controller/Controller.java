@@ -20,5 +20,9 @@ public class Controller {
 
     } // TODO: 12/24/2018  hunt wild animal
 
-    public void plant(double x, double y) {}
+    public void plant(double x, double y) {} // TODO: 12/24/2018 plant Grass
+
+    public void fillWell() {} // TODO: 12/24/2018 fill well
+
+    public void clickWorkShop(WorkShopType )
 }
