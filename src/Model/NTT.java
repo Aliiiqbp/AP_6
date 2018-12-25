@@ -25,5 +25,4 @@ public class NTT {
     public int getLevel() {
         return level;
     }
-
 }

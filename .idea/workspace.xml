@@ -2,23 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ac984c9-968f-407c-a890-ee21a8775a24" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Model/WorkShop/CakeBakery.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/WorkShop/CookieBakery.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/WorkShop/EggPowderPlant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/WorkShop/SewingFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/WorkShop/Spinnery.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/WorkShop/WeavingFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/WorkShop/WorkShop.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/WorkShop/WorkShopType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Farm/WorkShop/CakeBakery.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Farm/WorkShop/CookieBakery.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Farm/WorkShop/EggPowderPlant.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Farm/WorkShop/SewingFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Farm/WorkShop/Spinnery.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Farm/WorkShop/WeavingFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Farm/WorkShop/WorkShop.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Farm/Map/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Farm/Map/Map.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/NTT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/NTT.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,42 +24,21 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="32" />
+          <entry key="JAVA" value="35" />
           <entry key="PLAIN_TEXT" value="4" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="786" />
-          <entry key="PLAIN_TEXT" value="116" />
+          <entry key="JAVA" value="1288" />
+          <entry key="PLAIN_TEXT" value="164" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Animal/Pet/NoneProducer/NoneProducerAnimal.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Animal/Pet/Producer/ProducerAnimal.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/Animal/AnimalType.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -91,25 +57,57 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="26" column="43" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="43" />
+            <state relative-caret-position="292">
+              <caret line="49" column="72" selection-start-line="49" selection-start-column="72" selection-end-line="49" selection-end-column="72" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="method#buyAnimal#0;class#Controller#0" />
                 <element signature="method#pickUp#0;class#Controller#0" />
                 <element signature="method#cageWild#0;class#Controller#0" />
+                <element signature="method#clickWorkShop#0;class#Controller#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/Farm/Map/Map.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/Farm/Map/Cell.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/NTT.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="27" column="1" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+              <folding>
+                <element signature="method#upgradeLevel#0;class#NTT#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/WorkShop/WorkShopType.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
-              <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+              <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -135,15 +133,6 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
           <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Coordinate/Movement.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
-            </state>
-          </provider>
         </entry>
       </file>
     </leaf>
@@ -178,9 +167,11 @@
         <option value="$PROJECT_DIR$/src/Model/Animal/Pet/NoneProducer/Cat.java" />
         <option value="$PROJECT_DIR$/src/Model/Coordinate/Movement.java" />
         <option value="$PROJECT_DIR$/src/Model/Animal/AnimalType.java" />
-        <option value="$PROJECT_DIR$/src/Controller/Controller.java" />
         <option value="$PROJECT_DIR$/src/View/IO.java" />
         <option value="$PROJECT_DIR$/src/Model/WorkShop/WorkShopType.java" />
+        <option value="$PROJECT_DIR$/src/Model/Farm/Map/Map.java" />
+        <option value="$PROJECT_DIR$/src/Model/NTT.java" />
+        <option value="$PROJECT_DIR$/src/Controller/Controller.java" />
       </list>
     </option>
   </component>
@@ -190,7 +181,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-15" />
     <option name="width" value="1948" />
     <option name="height" value="2098" />
@@ -231,6 +222,21 @@
               <item name="AP_6" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Model" type="462c0819:PsiDirectoryNode" />
+              <item name="Farm" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AP_6" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AP_6" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
+              <item name="Farm" type="462c0819:PsiDirectoryNode" />
+              <item name="Map" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AP_6" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AP_6" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
               <item name="WorkShop" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -248,7 +254,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545719811917" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545720856322" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="Arquillian JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Arquillian JUnit4" value="" />
     <property name="create.test.in.the.same.root" value="true" />
@@ -397,7 +403,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1545657672952</updated>
-      <workItem from="1545657676556" duration="7062000" />
+      <workItem from="1545657676556" duration="8073000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <created>1545658401243</created>
@@ -413,11 +419,18 @@
       <option name="project" value="LOCAL" />
       <updated>1545661328887</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="WorkShopType add to WorkShop folder">
+      <created>1545719952052</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1545719952052</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7062000" />
+    <option name="totallyTimeSpent" value="8073000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -429,7 +442,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="-6" width="1549" height="846" extended-state="6" />
+    <frame x="-6" y="0" width="779" height="839" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Image Layers" />
@@ -437,11 +450,11 @@
       <window_info id="UI Designer" />
       <window_info id="Capture Tool" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.10865191" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19556172" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Messages" weight="0.32867134" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" visible="true" weight="0.32867134" />
+      <window_info anchor="bottom" id="Version Control" visible="true" weight="0.259887" />
       <window_info anchor="bottom" id="Statistic" />
       <window_info anchor="bottom" id="Terminal" weight="0.32587412" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
@@ -472,7 +485,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="start project" />
     <MESSAGE value="controller getCommand and ...&#10;view init&#10;AnimalType add to animal folder" />
-    <option name="LAST_COMMIT_MESSAGE" value="controller getCommand and ...&#10;view init&#10;AnimalType add to animal folder" />
+    <MESSAGE value="WorkShopType add to WorkShop folder" />
+    <option name="LAST_COMMIT_MESSAGE" value="WorkShopType add to WorkShop folder" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Ali Ghorbanpour">
@@ -486,13 +500,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/NTT.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Animal/Pet/SheepTest.java">
       <provider selected="true" editor-type-id="text-editor" />
@@ -645,22 +652,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Controller.java">
+    <entry file="file://$PROJECT_DIR$/src/Model/WorkShop/WorkShopType.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="26" column="43" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="43" />
+        <state relative-caret-position="68">
+          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Farm/Map/Cell.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Farm/Map/Map.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/NTT.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="27" column="1" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
           <folding>
-            <element signature="method#buyAnimal#0;class#Controller#0" />
-            <element signature="method#pickUp#0;class#Controller#0" />
-            <element signature="method#cageWild#0;class#Controller#0" />
+            <element signature="method#upgradeLevel#0;class#NTT#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/WorkShop/WorkShopType.java">
+    <entry file="file://$PROJECT_DIR$/src/Controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+        <state relative-caret-position="292">
+          <caret line="49" column="72" selection-start-line="49" selection-start-column="72" selection-end-line="49" selection-end-column="72" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#buyAnimal#0;class#Controller#0" />
+            <element signature="method#pickUp#0;class#Controller#0" />
+            <element signature="method#cageWild#0;class#Controller#0" />
+            <element signature="method#clickWorkShop#0;class#Controller#0" />
+          </folding>
         </state>
       </provider>
     </entry>

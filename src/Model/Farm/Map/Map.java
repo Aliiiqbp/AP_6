@@ -1,6 +1,8 @@
 package src.Model.Farm.Map;
 
-public class Map {
+import src.Model.NTT;
+
+public class Map extends NTT {
 
     private Cell[][] cells;
 
