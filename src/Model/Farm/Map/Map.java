@@ -6,7 +6,7 @@ public class Map extends Entity {
 
     private Cell[][] cells;
 
-    public Map(Cell[][] cells, int n) {
+    public Map(int n) {
         cells = new Cell[n][n];
     }
 

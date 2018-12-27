@@ -1,15 +1,35 @@
 package src.Controller;
 
 import src.Model.Animal.AnimalType;
-import src.Model.Farm.Map.Map;
 import src.Model.Entity;
+import src.Model.Farm.Farm;
+import src.Model.Farm.Map.Map;
+
+import src.Model.Time;
 import src.Model.WorkShop.WorkShopType;
+import src.View.IO;
 
 import java.nio.file.Path;
 
 public class Controller {
 
+    private double money;
+    public Farm farm ;
+    public Time time ;
+
+    public Controller() {
+        farm = new Farm();
+        time = new Time();
+        money = Static.INITIAL_MONEY;
+    }
+
     public void getCommand() {
+        String[] strings = IO.splitCommand();
+
+        if (strings[0].equals("Well")){
+            farm.well.setAmountOfWater( farm.well.getWellCapacity() );        //handling the well command
+        }
+
     } // TODO: 12/24/2018 set IO with function
 
     private void buyAnimal(AnimalType animalType) {
