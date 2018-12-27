@@ -1,8 +1,8 @@
 package src.Model.Farm.Extra;
 
-import src.Model.NTT;
+import src.Model.Entity;
 
-public class Well extends NTT {
+public class Well extends Entity {
     private int wellCapacity = 10;
 
     private int amountOfWater = wellCapacity;

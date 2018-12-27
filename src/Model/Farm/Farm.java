@@ -1,7 +1,7 @@
 package src.Model.Farm;
 
-import src.Model.NTT;
+import src.Model.Entity;
 
-public class Farm extends NTT {
+public class Farm extends Entity {
 
 }

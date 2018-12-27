@@ -2,11 +2,11 @@ package src.Model;
 
 import src.Controller.Static;
 
-public class NTT {
+public class Entity {
 
     public int level;
 
-    public NTT() {
+    public Entity() {
         level = Static.firstLevel;
     }
 
