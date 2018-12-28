@@ -3,7 +3,6 @@ package src.Model;
 import src.Controller.Static;
 
 public class NTT {
-
     public int level;
 
     public NTT() {

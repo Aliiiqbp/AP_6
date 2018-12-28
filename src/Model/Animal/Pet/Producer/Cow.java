@@ -1,15 +1,11 @@
 package src.Model.Animal.Pet.Producer;
 
+import src.Model.Product.Milk;
 import src.Model.Product.Product;
 
 public class Cow extends ProducerAnimal {
     @Override
     public Product Produce() {
-        return null;
+        return new Milk();
     }
-
-//    @Override
-//    public Product Produce() {
-//        return null;
-//    }
 }
