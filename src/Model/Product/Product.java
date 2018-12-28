@@ -1,8 +1,8 @@
 package src.Model.Product;
 
-import src.Model.NTT;
+import src.Model.Entity;
 
-public abstract class Product extends NTT {
+public abstract class Product extends Entity {
     double sellPrice;
     double volume;
 }

@@ -37,7 +37,7 @@ public class Movement {
         return targetY;
     }
 
-    public void move(Direction direction) {
+    public void move() {
         switch (direction) {
             case UP:
                 currentY -= speed;
@@ -71,6 +71,7 @@ public class Movement {
             default: break;
         }
 
+        // TODO: 12/28/2018 set next Direction
         return;
     }
 

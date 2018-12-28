@@ -9,12 +9,9 @@ import java.security.PublicKey;
 public abstract class Wild extends Animal {
 
     public void destroy(Pet pet, Product product) {
+        // TODO: 12/28/2018 we need to save destroyed objects
         pet = null;
         product = null;
-    }
-
-    public void move() {
-
     }
 
     public void hunt() {} // TODO: 12/28/2018

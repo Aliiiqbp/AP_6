@@ -1,6 +1,6 @@
 package src.Model.Vehicle;
 
-import src.Model.NTT;
+import src.Model.Entity;
 
-public abstract class Vehicle extends NTT {
+public abstract class Vehicle extends Entity {
 }

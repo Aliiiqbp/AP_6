@@ -1,6 +1,6 @@
 package src.Model;
 
-public abstract class Salable extends NTT {
+public abstract class Salable extends Entity {
     double sellPrice;
     double buyPrice;
     double volume;
