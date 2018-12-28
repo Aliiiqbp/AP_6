@@ -2,7 +2,7 @@ package src.Model;
 
 import src.Controller.Static;
 
-public abstract class NTT {
+public class NTT {
 
     public int level;
 
