@@ -1,10 +1,10 @@
 package src.Controller;
 
 import src.Model.Animal.AnimalType;
-import src.Model.Entity;
 import src.Model.Farm.Farm;
 import src.Model.Farm.Map.Map;
 
+import src.Model.NTT;
 import src.Model.Time;
 import src.Model.WorkShop.WorkShopType;
 import src.View.IO;
@@ -50,7 +50,7 @@ public class Controller {
     private void clickWorkShop(WorkShopType workShopType) {
     }// TODO: 12/25/2018 start[workshop_name]
 
-    private void upgradeLevel(Entity entity) {
+    private void upgradeLevel(NTT object) {
     } // TODO: 12/25/2018 upgrade[workshop|cat|well]...]
 
     private void loadCustom(Path path) {
@@ -65,7 +65,7 @@ public class Controller {
     private void loadGame(Path path) {
     } // TODO: 12/25/2018 save game [path_to_json_file]
 
-    private void printInfo(Entity entity) {
+    private void printInfo(NTT object) {
     } // TODO: 12/25/2018  print info of object
 
     private void turn(int n) {
