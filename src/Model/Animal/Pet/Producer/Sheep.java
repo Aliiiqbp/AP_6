@@ -1,12 +1,13 @@
 package src.Model.Animal.Pet.Producer;
 
+import src.Controller.Static;
 import src.Model.Animal.AnimalType;
 import src.Model.Product.Product;
 import src.Model.Product.Wool;
 
 public class Sheep extends ProducerAnimal {
-    public Sheep(AnimalType animalType, double sellPrice, double buyPrice, double volume, double speed, double x, double y) {
-        super(animalType, sellPrice, buyPrice, volume, speed, x, y);
+    public Sheep( double x, double y) {
+        super(AnimalType.SHEEP, Static.SHEEP_SELL_VALUE, Static.SHEEP_BUY_COST, Static.SHEEP_VOLUME, Static.SHEEP_SPEED, x, y);
     }
 
     @Override
