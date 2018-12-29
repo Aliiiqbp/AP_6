@@ -4,7 +4,6 @@ public class Static {
 
     public static final int firstLevel = 0;
     public static final double INITIAL_MONEY = 50.0;
-    public static final int INITIAL_WELL_CAPACITY = 10;
 
     // ANIMAL STATICS
 
@@ -99,6 +98,30 @@ public class Static {
     public static final double HELI_SCATTERING_RADIUS_LVL_1 = 100;
     public static final double HELI_SCATTERING_RADIUS_LVL_2 = 60;
     public static final double HELI_SCATTERING_RADIUS_LVL_3 = 20;
+
+    //Well
+    public static final double WELL_CAPACITY_LVL_0 = 5;
+    public static final double WELL_CAPACITY_LVL_1 = 7;
+    public static final double WELL_CAPACITY_LVL_2 = 10;
+    public static final double WELL_CAPACITY_LVL_3 = 100;
+    public static final double WELL_FILL_COST_LVL_0 = 19;
+    public static final double WELL_FILL_COST_LVL_1 = 17;
+    public static final double WELL_FILL_COST_LVL_2 = 15;
+    public static final double WELL_FILL_COST_LVL_3 = 7;
+
+    //Cage
+    public static final double CAGE_BROKE_TIME_LVL_0 = 6;
+    public static final double CAGE_BROKE_TIME_LVL_1 = 8;
+    public static final double CAGE_BROKE_TIME_LVL_2 = 10;
+    public static final double CAGE_BROKE_TIME_LVL_3 = 12;
+    public static final double CAGE_UPGRADE_COST_LVL_0 = 0;
+    public static final double CAGE_UPGRADE_COST_LVL_1 = 100;
+    public static final double CAGE_UPGRADE_COST_LVL_2 = 500;
+    public static final double CAGE_UPGRADE_COST_LVL_3 = 5000;
+    public static final double CAGE_PREGRESS_MAX_VALUE_LVL_0 = 100;
+    public static final double CAGE_PREGRESS_MAX_VALUE_LVL_1 = 60;
+    public static final double CAGE_PREGRESS_MAX_VALUE_LVL_2 = 40;
+    public static final double CAGE_PREGRESS_MAX_VALUE_LVL_3 = 20;
 
 
 
