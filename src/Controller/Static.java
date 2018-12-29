@@ -8,20 +8,20 @@ public class Static {
 
     // ANIMAL STATICS
 
-    //cat
+    //Cat
     public static final double CAT_SLEEP_TIME = 10;
     public static final double CAT_SPEED = 38;
     public static final double CAT_BUY_COST = 2500;
     public static final double CAT_VOLUME = 0;      // value was not in doc
     public static final double CAT_SELL_VALUE = 0;  // value was not in doc
 
-    //dog
+    //Dog
     public static final double DOG_SPEED = 65;
     public static final double DOG_VOLUME = 0;
     public static final double DOG_SELL_VALUE = 0;  // value was not in doc
     public static final double DOG_BUY_COST = 0;    // value was not in doc
 
-    //sheep
+    //Sheep
     public static final double SHEEP_SPEED = 55;
     public static final double SHEEP_HUNGRY_MOVING_SPEED = 110;
     public static final double SHEEP_PRODUCTION_PERIOD = 20;
@@ -33,7 +33,7 @@ public class Static {
     public static final double SHEEP_VOLUME = 0;       // value was not in doc
     public static final double SHEEP_SELL_VALUE = 0;  // value was not in doc
 
-    //hen
+    //Hen
     public static final double HEN_SPEED = 50;
     public static final double HEN_HUNGRY_MOVING_SPEED = 110;
     public static final double HEN_PRODUCTION_PERIOD = 20;
@@ -45,7 +45,7 @@ public class Static {
     public static final double HEN_VOLUME = 0;       // value was not in doc
     public static final double HEN_SELL_VALUE = 0;  // value was not in doc
 
-    //cow
+    //Cow
     public static final double COW_SPEED = 40;
     public static final double COW_HUNGRY_MOVING_SPEED = 80;
     public static final double COW_PRODUCTION_PERIOD = 20;
@@ -56,6 +56,21 @@ public class Static {
     public static final double COW_BUY_COST = 10000;
     public static final double COW_VOLUME = 0;      // value was not in doc
     public static final double COW_SELL_VALUE = 0;  // value was not in doc
+
+    //Bear            // its brow bear's property
+    public static final double BEAR_SPEED = 40;      //value was not in doc
+    public static final double BEAR_BUY_COST = 100;
+    public static final double BEAR_VOLUME = 20;
+    public static final double BEAR_SELL_VALUE = 100;
+
+    //Lion
+    public static final double LION_SPEED = 60;      //value was not in doc
+    public static final double LION_BUY_COST = 150;
+    public static final double LION_VOLUME = 20;
+    public static final double LION_SELL_VALUE = 150;
+
+
+
 
     //Capacity
     public static final double FIRST_OCCUPIED_CAPACITY = 0;
