@@ -123,6 +123,62 @@ public class Static {
     public static final double CAGE_PREGRESS_MAX_VALUE_LVL_2 = 40;
     public static final double CAGE_PREGRESS_MAX_VALUE_LVL_3 = 20;
 
+    //PRODUCT STATICS
+
+    //Egg
+    public static final double EGG_VOLUME = 1;
+    public static final double EGG_BUY_COST = 20;
+    public static final double EGG_SELL_VALUE = 10;
+
+    //Wool
+    public static final double WOOL_VOLUME = 5;
+    public static final double WOOL_BUY_COST = 200;
+    public static final double WOOL_SELL_VALUE = 100;
+
+    //Plume
+    public static final double PLUME_VOLUME = 2;
+    public static final double PLUME_BUY_COST = 200;
+    public static final double PLUME_SELL_VALUE = 100;
+
+    //Milk
+    public static final double MILK_VOLUME = 10;
+    public static final double MILK_BUY_COST = 2000;
+    public static final double MILK_SELL_VALUE = 1000;
+
+    //Flour
+    public static final double FLOUR_VOLUME = 1.5;
+    public static final double FLOUR_BUY_COST = 20;
+    public static final double FLOUR_SELL_VALUE = 10;
+
+    //Cake
+    public static final double CAKE_VOLUME = 5;
+    public static final double CAKE_BUY_COST = 200;
+    public static final double CAKE_SELL_VALUE = 100;
+
+    //CarnivalDress
+    public static final double CARNIVALDRESS_VOLUME = 8;
+    public static final double CARNIVALDRESS_BUY_COST = 1400;
+    public static final double CARNIVALDRESS_SELL_VALUE = 1300;
+
+    //ColoredPlume
+    public static final double COLOREDPLUME_VOLUME = 2;
+    public static final double COLOREDPLUME_BUY_COST = 300;
+    public static final double COLOREDPLUME_SELL_VALUE = 150;
+
+    //DriedEggs
+    public static final double DRIEDEGG_VOLUME = 4;
+    public static final double DRIEDEGG_BUY_COST = 100;
+    public static final double DRIEDEGG_SELL_VALUE = 50;
+
+    //Fabric
+    public static final double FABRIC_VOLUME = 6;
+    public static final double FABRIC_BUY_COST = 400;
+    public static final double FABRIC_SELL_VALUE = 300;
+
+    //Sewing
+    public static final double SEWING_VOLUME = 3;
+    public static final double SEWING_BUY_COST = 300;
+    public static final double SEWING_SELL_VALUE = 150;
 
 
     //Capacity
