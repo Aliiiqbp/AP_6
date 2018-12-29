@@ -7,6 +7,6 @@ import src.Model.Animal.AnimalType;
 public class Bear extends Wild {
 
     public Bear(double x, double y) {
-        super(AnimalType.BEAR, Static.LION_SELL_VALUE, Static.LION_BUY_COST, Static.LION_VOLUME, Static.LION_SPEED, x, y);
+        super(AnimalType.BEAR, Static.BEAR_SELL_VALUE, Static.BEAR_BUY_COST, Static.BEAR_VOLUME, Static.BEAR_SPEED, x, y);
     }
 }
