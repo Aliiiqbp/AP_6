@@ -1,5 +1,8 @@
 package src.Model.Coordinate;
 
+import src.Model.Vehicle.Vehicle;
+import src.Model.WorkShop.WorkShop;
+
 public class Movement {
     Direction direction;
     private double speed;
@@ -77,5 +80,22 @@ public class Movement {
 
     public void setDirection(Direction direction) {
         this.direction = direction;
+    }
+    
+    public void catched() { // TODO: 12/29/2018 we need a better name for this function 
+        this.speed = 0;
+        this.direction = Direction.NONE;
+    }
+    
+    public void moveToWareHouse() { 
+        // TODO: 12/29/2018  
+    }
+    
+    public void moveToWorkShop(WorkShop workShop) {
+        // TODO: 12/29/2018  
+    }
+    
+    public void moveToVehicle(Vehicle vehicle) {
+        // TODO: 12/29/2018  
     }
 }
