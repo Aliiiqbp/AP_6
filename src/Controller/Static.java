@@ -70,6 +70,36 @@ public class Static {
     public static final double LION_SELL_VALUE = 150;
 
 
+    //WAREHOUSE STATICS
+    public static final double WAREHOUSE_CAPACITY_LVL_0 = 50;
+    public static final double WAREHOUSE_CAPACITY_LVL_1 = 150;
+    public static final double WAREHOUSE_CAPACITY_LVL_2 = 300;
+    public static final double WAREHOUSE_CAPACITY_LVL_3 = 600;
+
+
+    //VEHICLE STATICS
+
+    //Truck
+    public static final double TRUCK_BOX_CAPACITY = 20;
+    public static final double TRUCK_BOX_COUNT_LVL_0 = 2;
+    public static final double TRUCK_BOX_COUNT_LVL_1 = 3;
+    public static final double TRUCK_BOX_COUNT_LVL_2 = 4;
+    public static final double TRUCK_BOX_COUNT_LVL_3 = 5;
+    public static final double TRUCK_TRAVEL_DURATION_LVL_0 = 20;
+    public static final double TRUCK_TRAVEL_DURATION_LVL_1 = 15;
+    public static final double TRUCK_TRAVEL_DURATION_LVL_2 = 10;
+    public static final double TRUCK_TRAVEL_DURATION_LVL_3 = 5;
+
+    //Helicopter
+    public static final double HELI_TRAVEL_DURATION_LVL_0 = 12;
+    public static final double HELI_TRAVEL_DURATION_LVL_1 = 9;
+    public static final double HELI_TRAVEL_DURATION_LVL_2 = 6;
+    public static final double HELI_TRAVEL_DURATION_LVL_3 = 3;
+    public static final double HELI_SCATTERING_RADIUS_LVL_0 = 120;
+    public static final double HELI_SCATTERING_RADIUS_LVL_1 = 100;
+    public static final double HELI_SCATTERING_RADIUS_LVL_2 = 60;
+    public static final double HELI_SCATTERING_RADIUS_LVL_3 = 20;
+
 
 
     //Capacity
