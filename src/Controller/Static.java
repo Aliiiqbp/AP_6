@@ -183,4 +183,6 @@ public class Static {
 
     //Capacity
     public static final double FIRST_OCCUPIED_CAPACITY = 0;
+
+    //test
 }
