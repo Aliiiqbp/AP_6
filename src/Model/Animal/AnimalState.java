@@ -1,5 +1,5 @@
 package src.Model.Animal;
 
-public enum State {
+public enum AnimalState {
     Eating, Dying, None
 }
