@@ -88,6 +88,10 @@ public class Static {
     public static final double TRUCK_TRAVEL_DURATION_LVL_1 = 15;
     public static final double TRUCK_TRAVEL_DURATION_LVL_2 = 10;
     public static final double TRUCK_TRAVEL_DURATION_LVL_3 = 5;
+    public static final double TRUCK_CAPACITY_VOLUME_RADIUS_LVL_0 = 0;
+    public static final double TRUCK_CAPACITY_VOLUME_RADIUS_LVL_1 = 0;
+    public static final double TRUCK_CAPACITY_VOLUME_RADIUS_LVL_2 = 0;
+    public static final double TRUCK_CAPACITY_VOLUME_RADIUS_LVL_3 = 0;
 
     //Helicopter
     public static final double HELI_TRAVEL_DURATION_LVL_0 = 12;
@@ -98,6 +102,10 @@ public class Static {
     public static final double HELI_SCATTERING_RADIUS_LVL_1 = 100;
     public static final double HELI_SCATTERING_RADIUS_LVL_2 = 60;
     public static final double HELI_SCATTERING_RADIUS_LVL_3 = 20;
+    public static final double HELI_CAPACITY_VOLUME_RADIUS_LVL_0 = 0;
+    public static final double HELI_CAPACITY_VOLUME_RADIUS_LVL_1 = 0;
+    public static final double HELI_CAPACITY_VOLUME_RADIUS_LVL_2 = 0;
+    public static final double HELI_CAPACITY_VOLUME_RADIUS_LVL_3 = 0;
 
     //Well
     public static final double WELL_CAPACITY_LVL_0 = 5;
@@ -184,8 +192,6 @@ public class Static {
     //Capacity
     public static final double FIRST_OCCUPIED_CAPACITY = 0;
 
-    //test
-    //test
-    //test
-//    test
+    //Bank
+    public static final double BANK_FIRST_MONEY = 0;
 }

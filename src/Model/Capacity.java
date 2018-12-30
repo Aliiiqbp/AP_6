@@ -27,6 +27,7 @@ public class Capacity { //this class created for WareHouse and Vehicles
         return occupiedCapacity;
     }
 
+    // TODO: 12/30/2018 handle both add and get
     public void add(Salable... salables) {
         double totalVolumeToAdd = 0;
         for (Salable salable: salables) {
@@ -46,6 +47,21 @@ public class Capacity { //this class created for WareHouse and Vehicles
                 }
             }
             occupiedCapacity += totalVolumeToAdd;
+        }
+    }
+    
+    public void add(Salable salable, int count) {
+        double totalVolumeToAdd = salable.getVolume()*count;
+        if (totalVolumeToAdd <= (capacityVolume - occupiedCapacity)) { // if not this function does not thing
+            if (hashMap.containsKey(salable.getClass().getName())) {
+                hashMap.replace(salable.getClass().getName(), hashMap.get(salable.getClass().getName()) + count);
+//                    salableArray.add(salable);
+                list.add(salable.getClass().getName());
+            } else {
+                hashMap.put(salable.getClass().getName(), count);
+//                    salableArray.add(salable);
+                list.add(salable.getClass().getName());
+            }
         }
     }
 
@@ -86,5 +102,9 @@ public class Capacity { //this class created for WareHouse and Vehicles
             string += list.get(i) + ": " + hashMap.get(list.get(i)) +"\n";
         }
         return string;
+    }
+
+    public void update() {
+        // TODO: 12/30/2018 it is need to overwrite in all objects
     }
 }
