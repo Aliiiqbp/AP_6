@@ -13,4 +13,11 @@ public class Dog extends NoneProducerAnimal {
     public void noneProducer() {
 
     }
+
+    @Override
+    public void upgradeLevel() {
+        switch (level) {
+
+        }
+    }
 }
