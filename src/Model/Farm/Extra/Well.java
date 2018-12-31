@@ -1,25 +1,26 @@
 package src.Model.Farm.Extra;
 
+import src.Controller.Static;
+import src.Model.Coordinate.Movement;
 import src.Model.Entity;
+import src.Model.Product.Water;
 
 public class Well extends Entity {
-    private int wellCapacity = 10;
+    private double wellCapacity;
+    private double amountOfWater;
+    private Movement movement;
 
-    private int amountOfWater = wellCapacity;
-
-    public void setAmountOfWater(int amountOfWater) {
-        this.amountOfWater = amountOfWater;
+    public Well(double x, double y) {
+        wellCapacity = Static.WELL_CAPACITY_LVL_0;
+        amountOfWater = wellCapacity;
+        this.movement = new Movement(0.0, x, y);
     }
 
-    public int getAmountOfWater() {
+    public double getAmountOfWater() {
         return amountOfWater;
     }
 
-    public void setWellCapacity(int wellCapacity) {
-        this.wellCapacity = wellCapacity;
-    }
-
-    public int getWellCapacity() {
+    public double getWellCapacity() {
         return wellCapacity;
     }
 
@@ -28,6 +29,10 @@ public class Well extends Entity {
     }
 
     public void wellCharge() {
+        // TODO: 12/31/2018 get money for charge
+    }
 
+    public Water buyWater() {
+        return new Water(Static.WELL_WATER_AMOUNT, this.movement.getCurrentX(), this.movement.getCurrentY());
     }
 }

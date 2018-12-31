@@ -188,10 +188,19 @@ public class Static {
     public static final double SEWING_BUY_COST = 300;
     public static final double SEWING_SELL_VALUE = 150;
 
-
+// amin requirements
     //Capacity
     public static final double FIRST_OCCUPIED_CAPACITY = 0;
 
     //Bank
     public static final double BANK_FIRST_MONEY = 0;
+
+    //water
+    public static final double WATER_SELL_PRICE = 0;
+    public static final double WATER_BUY_PRICE = 0;
+    public static final double WATER_VOLUME = 0;
+
+    //well
+    public static final double WELL_WATER_AMOUNT = 0;
+
 }

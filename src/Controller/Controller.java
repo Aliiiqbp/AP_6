@@ -1,6 +1,7 @@
 package src.Controller;
 
 import src.Model.Animal.AnimalType;
+import src.Model.Animal.Wild.Lion;
 import src.Model.Farm.Farm;
 import src.Model.Farm.Map.Map;
 
@@ -25,10 +26,6 @@ public class Controller {
 
     public void getCommand() {
         String[] strings = IO.splitCommand();
-
-        if (strings[0].equals("Well")){
-            farm.well.setAmountOfWater( farm.well.getWellCapacity() );        //handling the well command
-        }
 
     } // TODO: 12/24/2018 set IO with function
 
