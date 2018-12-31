@@ -1,11 +1,10 @@
 package src.Model.Animal.Wild;
 
 import src.Model.Animal.Animal;
+import src.Model.Animal.AnimalState;
 import src.Model.Animal.AnimalType;
 import src.Model.Animal.Pet.Pet;
 import src.Model.Product.Product;
-
-import java.security.PublicKey;
 
 public abstract class Wild extends Animal {
 
@@ -17,11 +16,13 @@ public abstract class Wild extends Animal {
         // TODO: 12/28/2018 we need to save destroyed objects
         pet = null;
         product = null;
-    }
+    } // TODO: 12/31/2018 it may change to private
 
     public void hunt() {
-
+        this.changeState(AnimalState.HUNTED);
     } // TODO: 12/28/2018
 
-    public void die() {} // TODO: 12/29/2018
+    public void die() {
+        this.changeState(AnimalState.DYING);
+    } // TODO: 12/29/2018
 }

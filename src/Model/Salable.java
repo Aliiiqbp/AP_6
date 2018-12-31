@@ -1,9 +1,8 @@
 package src.Model;
 
 public abstract class Salable extends Entity {
-    double sellPrice;
-    double buyPrice;
-    double volume;
+    protected double sellPrice, buyPrice;
+    protected double volume;
 
     public Salable(double sellPrice, double buyPrice, double volume) {
         this.sellPrice = sellPrice;
