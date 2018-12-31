@@ -21,6 +21,7 @@ public class Dog extends NoneProducerAnimal {
         this.getMovement().setDirection(Movement.bfs(this.getMovement(), wild.getMovement()));
     }
 
+
     @Override
     public void upgradeLevel() {
 
