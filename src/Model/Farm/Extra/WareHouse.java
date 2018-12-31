@@ -23,4 +23,17 @@ public class WareHouse extends Entity {
     public int getNumberOfSalable(Salable salable) {
         return this.capacity.getNumberOfSalable(salable);
     }
+
+    @Override
+    public void upgradeLevel() {
+        switch (level){
+            case 0 : this.capacity.update(Static.WAREHOUSE_CAPACITY_LVL_1);
+            break;
+            case 1 : this.capacity.update(Static.WAREHOUSE_CAPACITY_LVL_2);
+            break;
+            case 2 : this.capacity.update(Static.WAREHOUSE_CAPACITY_LVL_3);
+            break;
+            case 3 : break; // can't get upgraded
+        }
+    }
 }
