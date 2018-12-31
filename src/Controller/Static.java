@@ -202,5 +202,5 @@ public class Static {
 
     //well
     public static final double WELL_WATER_AMOUNT = 0;
-    //test
+    //testt
 }
