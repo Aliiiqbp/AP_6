@@ -1,5 +1,5 @@
 package src.Model.Product;
 
 public enum ProductType {
-    EGG, FLOUR, GRASS, MILK, WOOL, WATER;
+    EGG, FLOUR, GRASS, MILK, WOOL, WATER, CAKE, COOKIE, EGGPOWDER, FABRIC, COLOREDPLUME, CARNIVALDRESS, SEWING;
 }

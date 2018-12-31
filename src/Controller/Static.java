@@ -544,5 +544,4 @@ public class Static {
     public static final double WEAVINGFACTORY_RECOVERYSPEED_LVL4 = 6.0;
 
 
-
 }
