@@ -6,8 +6,10 @@ import src.Model.Salable;
 
 public abstract class Vehicle extends Entity {
     Capacity capacity;
+    public double travelDuration;
 
-    public Vehicle(double capacityVolume) {
+    public Vehicle(double capacityVolume , double travelDuration) {
+        this.travelDuration = travelDuration;
         this.capacity = new Capacity(capacityVolume);
     }
 
@@ -45,5 +47,9 @@ public abstract class Vehicle extends Entity {
 
     public void update() {
         this.capacity.update();
+    }
+
+    public void setTravelDuration(double travelDuration) {
+        this.travelDuration = travelDuration;
     }
 }

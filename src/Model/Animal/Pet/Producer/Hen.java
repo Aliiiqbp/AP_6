@@ -13,6 +13,6 @@ public class Hen extends ProducerAnimal {
 
     @Override
     public Product Produce() {
-        return new Egg();
+        return new Egg(this.getMovement().getCurrentX(), this.getMovement().getCurrentY());
     }
 }
