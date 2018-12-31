@@ -133,12 +133,6 @@ public class Static {
 
     //PRODUCT STATICS
 
-    //Grass
-    public static final double GRASS_sellPrice = 0;
-    public static final double GRASS_buyPrice = 0;
-    public static final double GRASS_Volume = 0;
-
-
     //Egg
     public static final double EGG_VOLUME = 1;
     public static final double EGG_BUY_COST = 20;
@@ -208,4 +202,5 @@ public class Static {
 
     //well
     public static final double WELL_WATER_AMOUNT = 0;
+
 }

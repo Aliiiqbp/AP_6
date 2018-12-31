@@ -66,8 +66,9 @@ public class Capacity { //this class created for WareHouse and Vehicles
     }
 
     public void get(Salable salable, int count) {
-        int numberOfSalable = hashMap.get(salable.getClass().getName());
-        if (numberOfSalable >= count) {
+        if (hashMap.containsKey(salable.getClass().getName())) {
+            int numberOfSalable = hashMap.get(salable.getClass().getName());
+            if (numberOfSalable >= count) {
 //            int i = 0;
 //            int j = 0;
 //            while (i < numberOfSalable) {
@@ -78,11 +79,13 @@ public class Capacity { //this class created for WareHouse and Vehicles
 //                    j++;
 //                }
 //            }
-            hashMap.replace(salable.getClass().getName(), numberOfSalable - count);
-            if (numberOfSalable == count) {
-                list.remove(salable.getClass().getName());
+                hashMap.replace(salable.getClass().getName(), numberOfSalable - count);
+                if (numberOfSalable == count) {
+                    list.remove(salable.getClass().getName());
+                }
             }
         }
+        // TODO: 12/31/2018 send error message
     }
 
     public void clear() {
@@ -92,7 +95,11 @@ public class Capacity { //this class created for WareHouse and Vehicles
     }
 
     public int getNumberOfSalable(Salable salable) {
-        return hashMap.get(salable.getClass().getName());
+        if (hashMap.containsKey(salable.getClass().getName())) {
+            return hashMap.get(salable.getClass().getName());
+        } else {
+            return 0;
+        }
     }
 
     public String getList() {

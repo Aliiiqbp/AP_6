@@ -29,7 +29,9 @@ public class Well extends Entity {
     }
 
     public void wellCharge() {
-        // TODO: 12/31/2018 get money for charge
+        // TODO: 12/31/2018 get money for charge = (wellCapacity - amountOfWater)/wellCapacity * chargeCost
+        // if money ok
+        this.amountOfWater = this.wellCapacity;
     }
 
     public Water buyWater() {
