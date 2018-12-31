@@ -2,6 +2,9 @@ package src.Model.Animal.Pet.NoneProducer;
 
 import src.Controller.Static;
 import src.Model.Animal.AnimalType;
+import src.Model.Animal.Wild.Wild;
+import src.Model.Coordinate.Movement;
+import src.Model.Product.Product;
 
 public class Dog extends NoneProducerAnimal {
 
@@ -12,6 +15,10 @@ public class Dog extends NoneProducerAnimal {
     @Override // hunt
     public void noneProducer() {
 
+    }
+
+    public void pursuit(Wild wild) {
+        this.getMovement().setDirection(Movement.bfs(this.getMovement(), wild.getMovement()));
     }
 
     @Override
