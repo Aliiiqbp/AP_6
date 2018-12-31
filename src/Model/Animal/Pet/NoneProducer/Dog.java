@@ -16,8 +16,6 @@ public class Dog extends NoneProducerAnimal {
 
     @Override
     public void upgradeLevel() {
-        switch (level) {
 
-        }
     }
 }

@@ -78,6 +78,49 @@ public class Movement {
         return;
     }
 
+
+    public static Direction bfs(Movement start, Movement finish){
+
+        Direction result = Direction.NONE;
+
+        if (start.currentX == finish.currentX){
+            if (start.currentY > finish.currentY){
+                result = Direction.UP;
+            } else if (start.currentY < finish.currentY){
+                result = Direction.DOWN;
+            } else {
+                result = Direction.NONE;
+            }
+        }
+
+        if (start.currentY == finish.currentY){
+            if (start.currentX > finish.currentX){
+                result = Direction.LEFT;
+            } else if (start.currentX < finish.currentX){
+                result = Direction.RIGHT;
+            } else {
+                result = Direction.NONE;
+            }
+        }
+
+        if (start.currentX > finish.currentX && start.currentY < finish.currentY){
+            result = Direction.DOWN_LEFT;
+        } else if (start.currentX < finish.currentX && start.currentY < finish.currentY){
+            result = Direction.DOWN_RIGHT;
+        } else if (start.currentX < finish.currentX && start.currentY > finish.currentY){
+            result = Direction.UP_RIGHT;
+        } else if (start.currentX > finish.currentX && start.currentY > finish.currentY){
+            result = Direction.UP_LEFT;
+        }
+
+        return result;
+    }
+
+
+
+
+
+
     public void setDirection(Direction direction) {
         this.direction = direction;
     }
