@@ -15,4 +15,6 @@ public class Hen extends ProducerAnimal {
     public Product Produce() {
         return new Egg(this.getMovement().getCurrentX(), this.getMovement().getCurrentY());
     }
+
+
 }

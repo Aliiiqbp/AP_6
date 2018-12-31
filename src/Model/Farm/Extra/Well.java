@@ -44,7 +44,7 @@ public class Well extends Entity {
     }
 
     public double wellChargeCost() {
-        return 0;
+        return fillWellCost;
     }
 
     public void wellCharge() {

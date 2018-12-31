@@ -111,7 +111,8 @@ public class Capacity { //this class created for WareHouse and Vehicles
         return string;
     }
 
-    public void update() {
+    public void update(double capacityVolume) {
         // TODO: 12/30/2018 it is need to overwrite in all objects
+        this.capacityVolume = capacityVolume;
     }
 }

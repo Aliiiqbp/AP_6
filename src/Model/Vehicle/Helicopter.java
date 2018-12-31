@@ -34,6 +34,8 @@ public class Helicopter extends Vehicle {
 
     }
 
+
+
     public void setScatteringRadius(double scatteringRadius) {
         this.scatteringRadius = scatteringRadius;
     }
@@ -41,4 +43,5 @@ public class Helicopter extends Vehicle {
     public double getScatteringRadius() {
         return scatteringRadius;
     }
+
 }
