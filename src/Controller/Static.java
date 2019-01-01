@@ -76,6 +76,7 @@ public class Static {
     public static final double WAREHOUSE_CAPACITY_LVL_3 = 600;
 
 
+
     //VEHICLE STATICS
 
     //Truck
