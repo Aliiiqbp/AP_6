@@ -563,4 +563,13 @@ public class Static {
     public static final double EGGPOWDER_BUY_COST = 0;
     public static final double EGGPOWDER_VOLUME = 0;
 
+
+    public static final double LVL1 = 1;
+    public static final double LVL2 = 2;
+    public static final double LVL3 = 3;
+    public static final double LVL4 = 4;
+    public static final double LVL5 = 5;
+
+
+
 }

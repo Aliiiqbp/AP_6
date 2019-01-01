@@ -28,7 +28,6 @@ public class Controller {
         String[] strings = IO.splitCommand();
 
 
-
     } // TODO: 12/24/2018 set IO with function
 
     private void buyAnimal(AnimalType animalType) {
