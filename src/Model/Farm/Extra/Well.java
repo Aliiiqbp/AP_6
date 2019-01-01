@@ -54,7 +54,7 @@ public class Well extends Entity {
     }
 
     public Water buyWater() {
-        return new Water(Static.WELL_WATER_AMOUNT, this.movement.getCurrentX(), this.movement.getCurrentY());
+        return new Water(this.movement.getCurrentX(), this.movement.getCurrentY());
     }
 
     public void setFillWellCost(double fillWellCost) {

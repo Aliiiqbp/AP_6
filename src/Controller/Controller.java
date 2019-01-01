@@ -30,7 +30,8 @@ public class Controller {
 
     } // TODO: 12/24/2018 set IO with function
 
-    private void buyAnimal(AnimalType animalType) {
+    private void buyAnimal(AnimalType animalType, double x, double y) {
+
     } // TODO: 12/24/2018 buy animal API
 
     private void pickUp(double x, double y) {
