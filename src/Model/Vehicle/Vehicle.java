@@ -45,9 +45,9 @@ public abstract class Vehicle extends Entity {
         return this.capacity.getList();
     }
 
-    public void update() {
-        this.capacity.update();
-    }
+//    public void update() {
+//        this.capacity.update();
+//    }
 
     public void setTravelDuration(double travelDuration) {
         this.travelDuration = travelDuration;
