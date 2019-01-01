@@ -1,11 +1,12 @@
 package src.Model.Product;
 
-import com.sun.xml.internal.ws.api.streaming.XMLStreamReaderFactory;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public enum ProductType {
     EGG, FLOUR, GRASS, MILK, WOOL, WATER, COOKIE, CAKE, EGGPOWDER, FABRIC, PLUME, CARNIVALDRESS, SEWING;
 
-    public Product getProduct(ProductType productType, double x, double y) {
+    public static Product getProduct(ProductType productType, double x, double y) {
         Product result = null;
         switch (productType) {
             case EGG:
@@ -47,13 +48,27 @@ public enum ProductType {
             case SEWING:
                 result = new Sewing(x, y);
                 break;
-        }
             // TODO: 12/31/2018 complete this shit
-            case default:
+            default:
                 result = null;
                 break;
         }
 
         return result;
+    }
+
+    public static HashMap<ProductType, Integer> changeToHashMap(Product... products) {
+        HashMap<ProductType, Integer> hashMap = new HashMap();
+        ArrayList<ProductType> arrayList = new ArrayList<>();
+        for (Product product :products) {
+            if (arrayList.contains(product.getProductType())) {
+                hashMap.replace(product.getProductType(), hashMap.get(product.getProductType()) + 1);
+            } else {
+                hashMap.put(product.getProductType(), 1);
+                arrayList.add(product.getProductType());
+            }
+
+        }
+        return hashMap;
     }
 }

@@ -56,7 +56,7 @@ public class Capacity { //this class created for WareHouse and Vehicles
             if (hashMap.containsKey(salable.getClass().getName())) {
                 hashMap.replace(salable.getClass().getName(), hashMap.get(salable.getClass().getName()) + count);
 //                    salableArray.add(salable);
-                list.add(salable.getClass().getName());
+//                list.add(salable.getClass().getName());
             } else {
                 hashMap.put(salable.getClass().getName(), count);
 //                    salableArray.add(salable);

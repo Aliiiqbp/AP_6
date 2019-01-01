@@ -9,11 +9,20 @@ public class Movement {
     private double currentX, currentY;
     private double targetX, targetY;
 
+    private  double fixedX = -1, fixedY = -1;
+
     public Movement(double speed, double currentX, double currentY) {
         this.direction = Direction.NONE; // TODO: 12/28/2018 set direction
         this.speed = speed;
         this.currentX = currentX;
         this.currentY = currentY;
+    }
+
+    public Movement() {
+        this.direction = Direction.NONE; // TODO: 12/28/2018 set direction
+        this.speed = 0.0;
+        this.currentX = fixedX;
+        this.currentY = fixedY;
     }
 
     public Direction getDirection() {
@@ -78,7 +87,6 @@ public class Movement {
         return;
     }
 
-
     public static Direction bfs(Movement start, Movement finish){
 
         Direction result = Direction.NONE;
@@ -115,11 +123,6 @@ public class Movement {
 
         return result;
     }
-
-
-
-
-
 
     public void setDirection(Direction direction) {
         this.direction = direction;
