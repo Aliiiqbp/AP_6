@@ -544,4 +544,23 @@ public class Static {
     public static final double WEAVINGFACTORY_RECOVERYSPEED_LVL3 = 6.0;
     public static final double WEAVINGFACTORY_RECOVERYSPEED_LVL4 = 6.0;
 
+
+
+    //GRASS
+    public static final double GRASS_SELL_VALUE = 0;
+    public static final double GRASS_BUY_COST = 0;
+    public static final double GRASS_VOLUME = 0;
+
+
+    //Cookie
+    public static final double COOKIE_SELL_VALUE = 0;
+    public static final double COOKIE_BUY_COST = 0;
+    public static final double COOKIE_VOLUME = 0;
+
+
+    //EGGPOWDER
+    public static final double EGGPOWDER_SELL_VALUE = 0;
+    public static final double EGGPOWDER_BUY_COST = 0;
+    public static final double EGGPOWDER_VOLUME = 0;
+
 }

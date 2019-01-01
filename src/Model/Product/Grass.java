@@ -4,6 +4,6 @@ import src.Controller.Static;
 
 public class Grass extends Product {
     public Grass(double x, double y){
-        super(ProductType.GRASS, Static.GRASS_sellPrice, Static.GRASS_buyPrice, Static.GRASS_Volume, x, y);
+        super(ProductType.GRASS, Static.GRASS_SELL_VALUE, Static.GRASS_BUY_COST, Static.GRASS_VOLUME, x, y);
     }
 }
