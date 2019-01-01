@@ -19,7 +19,7 @@ public class Truck extends Vehicle {
     }
 
     @Override
-    public void upgradeLevel() {
+    public void upgradeLevel() { // TODO: 1/1/2019 increase Level
         switch (level){
             case 0 : this.setTravelDuration( Static.TRUCK_TRAVEL_DURATION_LVL_1 );
                 this.setBoxCount( Static.TRUCK_BOX_COUNT_LVL_1);

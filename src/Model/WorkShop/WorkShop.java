@@ -25,6 +25,14 @@ public abstract class WorkShop extends Entity {
 
     public Product produce(Product... products) {
         // TODO: 12/31/2018 send error message if requirements not found
+        if (canProduce(products)) {
+            return ProductType.getProduct(this.productType, this.movement.getCurrentX(), this.movement.getCurrentY());
+        }
+
+        return null;
+    }
+
+    public boolean canProduce(Product... products) {
         Set<ProductType> productTypeSet = requirements.keySet();
         HashMap<ProductType, Integer> productList = ProductType.changeToHashMap(products);
 
@@ -35,12 +43,7 @@ public abstract class WorkShop extends Entity {
                 break;
             }
         }
-
-        if (result) {
-            return ProductType.getProduct(this.productType, this.movement.getCurrentX(), this.movement.getCurrentY());
-        }
-
-        return null;
+        return result;
     }
 
     public void changeRequirments(HashMap<ProductType, Integer> requirements) {
