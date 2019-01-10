@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public enum ProductType {
-    EGG, FLOUR, GRASS, MILK, WOOL, WATER, COOKIE, CAKE, EGGPOWDER, FABRIC, PLUME, CARNIVALDRESS, SEWING;
+    EGG, FLOUR, GRASS, MILK, WOOL, WATER, COOKIE, CAKE, EGG_POWDER, FABRIC, PLUME, CARNIVAL_DRESS, SEWING;
 
     public static Product getProduct(ProductType productType, double x, double y) {
         Product result = null;
@@ -33,7 +33,7 @@ public enum ProductType {
             case CAKE:
                 result = new Cake(x, y);
                 break;
-            case EGGPOWDER:
+            case EGG_POWDER:
                 result = new EggPowder(x, y);
                 break;
             case FABRIC:
@@ -42,7 +42,7 @@ public enum ProductType {
             case PLUME:
                 result = new Plume(x, y);
                 break;
-            case CARNIVALDRESS:
+            case CARNIVAL_DRESS:
                 result = new CarnnivalDress(x, y);
                 break;
             case SEWING:

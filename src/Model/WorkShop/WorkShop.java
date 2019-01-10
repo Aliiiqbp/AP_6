@@ -38,6 +38,10 @@ public abstract class WorkShop extends Entity {
 
         boolean result = true;
         for (ProductType productType :productTypeSet) {
+            if (!productList.containsKey(productType)) {
+                result = false;
+                break;
+            }
             if (requirements.get(productType) != productList.get(productType)) {
                 result = false;
                 break;

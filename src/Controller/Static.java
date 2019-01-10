@@ -570,6 +570,9 @@ public class Static {
     public static final double LVL4 = 4;
     public static final double LVL5 = 5;
 
+    //map
+    public static final double MAP_WIDTH = 10; //it is not true
+    public static final double MAP_height = 10; //it is not true
 
 
 }
