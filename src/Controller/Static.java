@@ -558,7 +558,7 @@ public class Static {
     public static final double COOKIE_VOLUME = 0;
 
 
-    //EGGPOWDER
+    //EGG_POWDER
     public static final double EGGPOWDER_SELL_VALUE = 0;
     public static final double EGGPOWDER_BUY_COST = 0;
     public static final double EGGPOWDER_VOLUME = 0;
