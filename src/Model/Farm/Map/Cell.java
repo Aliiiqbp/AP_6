@@ -20,14 +20,18 @@ public class Cell {
     public void removeFromCell(Entity object) {
         if (objects.contains(object)) {
             objects.remove(object);
-            this.map.removeObject(object, this);
+            if (this.map.containObject(object)) {
+                this.map.removeObject(object, this);
+            }
         }
     }
 
     public void addToCell(Entity object) {
         if (!objects.contains(object)) {
             objects.add(object);
-            this.map.addObject(object, this);
+            if (!this.map.containObject(object)) {
+                this.map.addObject(object, this);
+            }
         }
     }
 

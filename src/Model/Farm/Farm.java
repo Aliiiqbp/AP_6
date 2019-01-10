@@ -4,9 +4,6 @@ import src.Model.Farm.Extra.Well;
 import src.Model.Farm.Map.Map;
 import src.Model.Entity;
 
-
-
-
 public class Farm extends Entity {
     public Map map;
     public Well well;

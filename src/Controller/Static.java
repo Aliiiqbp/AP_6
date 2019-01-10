@@ -558,7 +558,7 @@ public class Static {
     public static final double COOKIE_VOLUME = 0;
 
 
-    //EGGPOWDER
+    //EGG_POWDER
     public static final double EGGPOWDER_SELL_VALUE = 0;
     public static final double EGGPOWDER_BUY_COST = 0;
     public static final double EGGPOWDER_VOLUME = 0;
@@ -570,6 +570,9 @@ public class Static {
     public static final double LVL4 = 4;
     public static final double LVL5 = 5;
 
+    //map
+    public static final double MAP_WIDTH = 10; //it is not true
+    public static final double MAP_height = 10; //it is not true
 
 
 }
