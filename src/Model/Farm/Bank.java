@@ -4,7 +4,7 @@ import src.Controller.Static;
 
 public class Bank {
 
-    double money;
+    private double money;
 
     public Bank() {
         money = Static.BANK_FIRST_MONEY;
@@ -15,6 +15,15 @@ public class Bank {
     }
 
     public void decrease(double amount) {
-        this.money -= amount;
+        if (canDecrease(amount)) {
+            this.money -= amount;
+        }
+    }
+
+    public boolean canDecrease(double amount) {
+        if (amount <= money) {
+            return true;
+        }
+        return false;
     }
 }

@@ -22,6 +22,12 @@ public abstract class Entity {
         // TODO: 12/30/2018 with switch complete this function
     }
 
+    public void increaseLevel() {
+        if (level < maxLevel) {
+            level++;
+        }
+    }
+
     public int getLevel() {
         return level;
     }

@@ -571,8 +571,8 @@ public class Static {
     public static final double LVL5 = 5;
 
     //map
-    public static final double MAP_WIDTH = 10; //it is not true
-    public static final double MAP_height = 10; //it is not true
+    public static final int MAP_BASE_WIDTH = 10; //it is not true
+    public static final int MAP_BASE_HEIGHT = 10; //it is not true
 
 
 }

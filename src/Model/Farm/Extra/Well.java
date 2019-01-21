@@ -20,19 +20,23 @@ public class Well extends Entity {
 
     @Override
     public void upgradeLevel() {
-        switch (level){
-            case 0 : this.setFillWellCost( Static.WELL_FILL_COST_LVL_1 );
-                     this.setWellCapacity( Static.WELL_CAPACITY_LVL_1);
-                     break;
-            case 1 : this.setFillWellCost( Static.WELL_FILL_COST_LVL_2 );
-                     this.setWellCapacity( Static.WELL_CAPACITY_LVL_2);
-                     break;
-            case 2 : this.setFillWellCost( Static.WELL_FILL_COST_LVL_3 );
-                     this.setWellCapacity( Static.WELL_CAPACITY_LVL_3);
-                     break;
-            case 3 : //it's not upgradable :)
-                 break;
+        switch (level) {
+            case 0:
+                this.setFillWellCost(Static.WELL_FILL_COST_LVL_1);
+                this.setWellCapacity(Static.WELL_CAPACITY_LVL_1);
+                break;
+            case 1:
+                this.setFillWellCost(Static.WELL_FILL_COST_LVL_2);
+                this.setWellCapacity(Static.WELL_CAPACITY_LVL_2);
+                break;
+            case 2:
+                this.setFillWellCost(Static.WELL_FILL_COST_LVL_3);
+                this.setWellCapacity(Static.WELL_CAPACITY_LVL_3);
+                break;
+            case 3: //it's not upgradable :)
+                break;
         }
+        increaseLevel();
     }
 
     public double getAmountOfWater() {
