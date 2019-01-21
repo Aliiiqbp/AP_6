@@ -12,6 +12,6 @@ public class Sheep extends ProducerAnimal {
 
     @Override
     public Product Produce() {
-        return new Wool();
+        return new Wool(this.getMovement().getCurrentX(), this.getMovement().getCurrentY());
     }
 }

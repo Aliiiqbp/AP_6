@@ -20,9 +20,11 @@ public abstract class Wild extends Animal {
 
     public void hunt() {
         this.changeState(AnimalState.HUNTED);
+        this.getMovement().stop();
     } // TODO: 12/28/2018
 
     public void die() {
         this.changeState(AnimalState.DYING);
+        this.getMovement().stop();
     } // TODO: 12/29/2018
 }

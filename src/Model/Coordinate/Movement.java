@@ -128,7 +128,7 @@ public class Movement {
         this.direction = direction;
     }
     
-    public void catched() { // TODO: 12/29/2018 we need a better name for this function 
+    public void stop() { // TODO: 12/29/2018 we need a better name for this function
         this.speed = 0;
         this.direction = Direction.NONE;
     }

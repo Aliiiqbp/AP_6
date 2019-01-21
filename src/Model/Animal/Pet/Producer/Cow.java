@@ -12,6 +12,6 @@ public class Cow extends ProducerAnimal {
 
     @Override
     public Product Produce() {
-        return new Milk();
+        return new Milk(this.getMovement().getCurrentX(), this.getMovement().getCurrentY());
     }
 }

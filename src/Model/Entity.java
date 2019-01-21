@@ -20,6 +20,7 @@ public abstract class Entity {
 
     public void upgradeLevel() {
         // TODO: 12/30/2018 with switch complete this function
+        //may be it's better to create a new interface as upgradable
     }
 
     public void increaseLevel() {

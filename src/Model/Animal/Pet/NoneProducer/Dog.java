@@ -16,17 +16,9 @@ public class Dog extends NoneProducerAnimal {
 
     @Override // hunt
     public void noneProducer() {
-
-    }
-
-    public void pursuit(Wild wild) {
-        this.getMovement().setDirection(Movement.bfs(this.getMovement(), wild.getMovement()));
-    }
-
-
-    @Override
-    public void upgradeLevel() {
-
+        if (wild != null) {
+            this.getMovement().setDirection(Movement.bfs(this.getMovement(), wild.getMovement()));
+        }
     }
 
     public void setWild(Wild wild) {
