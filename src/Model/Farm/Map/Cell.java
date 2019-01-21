@@ -42,6 +42,10 @@ public class Cell {
         return false;
     }
 
+    public ArrayList getObjects() {
+        return objects;
+    }
+
     public Map getMap() {
         return map;
     }

@@ -1,10 +1,13 @@
 package src.Model;
 
 import src.Controller.Static;
+import src.Model.Farm.Map.Cell;
+import src.Model.Farm.Map.Map;
 
 public abstract class Entity {
-    public int level;
-    public int maxLevel;// TODO: 12/30/2018 set it in constructor
+    private int level;
+    private int maxLevel;// TODO: 12/30/2018 set it in constructor
+    private Map map; // TODO: 1/21/2019 set functions
 
     public Entity() {
         level = Static.firstLevel;
@@ -31,5 +34,9 @@ public abstract class Entity {
 
     public int getLevel() {
         return level;
+    }
+
+    public int getMaxLevel() {
+        return maxLevel;
     }
 }

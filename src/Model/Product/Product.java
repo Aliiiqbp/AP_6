@@ -6,9 +6,8 @@ import src.Model.Salable;
 
 public abstract class Product extends Salable {
     // TODO: 12/29/2018 add movement
-    private ProductType productType;
-    private ProductState productState;
-    private Movement movement;
+    protected ProductType productType;
+    protected ProductState productState;
 
     public Product(ProductType productType, double sellPrice, double buyPrice, double volume, double x, double y) {
         super(sellPrice, buyPrice, volume);
@@ -25,11 +24,7 @@ public abstract class Product extends Salable {
         return productState;
     }
 
-    public Movement getMovement() {
-        return movement;
-    }
-
-    public void changePlace(ProductState productState) {
+    public void changeProductState(ProductState productState) {
         this.productState = productState;
     }
 }

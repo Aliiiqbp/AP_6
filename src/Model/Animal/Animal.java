@@ -5,9 +5,8 @@ import src.Model.Entity;
 import src.Model.Salable;
 
 public abstract class Animal extends Salable {
-    private AnimalType animalType;
-    private AnimalState animalState;
-    private Movement movement;
+    protected AnimalType animalType;
+    protected AnimalState animalState;
 
     public Animal(AnimalType animalType, double sellPrice, double buyPrice, double volume, double speed, double x, double y ) {
         super(sellPrice, buyPrice, volume);
@@ -26,10 +25,6 @@ public abstract class Animal extends Salable {
 
     public AnimalState getAnimalState() {
         return animalState;
-    }
-
-    public Movement getMovement() {
-        return movement;
     }
 
     public void changeState(AnimalState state) {

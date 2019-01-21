@@ -1,5 +1,6 @@
 package src.Controller;
 
+import src.Model.Animal.Animal;
 import src.Model.Animal.AnimalType;
 import src.Model.Animal.Wild.Lion;
 import src.Model.Farm.Farm;
@@ -17,11 +18,13 @@ public class Controller {
     private double money;
     public Farm farm ;
     public Time time ;
+    public Map map;
 
     public Controller() {
         farm = new Farm();
         time = new Time();
         money = Static.INITIAL_MONEY;
+        map = new Map(Static.MAP_BASE_WIDTH, Static.MAP_BASE_HEIGHT);
     }
 
     public void getCommand() {
@@ -31,6 +34,8 @@ public class Controller {
     } // TODO: 12/24/2018 set IO with function
 
     private void buyAnimal(AnimalType animalType, double x, double y) {
+        Animal animal = AnimalType.getPet(animalType, x, y);
+        map.addObject(animal);
 
     } // TODO: 12/24/2018 buy animal API
 

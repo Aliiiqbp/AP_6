@@ -1,6 +1,7 @@
 package src.Model.Farm.Map;
 
 import src.Model.Entity;
+import src.Model.Salable;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -36,6 +37,16 @@ public class Map extends Entity {
         }
     }
 
+    public void addSalable(Salable salable) {
+        if (!objects.contains(salable)) { //it is not necessary but it is better in this way
+            objects.add(salable);
+            Cell cell = getMappedCell(salable.getMovement().getCurrentX(), salable.getMovement().getCurrentY());
+            if (!cellMap.containsKey(salable)) {
+                cellMap.put(salable, cell);
+            }
+        }
+    }
+
     public void removeObject(Entity entity, Cell cell) {
         if (objects.contains(entity)) {
             objects.remove(entity);
@@ -64,9 +75,9 @@ public class Map extends Entity {
         return height;
     }
 
-    public static Cell getMappedCell(double x, double y, Map map) {
-        if (0 <= x && x < map.width && 0 <= y && y < map.height) {
-            return map.getCell((int) Math.floor(x), (int) Math.floor(y));
+    public Cell getMappedCell(double x, double y) {
+        if (0 <= x && x < this.width && 0 <= y && y < this.height) {
+            return this.getCell((int) Math.floor(x), (int) Math.floor(y));
         }
         return null;
     }
