@@ -18,19 +18,19 @@ public class AnimalAnimation extends Application {
         Group root = new Group();
         Scene scene = new Scene(root, 300, 400);
         //image in javafx
-        Image boyImage = new Image(new FileInputStream("boys.png")); // TODO: 01/25/2019 get correct address for animations
-        ImageView boyView = new ImageView(boyImage);
-        boyView.setX(20);
-        boyView.setY(20);
+        Image animalImage = new Image(new FileInputStream("/Users/Ashkan/IdeaProjects/FramFrenzy/src/src/GUI/Textures/Cow/down.png")); // TODO: 01/25/2019 get correct address for animations
+        ImageView animalView = new ImageView(animalImage);
+        animalView.setX(20);
+        animalView.setY(20);
 
-        root.getChildren().add(boyView);
+        root.getChildren().add(animalView);
 
-        boyView.setViewport(new Rectangle2D(0, 0, 829, 66));
+        animalView.setViewport(new Rectangle2D(0, 0, 354, 880));
 //sprite animation  useful for your project
         final Animation animation = new AnimalSpriteAnimation(
-                boyView,
+                animalView,
                 Duration.millis(2000),
-                13, 13,
+                24, 3,
                 0, 0,
                 // 64=829/13
                 64, 66
