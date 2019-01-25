@@ -33,7 +33,7 @@ public class AnimalAnimation extends Application {
                 24, 3,
                 0, 0,
                 // 64=829/13
-                64, 66
+                118, 110
         );
         animation.setCycleCount(Animation.INDEFINITE);
         animation.play();
@@ -44,3 +44,5 @@ public class AnimalAnimation extends Application {
         launch(args);
     }
 }
+
+//TODO: 01/25/2019 fix for all PNGs, just working for cow:down.png now (need to set width and height of the images)
