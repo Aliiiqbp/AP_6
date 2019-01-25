@@ -46,3 +46,4 @@ public class AnimalAnimation extends Application {
 }
 
 //TODO: 01/25/2019 fix for all PNGs, just working for cow:down.png now (need to set width and height of the images)
+//TODO: 01/25/2019 fix down.png address
