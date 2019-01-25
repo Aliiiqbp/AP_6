@@ -21,7 +21,7 @@ public abstract class Wild extends Animal {
     public void destroy(Map map) {
         // TODO: 12/28/2018 we need to save destroyed objects
         Cell cell = map.getMappedCell(this.getMovement().getCurrentX(), this.getMovement().getCurrentY());
-        ArrayList<Entity> arrayList = cell.getObjects();
+        ArrayList<Entity> arrayList = cell.getSalables();
         int size = arrayList.size();
         for (Entity entity: arrayList) {
             if (entity.getClass().isInstance(Salable.class)) {
@@ -35,8 +35,8 @@ public abstract class Wild extends Animal {
         }
     } // TODO: 12/31/2018 it may change to private
 
-    public void hunt() {
-        this.changeState(AnimalState.HUNTED);
+    public void cage() {
+        this.changeState(AnimalState.CAGED);
         this.getMovement().stop();
     } // TODO: 12/28/2018
 

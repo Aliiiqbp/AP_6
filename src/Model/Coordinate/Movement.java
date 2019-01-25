@@ -22,7 +22,7 @@ public class Movement {
         this.direction = Direction.NONE; // TODO: 12/28/2018 set direction
         this.speed = 0.0;
         this.currentX = fixedX;
-        this.currentY = fixedY;
+        this.currentY = fixedY; // TODO: 1/25/2019 set well movement 
     }
 
     public Direction getDirection() {

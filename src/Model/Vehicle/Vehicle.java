@@ -30,7 +30,7 @@ public abstract class Vehicle extends Entity {
     }
 
     public void get(Salable salable, int count) {
-        capacity.get(salable, count);
+        capacity.remove(salable, count);
     }
 
     public void clearLit() {

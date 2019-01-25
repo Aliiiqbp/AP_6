@@ -109,10 +109,10 @@ public class Static {
     public static final double HELI_CAPACITY_VOLUME_RADIUS_LVL_3 = 0;
 
     //Well
-    public static final double WELL_CAPACITY_LVL_0 = 5;
-    public static final double WELL_CAPACITY_LVL_1 = 7;
-    public static final double WELL_CAPACITY_LVL_2 = 10;
-    public static final double WELL_CAPACITY_LVL_3 = 100;
+    public static final int WELL_CAPACITY_LVL_0 = 5;
+    public static final int WELL_CAPACITY_LVL_1 = 7;
+    public static final int WELL_CAPACITY_LVL_2 = 10;
+    public static final int WELL_CAPACITY_LVL_3 = 100;
     public static final double WELL_FILL_COST_LVL_0 = 19;
     public static final double WELL_FILL_COST_LVL_1 = 17;
     public static final double WELL_FILL_COST_LVL_2 = 15;
@@ -574,5 +574,6 @@ public class Static {
     public static final int MAP_BASE_WIDTH = 10; //it is not true
     public static final int MAP_BASE_HEIGHT = 10; //it is not true
 
-
+    //margin
+    public static final int MARGIN_SIZE = 10;
 }

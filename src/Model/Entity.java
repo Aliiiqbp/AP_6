@@ -1,7 +1,6 @@
 package src.Model;
 
 import src.Controller.Static;
-import src.Model.Farm.Map.Cell;
 import src.Model.Farm.Map.Map;
 
 public abstract class Entity {

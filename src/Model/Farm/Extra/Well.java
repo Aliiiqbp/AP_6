@@ -6,21 +6,21 @@ import src.Model.Entity;
 import src.Model.Product.Water;
 
 public class Well extends Entity {
-    private double wellCapacity;
-    private double amountOfWater;
+    private int wellCapacity;
+    private int amountOfWater;
     private double fillWellCost;
     private Movement movement;
 
-    public Well(double x, double y) {
+    public Well() {
         wellCapacity = Static.WELL_CAPACITY_LVL_0;
-        amountOfWater = wellCapacity;
+        amountOfWater = 0;
         fillWellCost = Static.WELL_FILL_COST_LVL_0;
-        this.movement = new Movement(0.0, x, y);
+        movement = new Movement();
     }
 
     @Override
     public void upgradeLevel() {
-        switch (level) {
+        switch (getLevel()) {
             case 0:
                 this.setFillWellCost(Static.WELL_FILL_COST_LVL_1);
                 this.setWellCapacity(Static.WELL_CAPACITY_LVL_1);
@@ -51,21 +51,25 @@ public class Well extends Entity {
         return fillWellCost;
     }
 
-    public void wellCharge() {
-        // TODO: 12/31/2018 get money for charge = (wellCapacity - amountOfWater)/wellCapacity * chargeCost
+    public void chargeWell() {
+        // TODO: 12/31/2018 remove money for charge = (wellCapacity - amountOfWater)/wellCapacity * chargeCost
         // if money ok
         this.amountOfWater = this.wellCapacity;
     }
 
     public Water buyWater() {
-        return new Water(this.movement.getCurrentX(), this.movement.getCurrentY());
+        if (amountOfWater > 0 ) {
+            amountOfWater -= 1;
+            return new Water(this.movement.getCurrentX(), this.movement.getCurrentY());
+        }
+        return null;
     }
 
-    public void setFillWellCost(double fillWellCost) {
+    private void setFillWellCost(double fillWellCost) {
         this.fillWellCost = fillWellCost;
     }
 
-    public void setWellCapacity(double wellCapacity) {
+    private void setWellCapacity(int wellCapacity) {
         this.wellCapacity = wellCapacity;
     }
 

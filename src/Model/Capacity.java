@@ -6,17 +6,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Capacity { //this class created for WareHouse and Vehicles
-
     private double capacityVolume;
     private double occupiedCapacity;
-//    private ArrayList<Salable> salableArray = new ArrayList<>();
-    private HashMap<String, Integer> hashMap = new HashMap<>();
+    private HashMap<String, Integer> hashMap;
     private ArrayList<String> list = new ArrayList<>();
-
 
     public Capacity(double capacityVolume) {
         this.capacityVolume = capacityVolume;
         occupiedCapacity = Static.FIRST_OCCUPIED_CAPACITY;
+        hashMap = new HashMap<>();
     }
 
     public double getCapacityVolume() {
@@ -27,88 +25,110 @@ public class Capacity { //this class created for WareHouse and Vehicles
         return occupiedCapacity;
     }
 
-    // TODO: 12/30/2018 handle both add and get
-    public void add(Salable... salables) {
-        double totalVolumeToAdd = 0;
-        for (Salable salable: salables) {
-            totalVolumeToAdd += salable.getVolume();
-        }
-
-        if (totalVolumeToAdd <= (capacityVolume - occupiedCapacity)) { // if not this function does not thing
-            for (Salable salable: salables) {
-                if (hashMap.containsKey(salable.getClass().getName())) {
-                    hashMap.replace(salable.getClass().getName(), hashMap.get(salable.getClass().getName()) + 1);
-//                    salableArray.add(salable);
-                    list.add(salable.getClass().getName());
-                } else {
-                    hashMap.put(salable.getClass().getName(), 1);
-//                    salableArray.add(salable);
-                    list.add(salable.getClass().getName());
-                }
-            }
-            occupiedCapacity += totalVolumeToAdd;
-        }
-    }
-    
-    public void add(Salable salable, int count) {
-        double totalVolumeToAdd = salable.getVolume()*count;
-        if (totalVolumeToAdd <= (capacityVolume - occupiedCapacity)) { // if not this function does not thing
-            if (hashMap.containsKey(salable.getClass().getName())) {
-                hashMap.replace(salable.getClass().getName(), hashMap.get(salable.getClass().getName()) + count);
-//                    salableArray.add(salable);
-//                list.add(salable.getClass().getName());
+    public void add(Salable salable) {
+        String salableName = salable.getClass().getName();
+        if (canAdd(salable)) {
+            if (hashMap.containsKey(salableName)) {
+                hashMap.replace(salableName, hashMap.get(salableName) + 1);
             } else {
-                hashMap.put(salable.getClass().getName(), count);
-//                    salableArray.add(salable);
-                list.add(salable.getClass().getName());
+                hashMap.put(salableName, 1);
+                list.add(salableName);
+            }
+            occupiedCapacity += salable.getVolume();
+        }
+    }
+
+    public void add(Salable salable, int count) {
+        String salableName = salable.getClass().getName();
+        double totalVolume = salable.getVolume() * count;
+        if (canAdd(salable, count)) { // if not this function does not thing
+            if (hashMap.containsKey(salableName)) {
+                hashMap.replace(salableName, hashMap.get(salableName) + count);
+            } else {
+                hashMap.put(salableName, count);
+                list.add(salableName);
+            }
+            occupiedCapacity += totalVolume;
+        }
+    }
+
+    public void add(ArrayList<Salable> salables) {
+        if (canAdd(salables)) {
+            for (Salable salable : salables) {
+            add(salable);
             }
         }
     }
 
-    public void get(Salable salable, int count) {
-        if (hashMap.containsKey(salable.getClass().getName())) {
-            int numberOfSalable = hashMap.get(salable.getClass().getName());
+    // TODO: 1/22/2019 maybe we need remove in other type
+
+    public void remove(Salable salable) {
+        String salableName = salable.getClass().getName();
+        if (hashMap.containsKey(salableName)) {
+            int numberOfSalable = hashMap.get(salableName);
+            if (numberOfSalable > 1) {
+                hashMap.replace(salableName, numberOfSalable - 1);
+            } else {
+                hashMap.remove(salableName);
+                list.remove(salableName);
+            }
+            occupiedCapacity -= salable.getVolume();
+        }
+    }
+
+    public void remove(Salable salable, int count) {
+        String salableName = salable.getClass().getName();
+        if (hashMap.containsKey(salableName)) {
+            int numberOfSalable = hashMap.get(salableName);
             if (numberOfSalable >= count) {
-//            int i = 0;
-//            int j = 0;
-//            while (i < numberOfSalable) {
-//                if (salableArray.get(j).getClass().equals(salable.getClass())) {
-//                    i++;
-//                    salableArray.remove(j);
-//                } else {
-//                    j++;
-//                }
-//            }
-                hashMap.replace(salable.getClass().getName(), numberOfSalable - count);
-                if (numberOfSalable == count) {
-                    list.remove(salable.getClass().getName());
+                if (count == numberOfSalable) {
+                    hashMap.remove(salableName);
+                    list.remove(salableName);
+                } else {
+                    hashMap.replace(salableName, numberOfSalable - count);
                 }
+                occupiedCapacity -= count * salable.getVolume();
             }
         }
-        // TODO: 12/31/2018 send error message
     }
 
     public void clear() {
         hashMap.clear();
-//        salableArray.clear();
         list.clear();
     }
 
     public int getNumberOfSalable(Salable salable) {
-        if (hashMap.containsKey(salable.getClass().getName())) {
-            return hashMap.get(salable.getClass().getName());
-        } else {
-            return 0;
-        }
+        String name = salable.getClass().getName();
+        return hashMap.containsKey(name) ? hashMap.get(name) : 0;
     }
 
-    public String getList() {
-        String string = "";
-        int listSize = list.size();
-        for (int i = 0; i < listSize; i++) {
-            string += list.get(i) + ": " + hashMap.get(list.get(i)) +"\n";
+    public boolean canAdd(Salable salable) {
+        if (salable.volume <= (capacityVolume - occupiedCapacity)) {
+            return true;
         }
-        return string;
+        return false;
+    }
+
+    public boolean canAdd(Salable salable, int count) {
+        if (salable.getVolume()*count <= (capacityVolume - occupiedCapacity)) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean canAdd(ArrayList<Salable> salables) {
+        double totalVolume = 0;
+        for (Salable salable: salables) {
+            totalVolume += salable.getVolume();
+        }
+        if (totalVolume <= (capacityVolume - occupiedCapacity)) {
+            return true;
+        }
+        return false;
+    }
+
+    public ArrayList<String> getList() {
+        return list;
     }
 
     public void update(double capacityVolume) {

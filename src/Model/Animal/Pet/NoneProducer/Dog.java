@@ -14,7 +14,7 @@ public class Dog extends NoneProducerAnimal {
         super(AnimalType.DOG, Static.DOG_SELL_VALUE, Static.DOG_BUY_COST, Static.DOG_VOLUME, Static.DOG_SPEED, x, y);
     }
 
-    @Override // hunt
+    @Override // cage
     public void noneProducer() {
         if (wild != null) {
             this.getMovement().setDirection(Movement.bfs(this.getMovement(), wild.getMovement()));
