@@ -42,7 +42,7 @@ public class Menu extends VBox {
 
         MenuItem backItem = new MenuItem("Back", this);
         backItem.setActive(true);
-        backItem.setGoesTo(()->{exitBack();});
+//        backItem.setGoesTo(()->{exitBack();});
         getChildren().add(backItem);
 
         menuFrame = new MenuFrame(this);
@@ -106,28 +106,28 @@ public class Menu extends VBox {
         if (isActive())
             getRoot().getChildren().remove(menuFrame);
     }
-
-    public void start(){
-        if (parent != null)
-            parent.exit();
-        else
-            getRoot().Pause(this);
-        if (getRoot() != null) {
-            getRoot().getChildren().add(menuFrame);
-            if (menuSize() > 0)
-                getMenuItem(current).requestFocus();
-            getRoot().setActiveMenu(this);
-        }
-    }
-
-    public void exitBack(){
-        System.out.println(":D");
-        exit();
-        if (parent != null)
-            parent.start();
-        else if (getRoot() != null)
-            getRoot().Play();
-    }
+//
+//    public void start(){
+//        if (parent != null)
+//            parent.exit();
+//        else
+//            getRoot().Pause(this);
+//        if (getRoot() != null) {
+//            getRoot().getChildren().add(menuFrame);
+//            if (menuSize() > 0)
+//                getMenuItem(current).requestFocus();
+//            getRoot().setActiveMenu(this);
+//        }
+//    }
+//
+//    public void exitBack(){
+//        System.out.println(":D");
+//        exit();
+//        if (parent != null)
+//            parent.start();
+//        else if (getRoot() != null)
+//            getRoot().Play();
+//    }
 
     private void add (MenuItem item){
         item.setParent(this);
