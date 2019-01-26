@@ -48,10 +48,14 @@ public abstract class WorkShop extends Entity {
             }
         }
         return result;
+    } // TODO: 1/25/2019 complete with ArrayList
+
+    public void setRequirments(HashMap<ProductType, Integer> requirements) {
+        this.requirements = requirements;
     }
 
-    public void changeRequirments(HashMap<ProductType, Integer> requirements) {
-        this.requirements = requirements;
+    public void addToRequirments(ProductType productType, int count) {
+        this.requirements.put(productType, count);
     }
 
     public WorkShopType getWorkShopType() {
@@ -60,5 +64,9 @@ public abstract class WorkShop extends Entity {
 
     public HashMap<ProductType, Integer> getRequirements() {
         return requirements;
+    }
+
+    public Movement getMovement() {
+        return movement;
     }
 }

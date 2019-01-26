@@ -1,5 +1,5 @@
 package src.Model.Animal;
 
 public enum AnimalState {
-    EATING, DYING, HUNTED, NONE;
+    EATING, DYING, CAGED, NONE;
 }
