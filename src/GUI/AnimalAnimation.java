@@ -18,7 +18,7 @@ public class AnimalAnimation extends Application {
         Group root = new Group();
         Scene scene = new Scene(root, 300, 400);
         //image in javafx
-        Image animalImage = new Image(new FileInputStream("src/src/GUI/Textures/Cow/down.png")); // TODO: 01/25/2019 get correct address for animations
+        Image animalImage = new Image(new FileInputStream("src/src/Resources/Textures/Cow/down.png")); // TODO: 01/25/2019 get correct address for animations
         ImageView animalView = new ImageView(animalImage);
         animalView.setX(20);
         animalView.setY(20);
