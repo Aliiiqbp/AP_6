@@ -22,7 +22,7 @@ public abstract class Vehicle extends Entity {
     }
 
     public void addToList(Salable... salables) {
-        this.capacity.add(salables);
+//        this.capacity.add(salables);
     }
 
     public void addToList(Salable salable, int count) {
@@ -41,9 +41,9 @@ public abstract class Vehicle extends Entity {
         return this.capacity.getNumberOfSalable(salable);
     }
 
-    public String getList() {
-        return this.capacity.getList();
-    }
+//    public String getList() {
+//        return this.capacity.getList();
+//    }
 
 //    public void update() {
 //        this.capacity.update();

@@ -40,8 +40,8 @@ public class MenuItem extends HBox{
         goesTo.setRoot(parent.getRoot());
         goesTo.setParent(parent);
         setOnKeyPressed(event -> {
-            if (event.getCode() == KeyCode.ENTER)
-                goesTo.start();
+//            if (event.getCode() == KeyCode.ENTER)
+//                goesTo.start();
         });
     }
 

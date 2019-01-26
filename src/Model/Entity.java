@@ -4,7 +4,7 @@ import src.Controller.Static;
 import src.Model.Farm.Map.Map;
 
 public abstract class Entity {
-    private int level;
+    public int level;
     private int maxLevel;// TODO: 12/30/2018 set it in constructor
     private Map map; // TODO: 1/21/2019 set functions
 
