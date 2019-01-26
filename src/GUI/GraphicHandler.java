@@ -54,7 +54,7 @@ public class GraphicHandler extends Application {
         root = new Group();
         Scene scene = new Scene(root, 960, 712.5);
 
-        Label logo = new Label("MYSTIC");
+        Label logo = new Label("MYSTIC FARM");
         Label anyKey = new Label("Click to continue");
         logo.setFont(new Font("Snickles", 70));
         anyKey.setFont(new Font("times new roman", 20));
@@ -125,30 +125,30 @@ public class GraphicHandler extends Application {
         exitLab.setLayoutX(850);
         exitLab.setOpacity(0);
 
-        MediaPlayer Main = new MediaPlayer(new Media(new File("src/src/Resources/Music/ThisLittlePigWentToMarket.mp3").toURI().toString()));
-        MediaPlayer MammadNobari = new MediaPlayer(new Media(new File("src/src/Resources/Music/MammadNobari.mp3").toURI().toString()));
-        Main.setVolume(0.4);
-        MammadNobari.setVolume(0.2);
-        Main.setCycleCount(MediaPlayer.INDEFINITE);
-        MammadNobari.setCycleCount(MediaPlayer.INDEFINITE);
-        Main.play();
-        MammadNobari.play();
+        MediaPlayer MainMusic = new MediaPlayer(new Media(new File("src/src/Resources/Music/ThisLittlePigWentToMarket.mp3").toURI().toString()));
+//        MediaPlayer MammadNobari = new MediaPlayer(new Media(new File("src/src/Resources/Music/MammadNobari.mp3").toURI().toString()));
+        MainMusic.setVolume(0.4);
+//        MammadNobari.setVolume(0.2);
+        MainMusic.setCycleCount(MediaPlayer.INDEFINITE);
+//        MammadNobari.setCycleCount(MediaPlayer.INDEFINITE);
+        MainMusic.play();
+//        MammadNobari.play();
 
         ImageView background = new ImageView();
         ImageView toggle = new ImageView();
         ImageView voice = new ImageView();
-        ImageView singleImage = new ImageView(new Image("src/src/Resources/Menu/singlePlayer.png"));
-        ImageView multiImage = new ImageView(new Image("src/src/Resources/Menu/multiplayer.png"));
-        ImageView customImage = new ImageView(new Image("src/src/Resources/Menu/custom.png"));
-        ImageView settingImage = new ImageView(new Image("src/src/Resources/Menu/settings.png"));
-        ImageView exitImage = new ImageView(new Image("src/src/Resources/Menu/exit.png"));
+        ImageView singleImage = new ImageView(new Image("src/Resources/Menu/singlePlayer.png"));
+        ImageView multiImage = new ImageView(new Image("src/Resources/Menu/multiPlayer.png"));
+        ImageView customImage = new ImageView(new Image("src/Resources/Menu/custom.png"));
+        ImageView settingImage = new ImageView(new Image("src/Resources/Menu/settings.png"));
+        ImageView exitImage = new ImageView(new Image("src/Resources/Menu/exit.png"));
 
-        Image day = new Image("src/src/Resources/Menu/main_menu_day.gif");
-        Image night = new Image("src/src/Resources/Menu/main_menu_night.gif");
-        Image dayButton = new Image("src/src/Resources/Menu/day_icon.png");
-        Image nightButton = new Image("src/src/Resources/Menu/night_icon.png");
-        Image play = new Image("src/src/Resources/Menu/play.png");
-        Image mute = new Image("src/src/Resources/Menu/mute.png");
+        Image day = new Image("src/Resources/Menu/main_menu_day.gif");
+        Image night = new Image("src/Resources/Menu/main_menu_night.gif");
+        Image dayButton = new Image("src/Resources/Menu/day_icon.png");
+        Image nightButton = new Image("src/Resources/Menu/night_icon.png");
+        Image play = new Image("src/Resources/Menu/play.png");
+        Image mute = new Image("src/Resources/Menu/mute.png");
         voice.setImage(play);
 
         Button shiftTime = new Button();
@@ -266,12 +266,12 @@ public class GraphicHandler extends Application {
         sound.setOnAction(event -> {
             if (voice.getImage().equals(play)) {
                 voice.setImage(mute);
-                MammadNobari.pause();
-                Main.pause();
+                MainMusic.pause();
+                MainMusic.pause();
             } else {
                 voice.setImage(play);
-                MammadNobari.play();
-                Main.play();
+                MainMusic.play();
+                MainMusic.play();
             }
         });
 
@@ -297,8 +297,8 @@ public class GraphicHandler extends Application {
         });
 
         single.setOnMouseClicked(event -> {
-            Main.stop();
-            MammadNobari.stop();
+            MainMusic.stop();
+//            MammadNobari.stop();
             isOnline = false;
 //            Farm_Graphic.farmScene("start");
         });
@@ -326,33 +326,33 @@ public class GraphicHandler extends Application {
 
         multi.setOnMouseClicked(event -> {
             if(multi.getOpacity() >= 0.8) {
-                MammadNobari.stop();
-                Main.stop();
+//                MammadNobari.stop();
+                MainMusic.stop();
 //                Network.networkScene();
             }
         });
 
-//        custom.setOnMouseEntered(event -> {
-//            if(custom.getOpacity() >= 0.8) {
-//                if (background.getImage().equals(day)) {
-//                    customBack.setFill(Color.BLACK);
-//                    customLab.setTextFill(Color.WHITE);
-//                    fadeMainMenu(customLab, customLab.getOpacity(), 1, 500).play();
-//                    fadeMainMenu(customBack, customBack.getOpacity(), 0.7, 500).play();
-//                } else {
-//                    customBack.setFill(Color.WHITE);
-//                    customLab.setTextFill(Color.BLACK);
-//                    fadeMainMenu(customBack, customBack.getOpacity(), 0.7, 500).play();
-//                    fadeMainMenu(customLab, customLab.getOpacity(), 1, 500).play();
-//                }
-//            }
-//        });
-//
-//        custom.setOnMouseExited(event -> {
-//            fadeMainMenu(customBack, customBack.getOpacity(), 0, 500).play();
-//            fadeMainMenu(customLab, customLab.getOpacity(), 0, 500).play();
-//        });
-//
+        custom.setOnMouseEntered(event -> {
+            if(custom.getOpacity() >= 0.8) {
+                if (background.getImage().equals(day)) {
+                    customBack.setFill(Color.BLACK);
+                    customLab.setTextFill(Color.WHITE);
+                    fadeMainMenu(customLab, customLab.getOpacity(), 1, 500).play();
+                    fadeMainMenu(customBack, customBack.getOpacity(), 0.7, 500).play();
+                } else {
+                    customBack.setFill(Color.WHITE);
+                    customLab.setTextFill(Color.BLACK);
+                    fadeMainMenu(customBack, customBack.getOpacity(), 0.7, 500).play();
+                    fadeMainMenu(customLab, customLab.getOpacity(), 1, 500).play();
+                }
+            }
+        });
+
+        custom.setOnMouseExited(event -> {
+            fadeMainMenu(customBack, customBack.getOpacity(), 0, 500).play();
+            fadeMainMenu(customLab, customLab.getOpacity(), 0, 500).play();
+        });
+
 //        custom.setOnMouseClicked(event -> Vegs_Custom.vegsCustomMenu());
 
         setting.setOnMouseEntered(event -> {
@@ -405,7 +405,7 @@ public class GraphicHandler extends Application {
                 alert.setContentText("Do you really want to exit from game?");
                 Optional<ButtonType> result = alert.showAndWait();
                 if (result.get().equals(ButtonType.OK)) {
-                    MammadNobari.stop();
+//                    MammadNobari.stop();
                     game.close();
                 }
             }
@@ -457,7 +457,7 @@ public class GraphicHandler extends Application {
         custom.setId("menuButton");
         setting.setId("menuButton");
         exit.setId("menuButton");
-        scene.getStylesheets().add("graphic/css/button.css");
+        scene.getStylesheets().add("src/Resources/CSS/button.css");
         root.getChildren().addAll(background, logoBack, anyBack, logo, anyKey, shiftTime, sound, single, singleBack, singleLab, multi, multiBack, multiLab, custom, customBack, customLab, setting, setBack, setLab, exit, exitBack, exitLab);
 
         return scene;
