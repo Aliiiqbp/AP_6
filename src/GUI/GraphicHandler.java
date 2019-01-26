@@ -1,4 +1,4 @@
-package GUI;
+package src.GUI;
 
 //import custom.sub_menus.farm_custom.vegs_custom.Vegs_Custom;
 //import graphic.Handle.environment.farm.Farm_Graphic;
@@ -300,7 +300,7 @@ public class GraphicHandler extends Application {
             Main.stop();
             MammadNobari.stop();
             isOnline = false;
-            Farm_Graphic.farmScene("start"
+//            Farm_Graphic.farmScene("start");
         });
 
         multi.setOnMouseEntered(event -> {
@@ -328,32 +328,32 @@ public class GraphicHandler extends Application {
             if(multi.getOpacity() >= 0.8) {
                 MammadNobari.stop();
                 Main.stop();
-                Network.networkScene();
+//                Network.networkScene();
             }
         });
 
-        custom.setOnMouseEntered(event -> {
-            if(custom.getOpacity() >= 0.8) {
-                if (background.getImage().equals(day)) {
-                    customBack.setFill(Color.BLACK);
-                    customLab.setTextFill(Color.WHITE);
-                    fadeMainMenu(customLab, customLab.getOpacity(), 1, 500).play();
-                    fadeMainMenu(customBack, customBack.getOpacity(), 0.7, 500).play();
-                } else {
-                    customBack.setFill(Color.WHITE);
-                    customLab.setTextFill(Color.BLACK);
-                    fadeMainMenu(customBack, customBack.getOpacity(), 0.7, 500).play();
-                    fadeMainMenu(customLab, customLab.getOpacity(), 1, 500).play();
-                }
-            }
-        });
-
-        custom.setOnMouseExited(event -> {
-            fadeMainMenu(customBack, customBack.getOpacity(), 0, 500).play();
-            fadeMainMenu(customLab, customLab.getOpacity(), 0, 500).play();
-        });
-
-        custom.setOnMouseClicked(event -> Vegs_Custom.vegsCustomMenu());
+//        custom.setOnMouseEntered(event -> {
+//            if(custom.getOpacity() >= 0.8) {
+//                if (background.getImage().equals(day)) {
+//                    customBack.setFill(Color.BLACK);
+//                    customLab.setTextFill(Color.WHITE);
+//                    fadeMainMenu(customLab, customLab.getOpacity(), 1, 500).play();
+//                    fadeMainMenu(customBack, customBack.getOpacity(), 0.7, 500).play();
+//                } else {
+//                    customBack.setFill(Color.WHITE);
+//                    customLab.setTextFill(Color.BLACK);
+//                    fadeMainMenu(customBack, customBack.getOpacity(), 0.7, 500).play();
+//                    fadeMainMenu(customLab, customLab.getOpacity(), 1, 500).play();
+//                }
+//            }
+//        });
+//
+//        custom.setOnMouseExited(event -> {
+//            fadeMainMenu(customBack, customBack.getOpacity(), 0, 500).play();
+//            fadeMainMenu(customLab, customLab.getOpacity(), 0, 500).play();
+//        });
+//
+//        custom.setOnMouseClicked(event -> Vegs_Custom.vegsCustomMenu());
 
         setting.setOnMouseEntered(event -> {
             if(setting.getOpacity() >= 0.8) {
