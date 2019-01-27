@@ -38,9 +38,9 @@ public class Dog extends NoneProducerAnimal {
         this.wild = wild;
     }
 
-    public void ShowDog(Group root, Direction direction) {
+    public void ShowDog(Group root) {
         try {
-            Image dogImage = new Image(new FileInputStream("src/src/Resources/Textures/Animals/Africa/Dog/RIGHT.png")); // TODO: 01/25/2019 get correct address for animations
+            Image dogImage = new Image(new FileInputStream("src/src/Resources/Textures/Animals/Africa/Dog/" + this.getMovement().getDirection() + ".png")); // TODO: 01/25/2019 get correct address for animations
             ImageView dogView = new ImageView(dogImage);
             dogView.setX(this.getMovement().getCurrentX());
             dogView.setY(this.getMovement().getCurrentY());
