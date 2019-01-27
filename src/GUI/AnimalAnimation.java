@@ -29,7 +29,7 @@ public class AnimalAnimation extends Application {
         root.getChildren().add(animalView);
 
         animalView.setViewport(new Rectangle2D(0, 0, 354, 880));
-//sprite animation  useful for your project
+
         final Animation animation = new AnimalSpriteAnimation(
                 animalView,
                 Duration.millis(2000),
