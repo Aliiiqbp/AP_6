@@ -49,6 +49,7 @@ public class Dog extends NoneProducerAnimal {
 
             root.getChildren().add(dogView);
 
+
             switch (this.getMovement().getDirection()) {
                 case DOWN_RIGHT:
                     columns = 5;
