@@ -47,6 +47,7 @@ public class Dog extends NoneProducerAnimal {
             final int durationTime = 2000, offsetX = 0, offsetY = 0;
             int columns = 0, width = (int) dogImage.getWidth(), height = (int) dogImage.getHeight();
 
+
             root.getChildren().add(dogView);
 
 
