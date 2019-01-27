@@ -39,7 +39,7 @@ public abstract class Product extends Salable {
 
     public void showProduct(Group root, ProductType productType) {
         try {
-            Image productImage = new Image(new FileInputStream("src/src/Resources/Textures/Products/" + productType + "normal.png"));
+            Image productImage = new Image(new FileInputStream("src/src/Resources/Textures/Products/" + productType + "/normal.png"));
             ImageView productView = new ImageView(productImage);
             productView.setX(this.getMovement().getCurrentX());
             productView.setY(this.getMovement().getCurrentY());
