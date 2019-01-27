@@ -2,6 +2,7 @@ package src.GUI;
 
 //import custom.sub_menus.farm_custom.vegs_custom.Vegs_Custom;
 //import graphic.Handle.environment.farm.Farm_Graphic;
+
 import javafx.animation.Animation;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
@@ -276,7 +277,7 @@ public class GraphicHandler extends Application {
         });
 
         single.setOnMouseEntered(event -> {
-            if(single.getOpacity() >= 0.8) {
+            if (single.getOpacity() >= 0.8) {
                 if (background.getImage().equals(day)) {
                     singleBack.setFill(Color.BLACK);
                     singleLab.setTextFill(Color.WHITE);
@@ -298,13 +299,13 @@ public class GraphicHandler extends Application {
 
         single.setOnMouseClicked(event -> {
             MainMusic.stop();
-    //            MammadNobari.stop();
+            //            MammadNobari.stop();
             isOnline = false;
             FarmGraphic.farmScene("start");
         });
 
         multi.setOnMouseEntered(event -> {
-            if(multi.getOpacity() >= 0.8) {
+            if (multi.getOpacity() >= 0.8) {
                 if (background.getImage().equals(day)) {
                     multiBack.setFill(Color.BLACK);
                     multiLab.setTextFill(Color.WHITE);
@@ -325,7 +326,7 @@ public class GraphicHandler extends Application {
         });
 
         multi.setOnMouseClicked(event -> {
-            if(multi.getOpacity() >= 0.8) {
+            if (multi.getOpacity() >= 0.8) {
 //                MammadNobari.stop();
                 MainMusic.stop();
 //                Network.networkScene();
@@ -333,7 +334,7 @@ public class GraphicHandler extends Application {
         });
 
         custom.setOnMouseEntered(event -> {
-            if(custom.getOpacity() >= 0.8) {
+            if (custom.getOpacity() >= 0.8) {
                 if (background.getImage().equals(day)) {
                     customBack.setFill(Color.BLACK);
                     customLab.setTextFill(Color.WHITE);
@@ -356,7 +357,7 @@ public class GraphicHandler extends Application {
 //        custom.setOnMouseClicked(event -> Vegs_Custom.vegsCustomMenu());
 
         setting.setOnMouseEntered(event -> {
-            if(setting.getOpacity() >= 0.8) {
+            if (setting.getOpacity() >= 0.8) {
                 if (background.getImage().equals(day)) {
                     setBack.setFill(Color.BLACK);
                     setLab.setTextFill(Color.WHITE);
@@ -377,7 +378,7 @@ public class GraphicHandler extends Application {
         });
 
         exit.setOnMouseEntered(event -> {
-            if(exit.getOpacity() >= 0.8) {
+            if (exit.getOpacity() >= 0.8) {
                 if (background.getImage().equals(night)) {
                     exitBack.setFill(Color.WHITE);
                     exitLab.setTextFill(Color.BLACK);
@@ -398,7 +399,7 @@ public class GraphicHandler extends Application {
         });
 
         exit.setOnAction(event -> {
-            if(exit.getOpacity() >= 0.9) {
+            if (exit.getOpacity() >= 0.9) {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle(null);
                 alert.setHeaderText(null);
@@ -420,8 +421,8 @@ public class GraphicHandler extends Application {
         blink.play();
 
         scene.setOnMouseClicked(event -> {
-            if(logo.getOpacity() == 1) {
-                if(single.getOpacity() == 0) {
+            if (logo.getOpacity() == 1) {
+                if (single.getOpacity() == 0) {
                     blink.stop();
                     fadeMainMenu(anyKey, 1, 0, 1000).play();
                     fadeMainMenu(anyBack, 0.7, 0, 1000).play();

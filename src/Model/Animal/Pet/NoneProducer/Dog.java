@@ -40,7 +40,7 @@ public class Dog extends NoneProducerAnimal {
 
     public void ShowDog(Group root) {
         try {
-            Image dogImage = new Image(new FileInputStream("src/src/Resources/Textures/Animals/Africa/Dog/" + this.getMovement().getDirection() + ".png")); // TODO: 01/25/2019 get correct address for animations
+            Image dogImage = new Image(new FileInputStream("src/src/Resources/Textures/Animals/Africa/Dog/" + this.getMovement().getDirection() + ".png"));
             ImageView dogView = new ImageView(dogImage);
             dogView.setX(this.getMovement().getCurrentX());
             dogView.setY(this.getMovement().getCurrentY());

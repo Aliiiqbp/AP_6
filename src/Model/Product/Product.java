@@ -1,8 +1,17 @@
 package src.Model.Product;
 
+import javafx.animation.Animation;
+import javafx.geometry.Rectangle2D;
+import javafx.scene.Group;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.util.Duration;
+import src.GUI.AnimalSpriteAnimation;
 import src.Model.Coordinate.Movement;
 import src.Model.Entity;
 import src.Model.Salable;
+
+import java.io.FileInputStream;
 
 public abstract class Product extends Salable {
     // TODO: 12/29/2018 add movement
@@ -26,5 +35,16 @@ public abstract class Product extends Salable {
 
     public void changeProductState(ProductState productState) {
         this.productState = productState;
+    }
+
+    public void showProduct(Group root, ProductType productType) {
+        try {
+            Image productImage = new Image(new FileInputStream("src/src/Resources/Textures/Products/" + productType + "normal.png"));
+            ImageView productView = new ImageView(productImage);
+            productView.setX(this.getMovement().getCurrentX());
+            productView.setY(this.getMovement().getCurrentY());
+            root.getChildren().add(productView);
+        } catch (Exception e) {
+        }
     }
 }

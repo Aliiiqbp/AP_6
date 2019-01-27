@@ -6,6 +6,7 @@ package src.GUI;
 //import graphic.Handle.environment.jungle.Jungle_Graphic;
 //import graphic.Handle.environment.village.Village_Graphic;
 //import graphic.Handle.farmer.Farmer_Graphic;
+
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -32,15 +33,14 @@ public class FarmGraphic {
         }
 
 
-
-        Dog dog = new Dog(100,100);
+        Dog dog = new Dog(100, 100);
 //        setStart(where);
 //        Farmer_Graphic.setFarmerBools(root);
 
 //        Farmer_Graphic.moveFarmer(root);
 
 
-        dog.ShowDog(root, Direction.RIGHT);
+        dog.ShowDog(root);
         Scene scene = new Scene(root, 800, 600);
         GraphicHandler.game.setScene(scene);
 
