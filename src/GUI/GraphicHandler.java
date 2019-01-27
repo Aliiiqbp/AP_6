@@ -298,9 +298,9 @@ public class GraphicHandler extends Application {
 
         single.setOnMouseClicked(event -> {
             MainMusic.stop();
-//            MammadNobari.stop();
+    //            MammadNobari.stop();
             isOnline = false;
-//            Farm_Graphic.farmScene("start");
+            FarmGraphic.farmScene("start");
         });
 
         multi.setOnMouseEntered(event -> {
