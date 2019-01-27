@@ -40,6 +40,7 @@ public class Dog extends NoneProducerAnimal {
 
     public void ShowDog(Group root) {
         try {
+//            Direction direction = Direction.RIGHT;
             Image dogImage = new Image(new FileInputStream("src/src/Resources/Textures/Animals/Africa/Dog/" + this.getMovement().getDirection() + ".png"));
             ImageView dogView = new ImageView(dogImage);
             dogView.setX(this.getMovement().getCurrentX());
@@ -48,7 +49,7 @@ public class Dog extends NoneProducerAnimal {
 
             final int count = 24;
             final int durationTime = 2000, offsetX = 0, offsetY = 0;
-            int columns = 0, width = 0, height = 0;
+            int columns = 0, width = (int) dogImage.getWidth(), height = (int) dogImage.getHeight();
 
             root.getChildren().add(dogView);
 
@@ -56,45 +57,29 @@ public class Dog extends NoneProducerAnimal {
                 case DOWN_RIGHT:
                     columns = 5;
                     dogView.setScaleX(-1);
-                    width = 460;
-                    height = 420;
                     break;
                 case DOWN:
                     columns = 6;
-                    width = 396;
-                    height = 336;
                     break;
                 case DOWN_LEFT:
                     columns = 5;
-                    width = 460;
-                    height = 420;
                     break;
                 case LEFT:
                     columns = 6;
-                    width = 648;
-                    height = 344;
                     break;
                 case UP_LEFT:
                     columns = 5;
-                    width = 460;
-                    height = 490;
                     break;
                 case UP:
                     columns = 6;
-                    width = 396;
-                    height = 400;
                     break;
                 case UP_RIGHT:
                     columns = 5;
                     dogView.setScaleX(-1);
-                    width = 460;
-                    height = 490;
                     break;
                 case RIGHT:
                     columns = 6;
                     dogView.setScaleX(-1);
-                    width = 648;
-                    height = 344;
                     break;
 
             }
