@@ -13,7 +13,9 @@ import src.Controller.Static;
 import src.GUI.AnimalSpriteAnimation;
 import src.Model.Animal.AnimalType;
 import src.Model.Animal.Wild.Wild;
+import src.Model.Coordinate.Direction;
 import src.Model.Coordinate.Movement;
+//import java.math.*;
 
 import java.io.FileInputStream;
 
@@ -37,36 +39,78 @@ public class Dog extends NoneProducerAnimal {
         this.wild = wild;
     }
 
-    public void ShowDog(Group root) {
-
-//        @Override
-//        public void start(Stage primaryStage) throws Exception {
-//            Group root = new Group();
-//            Scene scene = new Scene(root, 300, 400);
-//            //image in javafx
+    public void ShowDog(Group root, Direction direction) {
         try {
-            Image animalImage = new Image(new FileInputStream("src/Resources/Textures/Animals/Africa/Dog/down.png")); // TODO: 01/25/2019 get correct address for animations
-            ImageView animalView = new ImageView(animalImage);
-            animalView.setX(20);
-            animalView.setY(20);
+            Image dogImage = new Image(new FileInputStream("src/src/Resources/Textures/Animals/Africa/Dog/RIGHT.png")); // TODO: 01/25/2019 get correct address for animations
+            ImageView dogView = new ImageView(dogImage);
+            dogView.setX(this.getMovement().getCurrentX());
+            dogView.setY(this.getMovement().getCurrentY());
 
 
-            root.getChildren().add(animalView);
+            final int count = 24;
+            final int durationTime = 2000, offsetX = 0, offsetY = 0;
+            int columns = 0, width = 0, height = 0;
 
-            animalView.setViewport(new Rectangle2D(0, 0, 354, 880));
-//sprite animation  useful for your project
+            root.getChildren().add(dogView);
+
+            switch (direction) {
+                case DOWN_RIGHT:
+                    columns = 5;
+                    dogView.setScaleX(-1);
+                    width = 460;
+                    height = 420;
+                    break;
+                case DOWN:
+                    columns = 6;
+                    width = 396;
+                    height = 336;
+                    break;
+                case DOWN_LEFT:
+                    columns = 5;
+                    width = 460;
+                    height = 420;
+                    break;
+                case LEFT:
+                    columns = 6;
+                    width = 648;
+                    height = 344;
+                    break;
+                case UP_LEFT:
+                    columns = 5;
+                    width = 460;
+                    height = 490;
+                    break;
+                case UP:
+                    columns = 6;
+                    width = 396;
+                    height = 400;
+                    break;
+                case UP_RIGHT:
+                    columns = 5;
+                    dogView.setScaleX(-1);
+                    width = 460;
+                    height = 490;
+                    break;
+                case RIGHT:
+                    columns = 6;
+                    dogView.setScaleX(-1);
+                    width = 648;
+                    height = 344;
+                    break;
+
+            }
+
+            dogView.setViewport(new Rectangle2D(0, 0, width, height));    //sprite animation  useful for your project
             final Animation animation = new AnimalSpriteAnimation(
-                    animalView,
-                    Duration.millis(2000),
-                    24, 3,
-                    0, 0,
-                    // 64=829/13
-                    118, 110
+                    dogView,
+                    Duration.millis(durationTime),
+                    count, columns,
+                    offsetX, offsetY,
+                    width / columns, height / (count / columns)
             );
             animation.setCycleCount(Animation.INDEFINITE);
             animation.play();
         } catch (Exception e) {
         }
-
     }
 }

@@ -8,6 +8,7 @@ import javafx.scene.*;
 import javafx.scene.image.*;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import src.Model.Coordinate.Direction;
 
 import java.io.FileInputStream;
 
@@ -18,7 +19,9 @@ public class AnimalAnimation extends Application {
         Group root = new Group();
         Scene scene = new Scene(root, 300, 400);
         //image in javafx
-        Image animalImage = new Image(new FileInputStream("src/src/Resources/Textures/Cow/down.png")); // TODO: 01/25/2019 get correct address for animations
+        Direction direction = Direction.DOWN;
+        System.out.println(direction);
+        Image animalImage = new Image(new FileInputStream("src/src/Resources/Textures/Cow/"+ direction +".png")); // TODO: 01/25/2019 get correct address for animations
         ImageView animalView = new ImageView(animalImage);
         animalView.setX(20);
         animalView.setY(20);
@@ -32,7 +35,6 @@ public class AnimalAnimation extends Application {
                 Duration.millis(2000),
                 24, 3,
                 0, 0,
-                // 64=829/13
                 118, 110
         );
         animation.setCycleCount(Animation.INDEFINITE);

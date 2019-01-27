@@ -14,6 +14,8 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
+import src.Model.Animal.Pet.NoneProducer.Dog;
+import src.Model.Coordinate.Direction;
 
 
 public class FarmGraphic {
@@ -29,14 +31,17 @@ public class FarmGraphic {
 //            root.addOnlineButtons();
         }
 
-        Scene scene = new Scene(root, 800, 600);
 
+
+        Dog dog = new Dog(100,100);
 //        setStart(where);
-
 //        Farmer_Graphic.setFarmerBools(root);
-//
+
 //        Farmer_Graphic.moveFarmer(root);
 
+
+        dog.ShowDog(root, Direction.RIGHT);
+        Scene scene = new Scene(root, 800, 600);
         GraphicHandler.game.setScene(scene);
 
 //        moveInFarm();
