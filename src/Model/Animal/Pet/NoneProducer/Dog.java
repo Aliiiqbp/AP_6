@@ -15,7 +15,6 @@ import src.Model.Animal.AnimalType;
 import src.Model.Animal.Wild.Wild;
 import src.Model.Coordinate.Direction;
 import src.Model.Coordinate.Movement;
-//import java.math.*;
 
 import java.io.FileInputStream;
 
