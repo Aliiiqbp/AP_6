@@ -125,7 +125,7 @@ public class GraphicHandler extends Application {
         exitLab.setLayoutX(850);
         exitLab.setOpacity(0);
 
-        MediaPlayer MainMusic = new MediaPlayer(new Media(new File("src/src/Resources/Music/ThisLittlePigWentToMarket.mp3").toURI().toString()));
+        MediaPlayer MainMusic = new MediaPlayer(new Media(new File("src/src/Resources/Music/MammadNobari.mp3").toURI().toString()));
 //        MediaPlayer MammadNobari = new MediaPlayer(new Media(new File("src/src/Resources/Music/MammadNobari.mp3").toURI().toString()));
         MainMusic.setVolume(0.4);
 //        MammadNobari.setVolume(0.2);
