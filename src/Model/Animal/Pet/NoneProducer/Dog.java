@@ -1,19 +1,15 @@
 package src.Model.Animal.Pet.NoneProducer;
 
 import javafx.animation.Animation;
-import javafx.application.Application;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Group;
-import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 import src.Controller.Static;
 import src.GUI.AnimalSpriteAnimation;
 import src.Model.Animal.AnimalType;
 import src.Model.Animal.Wild.Wild;
-import src.Model.Coordinate.Direction;
 import src.Model.Coordinate.Movement;
 
 import java.io.FileInputStream;

@@ -10,7 +10,10 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import src.Model.Coordinate.Direction;
 
+import javax.swing.text.html.ImageView;
+import java.awt.*;
 import java.io.FileInputStream;
+import java.security.acl.Group;
 
 public class AnimalAnimation extends Application {
 
