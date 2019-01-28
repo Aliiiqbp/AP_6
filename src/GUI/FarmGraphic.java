@@ -57,19 +57,30 @@ public class FarmGraphic {
 
         pauseMenu = new Menu("Pause", root);
         pauseMenu.getMenuItem(0).setText("Continue");
-        Menu otherMenu = new Menu("Test", root, pauseMenu);
-        otherMenu.addAll(new MenuItem("one", otherMenu));
-        MenuItem backpack = new MenuItem("Show The Backpack", pauseMenu);
-        MenuItem status = new MenuItem("Show Status", pauseMenu);
+//        Menu otherMenu = new Menu("Test", root, pauseMenu);
+//        otherMenu.addAll(new MenuItem("one", otherMenu));
+//        MenuItem backpack = new MenuItem("Show The Backpack", pauseMenu);
+//        MenuItem status = new MenuItem("Show Status", pauseMenu);
         MenuItem quit = new MenuItem("Quit to Main Menu", pauseMenu);
-        status.setGoesTo(otherMenu);
+//        status.setGoesTo(otherMenu);
         quit.setGoesTo(() -> GraphicHandler.game.setScene(GraphicHandler.mainMenu()));
-        pauseMenu.addAll(backpack, status, quit);
+        pauseMenu.addAll(/*backpack, status,*/quit);
 
         pauseButton.setOnMouseClicked(event -> {
-            if (!root.getChildren().contains(pauseMenu)) {
-                pauseMenu.start();
-            }
+//            if (!root.getChildren().contains(pauseMenu)) {
+////                pauseMenu.start();
+//                if (Menu.parent != null)
+//                    Menu.parent.exit();
+//                else
+//                    FarmGraphic.Pause(this);
+//                if (root != null) {
+//                    root.getChildren().add(menuFrame);
+//                    if (menuSize() > 0)
+//                        getMenuItem(current).requestFocus();
+//                    getRoot().setActiveMenu(this);
+//                }
+//
+//            }
         });
 
         ///////////////////////buyHenIcon
@@ -111,7 +122,7 @@ public class FarmGraphic {
         ///////////////////////////
 
 
-        root.getChildren().addAll(statusBar, pauseButton, buyHenIcon, buyHenIconBack, buyHenIconLab, pauseMenu);
+        root.getChildren().addAll(statusBar, pauseButton, buyHenIcon, buyHenIconBack, buyHenIconLab);
 
         //////////////////////////////////////
 
