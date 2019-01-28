@@ -58,7 +58,7 @@ public class GraphicHandler extends Application {
         Label logo = new Label("MYSTIC FARM");
         Label anyKey = new Label("Click to continue");
         logo.setFont(new Font("Snickles", 70));
-        anyKey.setFont(new Font("times new roman", 20));
+        anyKey.setFont(new Font("Atlas of the Magi", 20));
 
         Rectangle logoBack = new Rectangle(300, 70);
         Rectangle anyBack = new Rectangle(300, 25);
@@ -77,9 +77,9 @@ public class GraphicHandler extends Application {
         singleBack.setFill(Color.WHITE);
         singleBack.setOpacity(0);
         Label singleLab = new Label("Single Player");
-        singleLab.setFont(new Font("times new roman", 14));
+        singleLab.setFont(new Font("Death Star", 14));
         singleLab.setLayoutY(449);
-        singleLab.setLayoutX(60);
+        singleLab.setLayoutX(50);
         singleLab.setOpacity(0);
 
         Rectangle multiBack = new Rectangle(120, 15);
@@ -88,9 +88,9 @@ public class GraphicHandler extends Application {
         multiBack.setFill(Color.WHITE);
         multiBack.setOpacity(0);
         Label multiLab = new Label("Multi Player");
-        multiLab.setFont(new Font("times new roman", 14));
+        multiLab.setFont(new Font("Death Star", 14));
         multiLab.setLayoutY(449);
-        multiLab.setLayoutX(255);
+        multiLab.setLayoutX(240);
         multiLab.setOpacity(0);
 
         Rectangle customBack = new Rectangle(120, 15);
@@ -99,9 +99,9 @@ public class GraphicHandler extends Application {
         customBack.setFill(Color.WHITE);
         customBack.setOpacity(0);
         Label customLab = new Label("Custom Game");
-        customLab.setFont(new Font("times new roman", 14));
+        customLab.setFont(new Font("Death Star", 14));
         customLab.setLayoutY(449);
-        customLab.setLayoutX(440);
+        customLab.setLayoutX(430);
         customLab.setOpacity(0);
 
         Rectangle setBack = new Rectangle(120, 15);
@@ -110,9 +110,9 @@ public class GraphicHandler extends Application {
         setBack.setFill(Color.WHITE);
         setBack.setOpacity(0);
         Label setLab = new Label("Settings");
-        setLab.setFont(new Font("times new roman", 14));
+        setLab.setFont(new Font("Death Star", 14));
         setLab.setLayoutY(449);
-        setLab.setLayoutX(650);
+        setLab.setLayoutX(645);
         setLab.setOpacity(0);
 
         Rectangle exitBack = new Rectangle(120, 15);
@@ -121,9 +121,9 @@ public class GraphicHandler extends Application {
         exitBack.setFill(Color.WHITE);
         exitBack.setOpacity(0);
         Label exitLab = new Label("Exit");
-        exitLab.setFont(new Font("times new roman", 14));
+        exitLab.setFont(new Font("Death Star", 14));
         exitLab.setLayoutY(449);
-        exitLab.setLayoutX(850);
+        exitLab.setLayoutX(845);
         exitLab.setOpacity(0);
 
         MediaPlayer MainMusic = new MediaPlayer(new Media(new File("src/src/Resources/Music/MammadNobari.mp3").toURI().toString()));
@@ -217,7 +217,7 @@ public class GraphicHandler extends Application {
         sound.setLayoutY(675);
         logo.setLayoutX(350);
         logo.setLayoutY(270);
-        anyKey.setLayoutX(420);
+        anyKey.setLayoutX(363);
         anyKey.setLayoutY(360);
         logoBack.setLayoutX(335);
         logoBack.setLayoutY(275);

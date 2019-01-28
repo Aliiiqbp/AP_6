@@ -8,119 +8,150 @@ package src.GUI;
 //import graphic.Handle.farmer.Farmer_Graphic;
 
 import javafx.animation.Animation;
+import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
 import javafx.util.Duration;
+import src.Controller.Static;
 import src.Model.Animal.Pet.NoneProducer.Dog;
 import src.Model.Coordinate.Direction;
+import src.GUI.Menu.*;
 
 
 public class FarmGraphic {
     private static Group root;
     private static Timeline interact;
+    private static Menu pauseMenu;
+    private static Menu activeMenu = null;
 
     public static void farmScene(String where) {
         ImageView background = new ImageView(new Image("src/Resources/Textures/back.png"));
 
         root = new Group(background);
+        ////////////////////////Status bar
 
-//        if (GraphicHandler.isOnline) {
-//            root.addOnlineButtons();
-//        }
+        Rectangle statusBar = new Rectangle(780, 40);
+        statusBar.setFill(Color.WHITE);
+        statusBar.setOpacity(0.5);
+        statusBar.setLayoutX(10);
+        statusBar.setLayoutY(10);
+        statusBar.setArcWidth(40);
+        statusBar.setArcHeight(40);
+
+        ///////////////////////pauseButton and pauseMenu
+
+        ImageView pauseButton = new ImageView(new Image("src/Resources/Menu/pause.png"));
+        pauseButton.setFitWidth(30);
+        pauseButton.setFitHeight(30);
+        pauseButton.setLayoutX(755);
+        pauseButton.setLayoutY(15);
+
+        pauseMenu = new Menu("Pause", root);
+        pauseMenu.getMenuItem(0).setText("Continue");
+        Menu otherMenu = new Menu("Test", root, pauseMenu);
+        otherMenu.addAll(new MenuItem("one", otherMenu));
+        MenuItem backpack = new MenuItem("Show The Backpack", pauseMenu);
+        MenuItem status = new MenuItem("Show Status", pauseMenu);
+        MenuItem quit = new MenuItem("Quit to Main Menu", pauseMenu);
+        status.setGoesTo(otherMenu);
+        quit.setGoesTo(() -> GraphicHandler.game.setScene(GraphicHandler.mainMenu()));
+        pauseMenu.addAll(backpack, status, quit);
+
+        pauseButton.setOnMouseClicked(event -> {
+            if (!root.getChildren().contains(pauseMenu)) {
+                pauseMenu.start();
+            }
+        });
+
+        ///////////////////////buyHenIcon
+
+        ImageView buyHenIcon = new ImageView(new Image("src/Resources/Textures/UI/Icons/hen.png"));
+        buyHenIcon.setFitWidth(30);
+        buyHenIcon.setFitHeight(30);
+        buyHenIcon.setLayoutX(20);
+        buyHenIcon.setLayoutY(15);
+
+        Rectangle buyHenIconBack = new Rectangle(40, 15);
+        buyHenIconBack.setLayoutY(45);
+        buyHenIconBack.setLayoutX(17);
+        buyHenIconBack.setFill(Color.WHITE);
+        buyHenIconBack.setOpacity(0);
+        Label buyHenIconLab = new Label(Integer.toString((int) Static.HEN_BUY_COST));
+        buyHenIconLab.setFont(new Font("Atlas of the Magi", 14));
+        buyHenIconLab.setLayoutY(44);
+        buyHenIconLab.setLayoutX(22);
+        buyHenIconLab.setOpacity(0);
+
+        buyHenIcon.setOnMouseEntered(event -> {
+            if (buyHenIcon.getOpacity() >= 0.8) {
+                buyHenIconBack.setFill(Color.BLACK);
+                buyHenIconLab.setTextFill(Color.WHITE);
+                fadeMainMenu(buyHenIconBack, buyHenIconBack.getOpacity(), 0.7, 500).play();
+                fadeMainMenu(buyHenIconLab, buyHenIconLab.getOpacity(), 1, 500).play();
+            }
+        });
+
+        buyHenIcon.setOnMouseExited(event -> {
+            fadeMainMenu(buyHenIconBack, buyHenIconBack.getOpacity(), 0, 500).play();
+            fadeMainMenu(buyHenIconLab, buyHenIconLab.getOpacity(), 0, 500).play();
+        });
+
+        buyHenIcon.setOnMouseClicked(event -> {
+            // TODO: buy Hen
+        });
+        ///////////////////////////
+
+
+        root.getChildren().addAll(statusBar, pauseButton, buyHenIcon, buyHenIconBack, buyHenIconLab, pauseMenu);
+
+        //////////////////////////////////////
 
         Dog dog = new Dog(150, 150);
-//        setStart(where);
-//        Farmer_Graphic.setFarmerBools(root);
-//        Farmer_Graphic.moveFarmer(root);
-
 
         dog.ShowDog(root);
         Scene scene = new Scene(root, 800, 600);
         GraphicHandler.game.setScene(scene);
-
-//        moveInFarm();
     }
 
-//    private static void moveInFarm() {
-//        interact = new Timeline(new KeyFrame(Duration.millis(0.1), event -> {
-//            if (root.getPlayer().getLayoutX() - root.getImage().getTranslateX() <= 5
-//                    && root.getPlayer().getLayoutY() - root.getImage().getTranslateY() >= 572
-//                    && root.getPlayer().getLayoutY() - root.getImage().getTranslateY() <= 620) {
-//                Farmer_Graphic.move.stop();
-//                interact.stop();
-//                root.animation.stop();
-//                Jungle_Graphic.jungleScene("farm");
-//            }
-//            if (root.getPlayer().getLayoutX() - root.getImage().getTranslateX() >= 1310
-//                    && root.getPlayer().getLayoutX() - root.getImage().getTranslateX() <= 1390
-//                    && root.getPlayer().getLayoutY() - root.getImage().getTranslateY() <= 5) {
-//                Farmer_Graphic.move.stop();
-//                interact.stop();
-//                root.animation.stop();
-//                Group.isInVillage = true;
-//                Village_Graphic.villageScene("farm");
-//            }
-//            if (root.getPlayer().getLayoutX() - root.getImage().getTranslateX() >= 480 && root.getPlayer().getLayoutX() - root.getImage().getTranslateX() <= 520
-//                    && root.getPlayer().getLayoutY() - root.getImage().getTranslateY() <= 380 && root.getPlayer().getLayoutY() - root.getImage().getTranslateY() >= 360) {
-//                Farmer_Graphic.move.stop();
-//                interact.stop();
-//                root.animation.stop();
-//                Home_Graphic.homeScene("farm");
-//            }
-//            if (root.getPlayer().getLayoutX() - root.getImage().getTranslateX() >= 570
-//                    && root.getPlayer().getLayoutX() - root.getImage().getTranslateX() <= 650
-//                    && root.getPlayer().getLayoutY() - root.getImage().getTranslateY() >= 1190
-//                    && root.getPlayer().getLayoutY() - root.getImage().getTranslateY() <= 1470) {
-//                Group.inspect.setOpacity(0.7);
-//                Group.inspect.setOnMouseClicked(event1 -> {
-//
-//                });
-//            }
-//            else if(root.getPlayer().getLayoutX() - root.getImage().getTranslateX() >= 1270
-//                    && root.getPlayer().getLayoutX() - root.getImage().getTranslateX() <= 1380
-//                    && root.getPlayer().getLayoutY() - root.getImage().getTranslateY() >= 1100
-//                    && root.getPlayer().getLayoutY() - root.getImage().getTranslateY() <= 1470) {
-//                Group.inspect.setOpacity(0.7);
-//                Group.inspect.setOnMouseClicked(event1 -> {
-//
-//                });
-//            }
-//            else {
-//                Group.inspect.setOpacity(0);
-//            }
-//        }));
-//        interact.setCycleCount(Animation.INDEFINITE);
-//        interact.play();
-//    }
+    public static FadeTransition fadeMainMenu(Node node, double from, double to, int duration) {
+        FadeTransition fadeTransition = new FadeTransition(Duration.millis(duration));
+        fadeTransition.setNode(node);
+        fadeTransition.setCycleCount(1);
+        fadeTransition.setFromValue(from);
+        fadeTransition.setToValue(to);
+        fadeTransition.setAutoReverse(false);
+        return fadeTransition;
+    }
 
-//    private static void setStart(String where) {
-//        if(where.equals("start")) {
-//            root.getImage().setTranslateX(-30);
-//            root.getImage().setTranslateY(-100);
-//            root.getPlayer().setLayoutX(480);
-//            root.getPlayer().setLayoutY(356.25);
-//        }
-//        if(where.equals("jungle")) {
-//            root.getImage().setTranslateX(0);
-//            root.getImage().setTranslateY(-271.2);
-//            root.getPlayer().setLayoutX(33);
-//            root.getPlayer().setLayoutY(356.3);
-//        }
-//        if(where.equals("village")) {
-//            root.getImage().setTranslateX(-640);
-//            root.getImage().setTranslateY(0);
-//            root.getPlayer().setLayoutX(707);
-//            root.getPlayer().setLayoutY(24);
-//        }
-//        if(where.equals("home")) {
-//            root.getImage().setTranslateX(-30);
-//            root.getImage().setTranslateY(-100);
-//            root.getPlayer().setLayoutX(480);
-//            root.getPlayer().setLayoutY(356.25);
-//        }
-//    }
+    public boolean isActive() {
+        return activeMenu == null;
+    }
+
+    public void setActiveMenu(Menu menu) {
+        activeMenu = menu;
+    }
+
+    public void Pause(Menu menu) {
+        if (isActive()) {
+//            Farmer_Graphic.move.pause();
+            activeMenu = menu;
+        }
+    }
+
+    public void Play() {
+        if (!isActive()) {
+//            Farmer_Graphic.move.play();
+            activeMenu = null;
+//            requestFocus();
+        }
+    }
 }
