@@ -16,7 +16,7 @@ import src.Model.Product.Wool;
 import java.io.FileInputStream;
 
 public class Sheep extends ProducerAnimal {
-    public Sheep( double x, double y) {
+    public Sheep(double x, double y) {
         super(AnimalType.SHEEP, Static.SHEEP_SELL_VALUE, Static.SHEEP_BUY_COST, Static.SHEEP_VOLUME, Static.SHEEP_SPEED, x, y);
     }
 
@@ -26,10 +26,9 @@ public class Sheep extends ProducerAnimal {
     }
 
 
-
     public void ShowSheep(Group root, Direction direction) {
         try {
-            Image sheepImage = new Image(new FileInputStream("src/src/Resources/Textures/Sheep/"+ this.getMovement().getDirection() + ".png")); // TODO: 01/25/2019 get correct address for animations
+            Image sheepImage = new Image(new FileInputStream("src/src/Resources/Textures/Animals/Sheep/" + this.getMovement().getDirection() + ".png")); // TODO: 01/25/2019 get correct address for animations
             ImageView sheepView = new ImageView(sheepImage);
             sheepView.setX(this.getMovement().getCurrentX());
             sheepView.setY(this.getMovement().getCurrentY());
@@ -37,7 +36,7 @@ public class Sheep extends ProducerAnimal {
 
             final int count = 24;
             final int durationTime = 2000, offsetX = 0, offsetY = 0;
-            int columns = 0, width = (int)sheepImage.getWidth(), height = (int)sheepImage.getHeight();
+            int columns = 0, width = (int) sheepImage.getWidth(), height = (int) sheepImage.getHeight();
 
             root.getChildren().add(sheepView);
 
@@ -47,7 +46,7 @@ public class Sheep extends ProducerAnimal {
                     sheepView.setScaleX(-1);
                     break;
                 case DOWN:
-                    columns = 6;;
+                    columns = 6;
                     break;
                 case DOWN_LEFT:
                     columns = 5;

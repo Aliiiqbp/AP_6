@@ -16,7 +16,7 @@ import src.Model.Product.Product;
 import java.io.FileInputStream;
 
 public class Cow extends ProducerAnimal {
-    public Cow( double x, double y) {
+    public Cow(double x, double y) {
         super(AnimalType.COW, Static.COW_SELL_VALUE, Static.COW_BUY_COST, Static.COW_VOLUME, Static.COW_SPEED, x, y);
     }
 
@@ -26,10 +26,9 @@ public class Cow extends ProducerAnimal {
     }
 
 
-
     public void showCow(Group root, Direction direction) {
         try {
-            Image cowImage = new Image(new FileInputStream("src/src/Resources/Textures/Cow/"+this.getMovement().getDirection()+".png")); // TODO: 01/25/2019 get correct address for animations
+            Image cowImage = new Image(new FileInputStream("src/src/Resources/Textures/Animals/Cow/" + this.getMovement().getDirection() + ".png")); // TODO: 01/25/2019 get correct address for animations
             ImageView cowView = new ImageView(cowImage);
             cowView.setX(this.getMovement().getCurrentX());
             cowView.setY(this.getMovement().getCurrentY());
@@ -37,7 +36,7 @@ public class Cow extends ProducerAnimal {
 
             final int count = 24;
             final int durationTime = 2000, offsetX = 0, offsetY = 0;
-            int columns = 0, width = (int)cowImage.getWidth(), height = (int)cowImage.getHeight();
+            int columns = 0, width = (int) cowImage.getWidth(), height = (int) cowImage.getHeight();
 
             root.getChildren().add(cowView);
 
@@ -50,7 +49,8 @@ public class Cow extends ProducerAnimal {
                     columns = 6;
                     break;
                 case DOWN_LEFT:
-                    columns = 5;;
+                    columns = 5;
+                    ;
                     break;
                 case LEFT:
                     columns = 6;

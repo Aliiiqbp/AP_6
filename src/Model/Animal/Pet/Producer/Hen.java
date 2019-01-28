@@ -26,10 +26,9 @@ public class Hen extends ProducerAnimal {
     }
 
 
-
     public void ShowHen(Group root) {
         try {
-            Image henImage = new Image(new FileInputStream("src/src/Resources/Textures/Animals/Africa/Ostrich/" + this.getMovement().getDirection() + ".png")); // TODO: 01/25/2019 get correct address for animations
+            Image henImage = new Image(new FileInputStream("src/src/Resources/Textures/Animals/GuineaFowl/" + this.getMovement().getDirection() + ".png")); // TODO: 01/25/2019 get correct address for animations
             ImageView henView = new ImageView(henImage);
             henView.setX(this.getMovement().getCurrentX());
             henView.setY(this.getMovement().getCurrentY());
@@ -37,7 +36,7 @@ public class Hen extends ProducerAnimal {
 
             final int count = 24;
             final int durationTime = 2000, offsetX = 0, offsetY = 0;
-            int columns = 0, width = (int)henImage.getWidth(), height = (int)henImage.getHeight();
+            int columns = 0, width = (int) henImage.getWidth(), height = (int) henImage.getHeight();
 
             root.getChildren().add(henView);
 

@@ -18,7 +18,7 @@ import java.io.FileInputStream;
 public class Cat extends NoneProducerAnimal {
     Product product;
 
-    public Cat( double x, double y) {
+    public Cat(double x, double y) {
         super(AnimalType.CAT, Static.CAT_SELL_VALUE, Static.CAT_BUY_COST, Static.CAT_VOLUME, Static.CAT_SPEED, x, y);
     }
 
@@ -37,9 +37,9 @@ public class Cat extends NoneProducerAnimal {
     }
 
 
-    public void ShowCat(Group root, Direction direction) {
+    public void ShowCat(Group root) {
         try {
-            Image catImage = new Image(new FileInputStream("src/src/Resources/Textures/Animals/Africa/Cat/"+ this.getMovement().getDirection() + ".png")); // TODO: 01/25/2019 get correct address for animations
+            Image catImage = new Image(new FileInputStream("src/src/Resources/Textures/Animals/Cat/" + this.getMovement().getDirection() + ".png")); // TODO: 01/25/2019 get correct address for animations
             ImageView catView = new ImageView(catImage);
             catView.setX(this.getMovement().getCurrentX());
             catView.setY(this.getMovement().getCurrentY());
@@ -47,7 +47,7 @@ public class Cat extends NoneProducerAnimal {
 
             final int count = 24;
             final int durationTime = 2000, offsetX = 0, offsetY = 0;
-            int columns = 0, width = (int)catImage.getWidth(), height = (int)catImage.getHeight();
+            int columns = 0, width = (int) catImage.getWidth(), height = (int) catImage.getHeight();
 
             root.getChildren().add(catView);
 

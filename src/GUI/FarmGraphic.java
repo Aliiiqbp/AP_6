@@ -28,15 +28,13 @@ public class FarmGraphic {
 
         root = new Group(background);
 
-        if (GraphicHandler.isOnline) {
+//        if (GraphicHandler.isOnline) {
 //            root.addOnlineButtons();
-        }
+//        }
 
-
-        Dog dog = new Dog(100, 100);
+        Dog dog = new Dog(150, 150);
 //        setStart(where);
 //        Farmer_Graphic.setFarmerBools(root);
-
 //        Farmer_Graphic.moveFarmer(root);
 
 

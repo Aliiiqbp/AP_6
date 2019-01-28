@@ -1,15 +1,19 @@
 package src.Model.Animal.Pet.NoneProducer;
 
 import javafx.animation.Animation;
+import javafx.application.Application;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Group;
+import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import src.Controller.Static;
 import src.GUI.AnimalSpriteAnimation;
 import src.Model.Animal.AnimalType;
 import src.Model.Animal.Wild.Wild;
+import src.Model.Coordinate.Direction;
 import src.Model.Coordinate.Movement;
 
 import java.io.FileInputStream;
@@ -37,7 +41,7 @@ public class Dog extends NoneProducerAnimal {
     public void ShowDog(Group root) {
         try {
 //            Direction direction = Direction.RIGHT;
-            Image dogImage = new Image(new FileInputStream("src/src/Resources/Textures/Animals/Africa/Dog/" + this.getMovement().getDirection() + ".png"));
+            Image dogImage = new Image(new FileInputStream("src/src/Resources/Textures/Animals/Dog/" + this.getMovement().getDirection() + ".png"));
             ImageView dogView = new ImageView(dogImage);
             dogView.setX(this.getMovement().getCurrentX());
             dogView.setY(this.getMovement().getCurrentY());
@@ -47,9 +51,7 @@ public class Dog extends NoneProducerAnimal {
             final int durationTime = 2000, offsetX = 0, offsetY = 0;
             int columns = 0, width = (int) dogImage.getWidth(), height = (int) dogImage.getHeight();
 
-
             root.getChildren().add(dogView);
-
 
             switch (this.getMovement().getDirection()) {
                 case DOWN_RIGHT:
