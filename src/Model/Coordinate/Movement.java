@@ -12,7 +12,8 @@ public class Movement {
     private  double fixedX = -1, fixedY = -1;
 
     public Movement(double speed, double currentX, double currentY) {
-        this.direction = Direction.NONE; // TODO: 12/28/2018 set direction
+        // Directioon is set arbitrary to right
+        this.direction = Direction.RIGHT; // TODO: 12/28/2018 set direction
         this.speed = speed;
         this.currentX = currentX;
         this.currentY = currentY;

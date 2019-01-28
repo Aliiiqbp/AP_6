@@ -1,7 +1,10 @@
 package src.Controller;
 
+import javafx.scene.Group;
 import src.Model.Animal.Animal;
 import src.Model.Animal.AnimalType;
+import src.Model.Animal.Pet.NoneProducer.Cat;
+import src.Model.Animal.Pet.NoneProducer.Dog;
 import src.Model.Animal.Wild.Wild;
 import src.Model.Farm.Extra.WareHouse;
 import src.Model.Farm.Farm;
@@ -36,10 +39,35 @@ public class Controller {
         money = Static.INITIAL_MONEY;
     }
 
-    public void getCommand() {
-        String[] strings = IO.splitCommand();
 
-    } // TODO: 12/24/2018 set IO with function
+    public void initializeGame(){
+        Dog dog1 = new Dog(100, 100);
+        Dog dog2 = new Dog(200,200);
+        Cat cat1 = new Cat(300,300);
+        farm.getMap().addSalable(dog1);
+        farm.getMap().addSalable(dog2);
+        farm.getMap().addSalable(cat1);
+
+
+    }
+
+    public void updateLocation(Group root){
+
+        // here we move things!
+        for (Salable salable : farm.getMap().getSalables()){
+            salable.getMovement().move();
+
+            //we should now call all the show() methods
+            // here i'm just handling the show() method of cat and dog
+            if (salable instanceof Dog)
+                ((Dog) salable).ShowDog(root);
+            if (salable instanceof Cat)
+                ((Cat) salable).ShowCat(root);
+        }
+
+
+
+    }
 
     private void buyAnimal(AnimalType animalType, double x, double y) {
         Animal animal = AnimalType.getPet(animalType, x, y);

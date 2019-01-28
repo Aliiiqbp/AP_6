@@ -23,6 +23,7 @@ public class Dog extends NoneProducerAnimal {
 
     private Wild wild;
 
+
     public Dog(double x, double y) {
         super(AnimalType.DOG, Static.DOG_SELL_VALUE, Static.DOG_BUY_COST, Static.DOG_VOLUME, Static.DOG_SPEED, x, y);
     }
@@ -40,18 +41,16 @@ public class Dog extends NoneProducerAnimal {
 
     public void ShowDog(Group root) {
         try {
-//            Direction direction = Direction.RIGHT;
-            Image dogImage = new Image(new FileInputStream("src/src/Resources/Textures/Animals/Dog/" + this.getMovement().getDirection() + ".png"));
+            Image dogImage = new Image(new FileInputStream("src/Resources/Textures/Animals/Dog/" + this.getMovement().getDirection() + ".png"));
             ImageView dogView = new ImageView(dogImage);
             dogView.setX(this.getMovement().getCurrentX());
             dogView.setY(this.getMovement().getCurrentY());
-
+            root.getChildren().remove(lastImageView);
 
             final int count = 24;
             final int durationTime = 2000, offsetX = 0, offsetY = 0;
             int columns = 0, width = (int) dogImage.getWidth(), height = (int) dogImage.getHeight();
 
-            root.getChildren().add(dogView);
 
             switch (this.getMovement().getDirection()) {
                 case DOWN_RIGHT:
@@ -94,6 +93,9 @@ public class Dog extends NoneProducerAnimal {
             );
             animation.setCycleCount(Animation.INDEFINITE);
             animation.play();
+
+            root.getChildren().add(dogView);
+            lastImageView = dogView;
         } catch (Exception e) {
         }
     }

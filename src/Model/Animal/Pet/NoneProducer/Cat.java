@@ -39,17 +39,18 @@ public class Cat extends NoneProducerAnimal {
 
     public void ShowCat(Group root) {
         try {
-            Image catImage = new Image(new FileInputStream("src/src/Resources/Textures/Animals/Cat/" + this.getMovement().getDirection() + ".png")); // TODO: 01/25/2019 get correct address for animations
+            Image catImage = new Image(new FileInputStream("src/Resources/Textures/Animals/Cat/" + this.getMovement().getDirection() + ".png")); // TODO: 01/25/2019 get correct address for animations
             ImageView catView = new ImageView(catImage);
             catView.setX(this.getMovement().getCurrentX());
             catView.setY(this.getMovement().getCurrentY());
 
-
+            root.getChildren().remove(lastImageView);
             final int count = 24;
             final int durationTime = 2000, offsetX = 0, offsetY = 0;
             int columns = 0, width = (int) catImage.getWidth(), height = (int) catImage.getHeight();
 
             root.getChildren().add(catView);
+            lastImageView = catView;
 
             switch (this.getMovement().getDirection()) {
                 case DOWN_RIGHT:

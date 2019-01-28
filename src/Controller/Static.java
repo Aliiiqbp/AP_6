@@ -9,13 +9,13 @@ public class Static {
 
     //Cat
     public static final double CAT_SLEEP_TIME = 10;
-    public static final double CAT_SPEED = 38;
+    public static final double CAT_SPEED = 2;
     public static final double CAT_BUY_COST = 2500;
     public static final double CAT_VOLUME = 0;      // value was not in doc
     public static final double CAT_SELL_VALUE = 0;  // value was not in doc
 
     //Dog
-    public static final double DOG_SPEED = 65;
+    public static final double DOG_SPEED = 4;
     public static final double DOG_VOLUME = 0;
     public static final double DOG_SELL_VALUE = 0;  // value was not in doc
     public static final double DOG_BUY_COST = 0;    // value was not in doc

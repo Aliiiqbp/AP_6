@@ -13,8 +13,11 @@ public class Map extends Entity {
     private HashMap<Salable, Cell> cellMap;
     private int width, height;
 
+    public ArrayList<Salable> getSalables() {     return salables;    }
 
     public Map(int width, int height) {
+        this.salables = new ArrayList<Salable>();
+        this.cellMap = new HashMap<>();
         this.width = width;
         this.height = height;
         cells = new Cell[width][height];
@@ -30,6 +33,10 @@ public class Map extends Entity {
     } //ok
 
     public Cell getMappedCell(double x, double y) {
+        // Consider that game is in a 800 * 600 screen
+        // and our map is  10 * 10
+        x = x / 80 ;
+        y = y / 60 ;
         if (0 <= x && x < this.width && 0 <= y && y < this.height) {
             return this.getCell((int) Math.floor(x), (int) Math.floor(y));
         }

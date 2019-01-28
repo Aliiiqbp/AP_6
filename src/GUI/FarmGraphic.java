@@ -7,10 +7,7 @@ package src.GUI;
 //import graphic.Handle.environment.village.Village_Graphic;
 //import graphic.Handle.farmer.Farmer_Graphic;
 
-import javafx.animation.Animation;
-import javafx.animation.FadeTransition;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
+import javafx.animation.*;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -21,10 +18,12 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.util.Duration;
+import src.Controller.Controller;
 import src.Controller.Static;
 import src.Model.Animal.Pet.NoneProducer.Dog;
 import src.Model.Coordinate.Direction;
 import src.GUI.Menu.*;
+import src.Model.Farm.Farm;
 
 
 public class FarmGraphic {
@@ -126,11 +125,40 @@ public class FarmGraphic {
 
         //////////////////////////////////////
 
-        Dog dog = new Dog(150, 150);
 
-        dog.ShowDog(root);
+
+        Farm farm = new Farm();
+        Controller controller = new Controller(farm);
+
+        controller.initializeGame();
+        //it initializes Game, some dogs and cats are generated in farm
+
+        ////////////////starting to handle the time
+
+        //   final int[] tooShow = {100};
+    //    tooShow[0] = 10;
+        AnimationTimer timer = new AnimationTimer() {
+            final long constant = 1000000000;
+            long beforeInt = 0;
+            @Override
+            public void handle(long now) {
+                long nowInt = now / constant;
+                if (nowInt > beforeInt){
+                    beforeInt = nowInt;
+                    System.out.println("A second Passed");
+                    // Every second will update locations
+                    controller.updateLocation(root);
+                }
+            }
+        };
+        timer.start();
+
+
+
         Scene scene = new Scene(root, 800, 600);
         GraphicHandler.game.setScene(scene);
+
+
     }
 
     public static FadeTransition fadeMainMenu(Node node, double from, double to, int duration) {

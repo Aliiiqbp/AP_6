@@ -1,5 +1,6 @@
 package src.Model.Animal;
 
+import javafx.scene.image.ImageView;
 import src.Model.Coordinate.Movement;
 import src.Model.Entity;
 import src.Model.Salable;
@@ -7,6 +8,7 @@ import src.Model.Salable;
 public abstract class Animal extends Salable {
     protected AnimalType animalType;
     protected AnimalState animalState;
+    protected ImageView lastImageView = null;
 
     public Animal(AnimalType animalType, double sellPrice, double buyPrice, double volume, double speed, double x, double y ) {
         super(sellPrice, buyPrice, volume);
