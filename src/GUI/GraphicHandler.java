@@ -23,6 +23,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import src.GUI.CustomMenu.Custom;
 
 import java.io.File;
 import java.time.LocalTime;
@@ -354,7 +355,7 @@ public class GraphicHandler extends Application {
             fadeMainMenu(customLab, customLab.getOpacity(), 0, 500).play();
         });
 
-//        custom.setOnMouseClicked(event -> Vegs_Custom.vegsCustomMenu());
+        custom.setOnMouseClicked(event -> Custom.custom());
 
         setting.setOnMouseEntered(event -> {
             if (setting.getOpacity() >= 0.8) {

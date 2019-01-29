@@ -170,7 +170,7 @@ public class FarmGraphic {
         buyCowIcon.setLayoutX(100);
         buyCowIcon.setLayoutY(15);
 
-        Rectangle buyCowIconBack = new Rectangle(48, 15);
+        Rectangle buyCowIconBack = new Rectangle(50, 15);
         buyCowIconBack.setLayoutY(47);
         buyCowIconBack.setLayoutX(92);
         buyCowIconBack.setFill(Color.WHITE);
@@ -248,7 +248,7 @@ public class FarmGraphic {
         buyDogIcon.setLayoutX(180);
         buyDogIcon.setLayoutY(15);
 
-        Rectangle buyDogIconBack = new Rectangle(41, 15);
+        Rectangle buyDogIconBack = new Rectangle(43, 15);
         buyDogIconBack.setLayoutY(47);
         buyDogIconBack.setLayoutX(179);
         buyDogIconBack.setFill(Color.WHITE);
