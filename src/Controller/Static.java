@@ -18,7 +18,7 @@ public class Static {
     public static final double DOG_SPEED = 4;
     public static final double DOG_VOLUME = 0;
     public static final double DOG_SELL_VALUE = 0;  // value was not in doc
-    public static final double DOG_BUY_COST = 0;    // value was not in doc
+    public static final double DOG_BUY_COST = 3000;    // value was not in doc
 
     //Sheep
     public static final double SHEEP_SPEED = 55;

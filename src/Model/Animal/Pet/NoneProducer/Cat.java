@@ -39,53 +39,51 @@ public class Cat extends NoneProducerAnimal {
 
     public void ShowCat(Group root) {
         try {
-            Image catImage = new Image(new FileInputStream("src/Resources/Textures/Animals/Cat/" + this.getMovement().getDirection() + ".png")); // TODO: 01/25/2019 get correct address for animations
-            ImageView catView = new ImageView(catImage);
-            catView.setX(this.getMovement().getCurrentX());
-            catView.setY(this.getMovement().getCurrentY());
-
+            Image CatImage = new Image(new FileInputStream("src/src/Resources/Textures/Animals/Cat/" + this.getMovement().getDirection() + ".png"));
+            ImageView CatView = new ImageView(CatImage);
+            CatView.setX(this.getMovement().getCurrentX());
+            CatView.setY(this.getMovement().getCurrentY());
             root.getChildren().remove(lastImageView);
+
             final int count = 24;
             final int durationTime = 2000, offsetX = 0, offsetY = 0;
-            int columns = 0, width = (int) catImage.getWidth(), height = (int) catImage.getHeight();
+            int columns = 0, width = (int) CatImage.getWidth(), height = (int) CatImage.getHeight();
 
-            root.getChildren().add(catView);
-            lastImageView = catView;
 
             switch (this.getMovement().getDirection()) {
                 case DOWN_RIGHT:
-                    columns = 5;
-                    catView.setScaleX(-1);
+                    columns = 6;
+                    CatView.setScaleX(-1);
                     break;
                 case DOWN:
                     columns = 6;
                     break;
                 case DOWN_LEFT:
-                    columns = 5;
-                    break;
-                case LEFT:
                     columns = 6;
                     break;
+                case LEFT:
+                    columns = 4;
+                    break;
                 case UP_LEFT:
-                    columns = 5;
+                    columns = 6;
                     break;
                 case UP:
                     columns = 6;
                     break;
                 case UP_RIGHT:
-                    columns = 5;
-                    catView.setScaleX(-1);
+                    columns = 6;
+                    CatView.setScaleX(-1);
                     break;
                 case RIGHT:
-                    columns = 6;
-                    catView.setScaleX(-1);
+                    columns = 4;
+                    CatView.setScaleX(-1);
                     break;
 
             }
 
-            catView.setViewport(new Rectangle2D(0, 0, width, height));    //sprite animation  useful for your project
+            CatView.setViewport(new Rectangle2D(0, 0, width, height));    //sprite animation  useful for your project
             final Animation animation = new AnimalSpriteAnimation(
-                    catView,
+                    CatView,
                     Duration.millis(durationTime),
                     count, columns,
                     offsetX, offsetY,
@@ -93,6 +91,9 @@ public class Cat extends NoneProducerAnimal {
             );
             animation.setCycleCount(Animation.INDEFINITE);
             animation.play();
+
+            root.getChildren().add(CatView);
+            lastImageView = CatView;
         } catch (Exception e) {
         }
     }

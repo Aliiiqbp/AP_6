@@ -41,7 +41,7 @@ public class Dog extends NoneProducerAnimal {
 
     public void ShowDog(Group root) {
         try {
-            Image dogImage = new Image(new FileInputStream("src/Resources/Textures/Animals/Dog/" + this.getMovement().getDirection() + ".png"));
+            Image dogImage = new Image(new FileInputStream("src/src/Resources/Textures/Animals/Dog/" + this.getMovement().getDirection() + ".png"));
             ImageView dogView = new ImageView(dogImage);
             dogView.setX(this.getMovement().getCurrentX());
             dogView.setY(this.getMovement().getCurrentY());

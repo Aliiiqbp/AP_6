@@ -126,7 +126,7 @@ public class GraphicHandler extends Application {
         exitLab.setLayoutX(845);
         exitLab.setOpacity(0);
 
-        MediaPlayer MainMusic = new MediaPlayer(new Media(new File("src/Resources/Music/MammadNobari.mp3").toURI().toString()));
+        MediaPlayer MainMusic = new MediaPlayer(new Media(new File("src/src/Resources/Music/MammadNobari.mp3").toURI().toString()));
 //        MediaPlayer MammadNobari = new MediaPlayer(new Media(new File("src/src/Resources/Music/MammadNobari.mp3").toURI().toString()));
         MainMusic.setVolume(0.4);
 //        MammadNobari.setVolume(0.2);
@@ -159,7 +159,7 @@ public class GraphicHandler extends Application {
         singleImage.setFitWidth(100);
         singleImage.setFitHeight(100);
         single.setGraphic(singleImage);
-        single.setStyle("-fx-background-color: #00bcd4;");
+        single.setStyle("-fx-background-color: #30cf85;");
         single.setDisable(true);
         single.setOpacity(0);
         single.setLayoutX(25);
@@ -169,7 +169,7 @@ public class GraphicHandler extends Application {
         multiImage.setFitWidth(100);
         multiImage.setFitHeight(100);
         multi.setGraphic(multiImage);
-        multi.setStyle("-fx-background-color: #4caf50;");
+        multi.setStyle("-fx-background-color: #ffaa00;");
         multi.setDisable(true);
         multi.setOpacity(0);
         multi.setLayoutX(215);
@@ -179,7 +179,7 @@ public class GraphicHandler extends Application {
         customImage.setFitWidth(100);
         customImage.setFitHeight(100);
         custom.setGraphic(customImage);
-        custom.setStyle("-fx-background-color: #ff9800;");
+        custom.setStyle("-fx-background-color: #cf3080;");
         custom.setDisable(true);
         custom.setOpacity(0);
         custom.setLayoutX(405);
@@ -189,7 +189,7 @@ public class GraphicHandler extends Application {
         settingImage.setFitWidth(100);
         settingImage.setFitHeight(100);
         setting.setGraphic(settingImage);
-        setting.setStyle("-fx-background-color: #545f7f;");
+        setting.setStyle("-fx-background-color: #f44336;");
         setting.setDisable(true);
         setting.setOpacity(0);
         setting.setLayoutX(595);
@@ -199,7 +199,7 @@ public class GraphicHandler extends Application {
         exitImage.setFitWidth(100);
         exitImage.setFitHeight(100);
         exit.setGraphic(exitImage);
-        exit.setStyle("-fx-background-color: #f44336;");
+        exit.setStyle("-fx-background-color: #01ced5;");
         exit.setDisable(true);
         exit.setOpacity(0);
         exit.setLayoutX(785);
