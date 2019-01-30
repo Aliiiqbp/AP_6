@@ -1,7 +1,15 @@
 package src.Model.Vehicle;
 
+import javafx.scene.Group;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import src.Controller.Static;
+import src.Model.Product.ProductType;
 import src.Model.Salable;
+import src.Model.Vehicle.Vehicle;
+import src.Model.Coordinate.Movement;
+
+import java.io.FileInputStream;
 
 public class Helicopter extends Vehicle {
     private double scatteringRadius;
@@ -45,6 +53,17 @@ public class Helicopter extends Vehicle {
 
     public double getScatteringRadius() {
         return scatteringRadius;
+    }
+
+    public void showHelicopter(Group root) {
+        try {
+            Image helicopterImage = new Image(new FileInputStream("src/src/Resources/Textures/Service/Helicopter" + this.level + ".png"));
+            ImageView helicopterView = new ImageView(helicopterImage);
+            helicopterView.setX(this.getMovement().getCurrentX());
+            helicopterView.setY(this.getMovement().getCurrentY());
+            root.getChildren().add(helicopterView);
+        } catch (Exception e) {
+        }
     }
 
 }

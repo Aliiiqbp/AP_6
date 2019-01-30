@@ -1,12 +1,14 @@
 package src.Model.Vehicle;
 
 import src.Model.Capacity;
+import src.Model.Coordinate.Movement;
 import src.Model.Entity;
 import src.Model.Salable;
 
 public abstract class Vehicle extends Entity {
     Capacity capacity;
     public double travelDuration;
+    private Movement movement;
 
     public Vehicle(double capacityVolume , double travelDuration) {
         this.travelDuration = travelDuration;
@@ -51,5 +53,9 @@ public abstract class Vehicle extends Entity {
 
     public void setTravelDuration(double travelDuration) {
         this.travelDuration = travelDuration;
+    }
+
+    public Movement getMovement() {
+        return movement;
     }
 }

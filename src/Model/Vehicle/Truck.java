@@ -1,7 +1,12 @@
 package src.Model.Vehicle;
 
+import javafx.scene.Group;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import src.Controller.Static;
 import src.Model.Salable;
+
+import java.io.FileInputStream;
 
 public class Truck extends Vehicle {
     private double boxCount;
@@ -41,5 +46,16 @@ public class Truck extends Vehicle {
 
     public void setBoxCount(double boxCount) {
         this.boxCount = boxCount;
+    }
+
+    public void showTruck(Group root) {
+        try {
+            Image truckImage = new Image(new FileInputStream("src/src/Resources/Textures/Service/Truck" + this.level + ".png"));
+            ImageView truckView = new ImageView(truckImage);
+            truckView.setX(this.getMovement().getCurrentX());
+            truckView.setY(this.getMovement().getCurrentY());
+            root.getChildren().add(truckView);
+        } catch (Exception e) {
+        }
     }
 }
