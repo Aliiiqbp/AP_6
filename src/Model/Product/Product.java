@@ -7,7 +7,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 import GUI.AnimalSpriteAnimation;
-import src.Model.Coordinate.Movement;
+import Model.Coordinate.Movement;
 import Model.Entity;
 import Model.Salable;
 

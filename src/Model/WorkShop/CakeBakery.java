@@ -1,8 +1,8 @@
 package Model.WorkShop;
 
 import Controller.Static;
-import src.Model.Product.Egg;
-import src.Model.Product.ProductType;
+import Model.Product.Egg;
+import Model.Product.ProductType;
 
 import java.util.HashMap;
 

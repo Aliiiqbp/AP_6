@@ -1,7 +1,7 @@
 package Model.Farm.Extra;
 
 import Controller.Static;
-import src.Model.Coordinate.Movement;
+import Model.Coordinate.Movement;
 import Model.Entity;
 import Model.Product.Water;
 

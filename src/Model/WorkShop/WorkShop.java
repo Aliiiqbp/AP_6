@@ -2,7 +2,7 @@ package Model.WorkShop;
 
 import Model.Product.Product;
 import Model.Product.ProductType;
-import src.Model.Coordinate.Movement;
+import Model.Coordinate.Movement;
 import Model.Entity;
 import java.util.HashMap;
 import java.util.Set;

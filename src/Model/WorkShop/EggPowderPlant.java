@@ -1,7 +1,7 @@
 package Model.WorkShop;
 
 import Controller.Static;
-import src.Model.Product.ProductType;
+import Model.Product.ProductType;
 
 public class EggPowderPlant extends WorkShop {
     public EggPowderPlant(WorkShopType workShopType, ProductType productType) {

@@ -1,7 +1,7 @@
 package Model.WorkShop;
 
 import Controller.Static;
-import src.Model.Product.ProductType;
+import Model.Product.ProductType;
 
 public class Spinnery extends WorkShop {
     public Spinnery(WorkShopType workShopType, ProductType productType) {
