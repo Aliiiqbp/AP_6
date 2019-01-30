@@ -1,6 +1,6 @@
-package src.Model.Product;
+package Model.Product;
 
-import src.Controller.Static;
+import Controller.Static;
 
 import java.security.PublicKey;
 

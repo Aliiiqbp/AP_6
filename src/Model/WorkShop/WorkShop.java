@@ -1,12 +1,9 @@
-package src.Model.WorkShop;
+package Model.WorkShop;
 
+import Model.Product.Product;
+import Model.Product.ProductType;
 import src.Model.Coordinate.Movement;
-import src.Model.Entity;
-import src.Model.Product.Product;
-import src.Model.Product.ProductType;
-
-import java.security.PublicKey;
-import java.util.ArrayList;
+import Model.Entity;
 import java.util.HashMap;
 import java.util.Set;
 

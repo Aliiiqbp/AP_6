@@ -1,7 +1,7 @@
-package src.Model.Farm.Map;
+package Model.Farm.Map;
 
-import src.Model.Entity;
-import src.Model.Salable;
+import Model.Entity;
+import Model.Salable;
 
 import java.util.ArrayList;
 import java.util.HashMap;

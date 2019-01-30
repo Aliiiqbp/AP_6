@@ -1,4 +1,4 @@
-package src.GUI.Menu;
+package GUI.Menu;
 
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.StackPane;

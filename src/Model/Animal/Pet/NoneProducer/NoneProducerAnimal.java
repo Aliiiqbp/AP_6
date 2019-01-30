@@ -1,7 +1,7 @@
-package src.Model.Animal.Pet.NoneProducer;
+package Model.Animal.Pet.NoneProducer;
 
-import src.Model.Animal.AnimalType;
-import src.Model.Animal.Pet.Pet;
+import Model.Animal.AnimalType;
+import Model.Animal.Pet.Pet;
 
 public abstract class NoneProducerAnimal extends Pet {
     public NoneProducerAnimal(AnimalType animalType, double sellPrice, double buyPrice, double volume, double speed, double x, double y) {

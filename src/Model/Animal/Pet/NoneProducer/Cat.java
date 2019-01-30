@@ -1,4 +1,4 @@
-package src.Model.Animal.Pet.NoneProducer;
+package Model.Animal.Pet.NoneProducer;
 
 import javafx.animation.Animation;
 import javafx.geometry.Rectangle2D;
@@ -6,12 +6,12 @@ import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
-import src.Controller.Static;
-import src.GUI.AnimalSpriteAnimation;
-import src.Model.Animal.AnimalType;
-import src.Model.Coordinate.Direction;
-import src.Model.Coordinate.Movement;
-import src.Model.Product.Product;
+import Controller.Static;
+import GUI.AnimalSpriteAnimation;
+import Model.Animal.AnimalType;
+import Model.Coordinate.Direction;
+import Model.Coordinate.Movement;
+import Model.Product.Product;
 
 import java.io.FileInputStream;
 

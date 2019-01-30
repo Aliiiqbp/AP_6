@@ -1,4 +1,4 @@
-package src.GUI.Menu;
+package GUI.Menu;
 
 import javafx.geometry.Pos;
 import javafx.scene.input.KeyCode;

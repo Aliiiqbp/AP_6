@@ -1,6 +1,6 @@
-package src.Model.WorkShop;
+package Model.WorkShop;
 
-import src.Controller.Static;
+import Controller.Static;
 import src.Model.Product.Egg;
 import src.Model.Product.ProductType;
 

@@ -1,9 +1,9 @@
-package src.Model.Farm.Extra;
+package Model.Farm.Extra;
 
-import src.Controller.Static;
-import src.Model.Capacity;
-import src.Model.Entity;
-import src.Model.Salable;
+import Controller.Static;
+import Model.Capacity;
+import Model.Entity;
+import Model.Salable;
 
 import java.util.ArrayList;
 

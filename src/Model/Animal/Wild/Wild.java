@@ -1,14 +1,14 @@
-package src.Model.Animal.Wild;
+package Model.Animal.Wild;
 
-import src.Model.Animal.Animal;
-import src.Model.Animal.AnimalState;
-import src.Model.Animal.AnimalType;
-import src.Model.Entity;
-import src.Model.Farm.Map.Cell;
-import src.Model.Farm.Map.Map;
-import src.Model.Product.Product;
-import src.Model.Product.ProductState;
-import src.Model.Salable;
+import Model.Animal.Animal;
+import Model.Animal.AnimalState;
+import Model.Animal.AnimalType;
+import Model.Entity;
+import Model.Farm.Map.Cell;
+import Model.Farm.Map.Map;
+import Model.Product.Product;
+import Model.Product.ProductState;
+import Model.Salable;
 
 import java.util.ArrayList;
 

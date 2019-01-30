@@ -1,6 +1,6 @@
-package src.Model.Product;
+package Model.Product;
 
-import src.Controller.Static;
+import Controller.Static;
 
 public class Wool extends  Product{
     public Wool(double x, double y){

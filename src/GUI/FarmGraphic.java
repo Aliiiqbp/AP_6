@@ -1,12 +1,7 @@
-package src.GUI;
+package GUI;
 
-//import graphic.Handle.Group;
-//import graphic.Handle.Graphic_Handler;
-//import graphic.Handle.environment.farm.home.Home_Graphic;
-//import graphic.Handle.environment.jungle.Jungle_Graphic;
-//import graphic.Handle.environment.village.Village_Graphic;
-//import graphic.Handle.farmer.Farmer_Graphic;
-
+import GUI.Menu.Menu;
+import GUI.Menu.MenuItem;
 import javafx.animation.*;
 import javafx.scene.Group;
 import javafx.scene.Node;
@@ -18,12 +13,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.util.Duration;
-import src.Controller.Controller;
-import src.Controller.Static;
-import src.Model.Animal.Pet.NoneProducer.Dog;
-import src.Model.Coordinate.Direction;
-import src.GUI.Menu.*;
-import src.Model.Farm.Farm;
+import Controller.Controller;
+import Controller.Static;
+import Model.Farm.Farm;
 
 
 public class FarmGraphic {

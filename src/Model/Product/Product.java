@@ -1,4 +1,4 @@
-package src.Model.Product;
+package Model.Product;
 
 import javafx.animation.Animation;
 import javafx.geometry.Rectangle2D;
@@ -6,10 +6,10 @@ import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
-import src.GUI.AnimalSpriteAnimation;
+import GUI.AnimalSpriteAnimation;
 import src.Model.Coordinate.Movement;
-import src.Model.Entity;
-import src.Model.Salable;
+import Model.Entity;
+import Model.Salable;
 
 import java.io.FileInputStream;
 

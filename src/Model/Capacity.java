@@ -1,7 +1,6 @@
-package src.Model;
+package Model;
 
-import src.Controller.Static;
-
+import Controller.Static;
 import java.util.ArrayList;
 import java.util.HashMap;
 

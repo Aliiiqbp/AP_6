@@ -1,8 +1,9 @@
-package src.GUI;
+package GUI;
 
 //import custom.sub_menus.farm_custom.vegs_custom.Vegs_Custom;
 //import graphic.Handle.environment.farm.Farm_Graphic;
 
+import GUI.FarmGraphic;
 import javafx.animation.Animation;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
@@ -23,7 +24,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import src.GUI.CustomMenu.Custom;
+import GUI.CustomMenu.Custom;
 
 import java.io.File;
 import java.time.LocalTime;

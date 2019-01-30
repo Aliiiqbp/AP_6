@@ -1,6 +1,6 @@
-package src.Model;
+package Model;
 
-import src.Model.Coordinate.Movement;
+import Model.Coordinate.Movement;
 
 public abstract class Salable extends Entity {
     protected double sellPrice, buyPrice;

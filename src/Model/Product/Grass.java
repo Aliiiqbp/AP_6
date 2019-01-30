@@ -1,6 +1,6 @@
-package src.Model.Product;
+package Model.Product;
 
-import src.Controller.Static;
+import Controller.Static;
 
 public class Grass extends Product {
     public Grass(double x, double y){

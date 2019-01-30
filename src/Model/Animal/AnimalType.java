@@ -1,13 +1,13 @@
-package src.Model.Animal;
+package Model.Animal;
 
-import src.Model.Animal.Pet.NoneProducer.Cat;
-import src.Model.Animal.Pet.NoneProducer.Dog;
-import src.Model.Animal.Pet.Producer.Cow;
-import src.Model.Animal.Pet.Producer.Hen;
-import src.Model.Animal.Pet.Producer.Sheep;
-import src.Model.Animal.Wild.Bear;
-import src.Model.Animal.Wild.Lion;
-import src.Model.Animal.Wild.Wild;
+import Model.Animal.Pet.NoneProducer.Cat;
+import Model.Animal.Pet.NoneProducer.Dog;
+import Model.Animal.Pet.Producer.Cow;
+import Model.Animal.Pet.Producer.Hen;
+import Model.Animal.Pet.Producer.Sheep;
+import Model.Animal.Wild.Bear;
+import Model.Animal.Wild.Lion;
+import Model.Animal.Wild.Wild;
 
 public enum AnimalType {
     HEN, COW, SHEEP, LION, BEAR, DOG, CAT;

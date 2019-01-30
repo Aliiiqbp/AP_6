@@ -1,6 +1,6 @@
-package src.Model.Farm.Map;
+package Model.Farm.Map;
 
-import src.Model.Salable;
+import Model.Salable;
 
 import java.util.ArrayList;
 

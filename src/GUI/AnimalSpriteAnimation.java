@@ -1,4 +1,4 @@
-package src.GUI;
+package GUI;
 
 import javafx.animation.Interpolator;
 import javafx.animation.Transition;

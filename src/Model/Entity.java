@@ -1,6 +1,6 @@
-package src.Model;
+package Model;
 
-import src.Controller.Static;
+import Controller.Static;
 import src.Model.Farm.Map.Map;
 
 public abstract class Entity {

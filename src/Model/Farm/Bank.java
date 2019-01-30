@@ -1,6 +1,6 @@
-package src.Model.Farm;
+package Model.Farm;
 
-import src.Controller.Static;
+import Controller.Static;
 
 public class Bank {
 

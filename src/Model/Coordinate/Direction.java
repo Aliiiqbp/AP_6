@@ -1,4 +1,4 @@
-package src.Model.Coordinate;
+package Model.Coordinate;
 
 public enum Direction {
 

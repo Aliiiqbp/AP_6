@@ -1,19 +1,21 @@
-package src.Model.Animal.Pet.Producer;
+package Model.Animal.Pet.Producer;
 
+import Controller.Static;
+import GUI.AnimalSpriteAnimation;
+import Model.Animal.AnimalType;
+import Model.Coordinate.Direction;
+import Model.Product.Milk;
+import Model.Product.Product;
 import javafx.animation.Animation;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
-import src.Controller.Static;
-import src.GUI.AnimalSpriteAnimation;
-import src.Model.Animal.AnimalType;
-import src.Model.Coordinate.Direction;
-import src.Model.Product.Milk;
-import src.Model.Product.Product;
 
 import java.io.FileInputStream;
+
+import static Model.Coordinate.Direction.*;
 
 public class Cow extends ProducerAnimal {
     public Cow(double x, double y) {
@@ -24,7 +26,6 @@ public class Cow extends ProducerAnimal {
     public Product Produce() {
         return new Milk(this.getMovement().getCurrentX(), this.getMovement().getCurrentY());
     }
-
 
     public void showCow(Group root, Direction direction) {
         try {

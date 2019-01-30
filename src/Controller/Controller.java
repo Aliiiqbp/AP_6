@@ -1,25 +1,24 @@
-package src.Controller;
+package Controller;
 
 import javafx.scene.Group;
-import src.Model.Animal.Animal;
-import src.Model.Animal.AnimalType;
-import src.Model.Animal.Pet.NoneProducer.Cat;
-import src.Model.Animal.Pet.NoneProducer.Dog;
-import src.Model.Animal.Wild.Wild;
-import src.Model.Farm.Extra.WareHouse;
-import src.Model.Farm.Farm;
-import src.Model.Farm.Map.Cell;
-import src.Model.Farm.Map.Map;
+import Model.Animal.Animal;
+import Model.Animal.AnimalType;
+import Model.Animal.Pet.NoneProducer.Cat;
+import Model.Animal.Pet.NoneProducer.Dog;
+import Model.Animal.Wild.Wild;
+import Model.Farm.Extra.WareHouse;
+import Model.Farm.Farm;
+import Model.Farm.Map.Cell;
 
-import src.Model.Entity;
-import src.Model.Product.Grass;
-import src.Model.Product.Product;
-import src.Model.Product.ProductType;
-import src.Model.Product.Water;
-import src.Model.Salable;
-import src.Model.Time;
-import src.Model.WorkShop.WorkShop;
-import src.Model.WorkShop.WorkShopType;
+import Model.Entity;
+import Model.Product.Grass;
+import Model.Product.Product;
+import Model.Product.ProductType;
+import Model.Product.Water;
+import Model.Salable;
+import Model.Time;
+import Model.WorkShop.WorkShop;
+import Model.WorkShop.WorkShopType;
 import src.View.IO;
 
 import java.nio.file.Path;

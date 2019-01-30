@@ -1,11 +1,11 @@
-package src.GUI.CustomMenu;
+package GUI.CustomMenu;
 
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import src.GUI.GraphicHandler;
+import GUI.GraphicHandler;
 
 import static javafx.scene.text.FontWeight.BOLD;
 

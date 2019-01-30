@@ -1,4 +1,4 @@
-package src.GUI;
+package GUI;
 
 
 import javafx.animation.*;
@@ -9,7 +9,7 @@ import javafx.scene.image.*;
 import java.awt.image.*;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import src.Model.Coordinate.Direction;
+import Model.Coordinate.Direction;
 
 import javax.swing.text.html.ImageView;
 import java.awt.*;
