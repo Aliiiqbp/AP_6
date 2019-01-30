@@ -1,7 +1,7 @@
-package Model.Coordinate;
+package src.Model.Coordinate;
 
-import Model.Vehicle.Vehicle;
-import Model.WorkShop.WorkShop;
+import src.Model.Vehicle.Vehicle;
+import src.Model.WorkShop.WorkShop;
 
 public class Movement {
     Direction direction;

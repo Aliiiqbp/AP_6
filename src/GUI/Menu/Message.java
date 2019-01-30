@@ -1,4 +1,4 @@
-package GUI.Menu;
+package src.GUI.Menu;
 
 public class Message extends Menu {
     public Message (String s){

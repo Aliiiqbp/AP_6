@@ -1,21 +1,23 @@
-package GUI;
+package src.GUI;
 
-import GUI.Menu.Menu;
-import GUI.Menu.MenuItem;
+import src.GUI.Menu.Menu;
+import src.GUI.Menu.MenuItem;
 import javafx.animation.*;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.util.Duration;
-import Controller.Controller;
-import Controller.Static;
-import Model.Farm.Farm;
+import src.Controller.Controller;
+import src.Controller.Static;
+import src.Model.Farm.Farm;
 
 
 public class FarmGraphic {
@@ -23,6 +25,8 @@ public class FarmGraphic {
     private static Timeline interact;
     private static Menu pauseMenu;
     private static Menu activeMenu = null;
+    public static TextArea textArea = new TextArea();
+    public static TextField textField = new TextField();
 
     public static void farmScene(String where) {
         ImageView background = new ImageView(new Image("src/Resources/Textures/back.png"));
@@ -192,9 +196,9 @@ public class FarmGraphic {
         });
 
         root.getChildren().addAll(buyCowIcon, buyCowIconBack, buyCowIconLab);
-        
+
         /////////////////////////////////////////buyCatIcon
-        
+
         ImageView buyCatIcon = new ImageView(new Image("src/Resources/Textures/UI/Icons/cat.png"));
         buyCatIcon.setFitWidth(30);
         buyCatIcon.setFitHeight(30);
@@ -231,9 +235,9 @@ public class FarmGraphic {
         });
 
         root.getChildren().addAll(buyCatIcon, buyCatIconBack, buyCatIconLab);
-        
+
         ////////////////////////////////////////////buyDogIcon
-        
+
         ImageView buyDogIcon = new ImageView(new Image("src/Resources/Textures/UI/Icons/dog.png"));
         buyDogIcon.setFitWidth(30);
         buyDogIcon.setFitHeight(30);
@@ -282,14 +286,15 @@ public class FarmGraphic {
         ////////////////starting to handle the time
 
         //   final int[] tooShow = {100};
-    //    tooShow[0] = 10;
+        //    tooShow[0] = 10;
         AnimationTimer timer = new AnimationTimer() {
             final long constant = 1000000000;
             long beforeInt = 0;
+
             @Override
             public void handle(long now) {
                 long nowInt = now / constant;
-                if (nowInt > beforeInt){
+                if (nowInt > beforeInt) {
                     beforeInt = nowInt;
                     System.out.println("A second Passed");
                     // Every second will update locations
@@ -298,7 +303,6 @@ public class FarmGraphic {
             }
         };
         timer.start();
-
 
 
         Scene scene = new Scene(root, 800, 600);

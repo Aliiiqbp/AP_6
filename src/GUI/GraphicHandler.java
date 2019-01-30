@@ -1,9 +1,9 @@
-package GUI;
+package src.GUI;
 
 //import custom.sub_menus.farm_custom.vegs_custom.Vegs_Custom;
 //import graphic.Handle.environment.farm.Farm_Graphic;
 
-import GUI.FarmGraphic;
+import src.GUI.FarmGraphic;
 import javafx.animation.Animation;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
@@ -24,13 +24,13 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import GUI.CustomMenu.Custom;
+import src.GUI.CustomMenu.Custom;
 
 import java.io.File;
 import java.time.LocalTime;
 import java.util.Optional;
 
-//import network.Network;
+import src.Network.Network;
 
 public class GraphicHandler extends Application {
     public static boolean isOnline = false;
@@ -129,13 +129,9 @@ public class GraphicHandler extends Application {
         exitLab.setOpacity(0);
 
         MediaPlayer MainMusic = new MediaPlayer(new Media(new File("src/src/Resources/Music/MammadNobari.mp3").toURI().toString()));
-//        MediaPlayer MammadNobari = new MediaPlayer(new Media(new File("src/src/Resources/Music/MammadNobari.mp3").toURI().toString()));
         MainMusic.setVolume(0.4);
-//        MammadNobari.setVolume(0.2);
         MainMusic.setCycleCount(MediaPlayer.INDEFINITE);
-//        MammadNobari.setCycleCount(MediaPlayer.INDEFINITE);
         MainMusic.play();
-//        MammadNobari.play();
 
         ImageView background = new ImageView();
         ImageView toggle = new ImageView();
@@ -301,7 +297,6 @@ public class GraphicHandler extends Application {
 
         single.setOnMouseClicked(event -> {
             MainMusic.stop();
-            //            MammadNobari.stop();
             isOnline = false;
             FarmGraphic.farmScene("start");
         });
@@ -329,9 +324,9 @@ public class GraphicHandler extends Application {
 
         multi.setOnMouseClicked(event -> {
             if (multi.getOpacity() >= 0.8) {
-//                MammadNobari.stop();
                 MainMusic.stop();
-//                Network.networkScene();
+                MainMusic.stop();
+                Network.networkScene();
             }
         });
 
@@ -408,7 +403,6 @@ public class GraphicHandler extends Application {
                 alert.setContentText("Do you really want to exit from game?");
                 Optional<ButtonType> result = alert.showAndWait();
                 if (result.get().equals(ButtonType.OK)) {
-//                    MammadNobari.stop();
                     game.close();
                 }
             }

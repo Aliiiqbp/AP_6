@@ -1,4 +1,4 @@
-package Model.Animal.Pet.NoneProducer;
+package src.Model.Animal.Pet.NoneProducer;
 
 import javafx.animation.Animation;
 import javafx.application.Application;
@@ -9,12 +9,12 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import Controller.Static;
-import GUI.AnimalSpriteAnimation;
-import Model.Animal.AnimalType;
-import Model.Animal.Wild.Wild;
-import Model.Coordinate.Direction;
-import Model.Coordinate.Movement;
+import src.Controller.Static;
+import src.GUI.AnimalSpriteAnimation;
+import src.Model.Animal.AnimalType;
+import src.Model.Animal.Wild.Wild;
+import src.Model.Coordinate.Direction;
+import src.Model.Coordinate.Movement;
 
 import java.io.FileInputStream;
 
@@ -80,7 +80,6 @@ public class Dog extends NoneProducerAnimal {
                     columns = 6;
                     dogView.setScaleX(-1);
                     break;
-
             }
 
             dogView.setViewport(new Rectangle2D(0, 0, width, height));    //sprite animation  useful for your project
@@ -89,7 +88,7 @@ public class Dog extends NoneProducerAnimal {
                     Duration.millis(durationTime),
                     count, columns,
                     offsetX, offsetY,
-                    width / columns, height / (count / columns)
+                    (int) Math.ceil(1.0 * width / columns), (int) Math.ceil(1.0 * height / (1.0 * count / columns))
             );
             animation.setCycleCount(Animation.INDEFINITE);
             animation.play();

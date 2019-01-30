@@ -1,9 +1,14 @@
-package Model.WorkShop;
+package src.Model.WorkShop;
 
-import Model.Product.Product;
-import Model.Product.ProductType;
-import Model.Coordinate.Movement;
-import Model.Entity;
+import javafx.scene.Group;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import src.Model.Product.Product;
+import src.Model.Product.ProductType;
+import src.Model.Coordinate.Movement;
+import src.Model.Entity;
+
+import java.io.FileInputStream;
 import java.util.HashMap;
 import java.util.Set;
 
@@ -34,7 +39,7 @@ public abstract class WorkShop extends Entity {
         HashMap<ProductType, Integer> productList = ProductType.changeToHashMap(products);
 
         boolean result = true;
-        for (ProductType productType :productTypeSet) {
+        for (ProductType productType : productTypeSet) {
             if (!productList.containsKey(productType)) {
                 result = false;
                 break;

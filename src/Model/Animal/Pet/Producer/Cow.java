@@ -1,11 +1,11 @@
-package Model.Animal.Pet.Producer;
+package src.Model.Animal.Pet.Producer;
 
-import Controller.Static;
-import GUI.AnimalSpriteAnimation;
-import Model.Animal.AnimalType;
-import Model.Coordinate.Direction;
-import Model.Product.Milk;
-import Model.Product.Product;
+import src.Controller.Static;
+import src.GUI.AnimalSpriteAnimation;
+import src.Model.Animal.AnimalType;
+import src.Model.Coordinate.Direction;
+import src.Model.Product.Milk;
+import src.Model.Product.Product;
 import javafx.animation.Animation;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Group;
@@ -15,7 +15,7 @@ import javafx.util.Duration;
 
 import java.io.FileInputStream;
 
-import static Model.Coordinate.Direction.*;
+import static src.Model.Coordinate.Direction.*;
 
 public class Cow extends ProducerAnimal {
     public Cow(double x, double y) {
@@ -79,7 +79,7 @@ public class Cow extends ProducerAnimal {
                     Duration.millis(durationTime),
                     count, columns,
                     offsetX, offsetY,
-                    width / columns, height / (count / columns)
+                    (int) Math.ceil(1.0 * width / columns), (int) Math.ceil(1.0 * height / (1.0 * count / columns))
             );
             animation.setCycleCount(Animation.INDEFINITE);
             animation.play();

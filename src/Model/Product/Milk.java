@@ -1,6 +1,6 @@
-package Model.Product;
+package src.Model.Product;
 
-import Controller.Static;
+import src.Controller.Static;
 
 public class Milk extends Product {
 

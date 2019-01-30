@@ -1,7 +1,7 @@
-package Model;
+package src.Model;
 
-import Controller.Static;
-import Model.Farm.Map.Map;
+import src.Controller.Static;
+import src.Model.Farm.Map.Map;
 
 public abstract class Entity {
     public int level;

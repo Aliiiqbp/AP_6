@@ -1,8 +1,8 @@
-package Model.Animal.Pet.Producer;
+package src.Model.Animal.Pet.Producer;
 
-import Model.Animal.AnimalType;
-import Model.Animal.Pet.Pet;
-import Model.Product.Product;
+import src.Model.Animal.AnimalType;
+import src.Model.Animal.Pet.Pet;
+import src.Model.Product.Product;
 
 public abstract class ProducerAnimal extends Pet {
     public ProducerAnimal(AnimalType animalType, double sellPrice, double buyPrice, double volume, double speed, double x, double y) {

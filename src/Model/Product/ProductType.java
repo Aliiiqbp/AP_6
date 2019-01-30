@@ -1,4 +1,4 @@
-package Model.Product;
+package src.Model.Product;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -60,7 +60,7 @@ public enum ProductType {
     public static HashMap<ProductType, Integer> changeToHashMap(Product... products) {
         HashMap<ProductType, Integer> hashMap = new HashMap();
         ArrayList<ProductType> arrayList = new ArrayList<>();
-        for (Product product :products) {
+        for (Product product : products) {
             if (arrayList.contains(product.getProductType())) {
                 hashMap.replace(product.getProductType(), hashMap.get(product.getProductType()) + 1);
             } else {

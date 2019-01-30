@@ -1,9 +1,9 @@
-package Model.Animal;
+package src.Model.Animal;
 
 import javafx.scene.image.ImageView;
-import Model.Coordinate.Movement;
-import Model.Entity;
-import Model.Salable;
+import src.Model.Coordinate.Movement;
+import src.Model.Entity;
+import src.Model.Salable;
 
 public abstract class Animal extends Salable {
     protected AnimalType animalType;

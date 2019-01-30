@@ -1,7 +1,7 @@
-package Model.Vehicle;
+package src.Model.Vehicle;
 
-import Controller.Static;
-import Model.Salable;
+import src.Controller.Static;
+import src.Model.Salable;
 
 public class Truck extends Vehicle {
     private double boxCount;
