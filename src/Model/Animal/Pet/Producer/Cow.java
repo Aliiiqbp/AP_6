@@ -27,13 +27,13 @@ public class Cow extends ProducerAnimal {
         return new Milk(this.getMovement().getCurrentX(), this.getMovement().getCurrentY());
     }
 
-    public void showCow(Group root, Direction direction) {
+    public void ShowCow(Group root) {
         try {
-            Image cowImage = new Image(new FileInputStream("src/src/Resources/Textures/Animals/Cow/" + this.getMovement().getDirection() + ".png")); // TODO: 01/25/2019 get correct address for animations
+            Image cowImage = new Image(new FileInputStream("src/Resources/Textures/Animals/Cow/" + this.getMovement().getDirection() + ".png")); // TODO: 01/25/2019 get correct address for animations
             ImageView cowView = new ImageView(cowImage);
             cowView.setX(this.getMovement().getCurrentX());
             cowView.setY(this.getMovement().getCurrentY());
-
+            root.getChildren().remove(lastImageView);
 
             final int count = 24;
             final int durationTime = 2000, offsetX = 0, offsetY = 0;
@@ -67,7 +67,7 @@ public class Cow extends ProducerAnimal {
                     cowView.setScaleX(-1);
                     break;
                 case RIGHT:
-                    columns = 6;
+                    columns = 3;
                     cowView.setScaleX(-1);
                     break;
 
@@ -83,6 +83,7 @@ public class Cow extends ProducerAnimal {
             );
             animation.setCycleCount(Animation.INDEFINITE);
             animation.play();
+            lastImageView = cowView;
         } catch (Exception e) {
         }
     }

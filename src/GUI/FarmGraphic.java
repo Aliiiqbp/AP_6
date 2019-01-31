@@ -17,6 +17,7 @@ import javafx.scene.text.Font;
 import javafx.util.Duration;
 import src.Controller.Controller;
 import src.Controller.Static;
+import src.Model.Animal.AnimalType;
 import src.Model.Farm.Farm;
 
 
@@ -32,6 +33,9 @@ public class FarmGraphic {
         ImageView background = new ImageView(new Image("src/Resources/Textures/back.png"));
 
         root = new Group(background);
+
+        Farm farm = new Farm();
+        Controller controller = new Controller(farm);
         ////////////////////////Status bar
 
         Rectangle statusBar = new Rectangle(780, 40);
@@ -114,7 +118,7 @@ public class FarmGraphic {
         });
 
         buyHenIcon.setOnMouseClicked(event -> {
-            // TODO: buy Hen
+            controller.buyAnimal(AnimalType.HEN, Math.random()*700 + 50, Math.random()*500 +50);
         });
 
         root.getChildren().addAll(buyHenIcon, buyHenIconBack, buyHenIconLab);
@@ -153,7 +157,7 @@ public class FarmGraphic {
         });
 
         buySheepIcon.setOnMouseClicked(event -> {
-            // TODO: buy Sheep
+            controller.buyAnimal(AnimalType.SHEEP, Math.random()*700 + 50, Math.random()*500 +50);
         });
 
         root.getChildren().addAll(buySheepIcon, buySheepIconBack, buySheepIconLab);
@@ -192,7 +196,7 @@ public class FarmGraphic {
         });
 
         buyCowIcon.setOnMouseClicked(event -> {
-            // TODO: buy Cow
+            controller.buyAnimal(AnimalType.COW, Math.random()*700 + 50, Math.random()*500 +50);
         });
 
         root.getChildren().addAll(buyCowIcon, buyCowIconBack, buyCowIconLab);
@@ -231,7 +235,7 @@ public class FarmGraphic {
         });
 
         buyCatIcon.setOnMouseClicked(event -> {
-            // TODO: buy Cat
+           controller.buyAnimal(AnimalType.CAT, Math.random()*700 + 50, Math.random()*500 +50);
         });
 
         root.getChildren().addAll(buyCatIcon, buyCatIconBack, buyCatIconLab);
@@ -270,15 +274,14 @@ public class FarmGraphic {
         });
 
         buyDogIcon.setOnMouseClicked(event -> {
-            // TODO: buy Dog
+            controller.buyAnimal(AnimalType.DOG, Math.random()*700 + 50, Math.random()*500 +50);
         });
 
         root.getChildren().addAll(buyDogIcon, buyDogIconBack, buyDogIconLab);
 
         ////////////////////////////////////////////
 
-        Farm farm = new Farm();
-        Controller controller = new Controller(farm);
+
 
         controller.initializeGame();
         //it initializes Game, some dogs and cats are generated in farm
@@ -293,7 +296,7 @@ public class FarmGraphic {
 
             @Override
             public void handle(long now) {
-                long nowInt = now / constant;
+                long nowInt = now / (2*constant);
                 if (nowInt > beforeInt) {
                     beforeInt = nowInt;
                     System.out.println("A second Passed");

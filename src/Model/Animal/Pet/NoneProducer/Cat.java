@@ -39,7 +39,7 @@ public class Cat extends NoneProducerAnimal {
 
     public void ShowCat(Group root) {
         try {
-            Image CatImage = new Image(new FileInputStream("src/src/Resources/Textures/Animals/Cat/" + this.getMovement().getDirection() + ".png"));
+            Image CatImage = new Image(new FileInputStream("src/Resources/Textures/Animals/Cat/" + this.getMovement().getDirection() + ".png"));
             ImageView CatView = new ImageView(CatImage);
             CatView.setX(this.getMovement().getCurrentX());
             CatView.setY(this.getMovement().getCurrentY());

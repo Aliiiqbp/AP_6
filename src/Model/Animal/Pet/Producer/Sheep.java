@@ -26,13 +26,13 @@ public class Sheep extends ProducerAnimal {
     }
 
 
-    public void ShowSheep(Group root, Direction direction) {
+    public void ShowSheep(Group root) {
         try {
-            Image sheepImage = new Image(new FileInputStream("src/src/Resources/Textures/Animals/Sheep/" + this.getMovement().getDirection() + ".png")); // TODO: 01/25/2019 get correct address for animations
+            Image sheepImage = new Image(new FileInputStream("src/Resources/Textures/Animals/Sheep/" + this.getMovement().getDirection() + ".png")); // TODO: 01/25/2019 get correct address for animations
             ImageView sheepView = new ImageView(sheepImage);
             sheepView.setX(this.getMovement().getCurrentX());
             sheepView.setY(this.getMovement().getCurrentY());
-
+            root.getChildren().remove(lastImageView);
 
             final int count = 24;
             final int durationTime = 2000, offsetX = 0, offsetY = 0;
@@ -65,7 +65,7 @@ public class Sheep extends ProducerAnimal {
                     sheepView.setScaleX(-1);
                     break;
                 case RIGHT:
-                    columns = 6;
+                    columns = 4;
                     sheepView.setScaleX(-1);
                     break;
 
@@ -81,6 +81,7 @@ public class Sheep extends ProducerAnimal {
             );
             animation.setCycleCount(Animation.INDEFINITE);
             animation.play();
+            lastImageView = sheepView;
         } catch (Exception e) {
         }
     }
