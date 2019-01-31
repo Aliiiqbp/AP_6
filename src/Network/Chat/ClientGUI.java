@@ -9,7 +9,7 @@ public class ClientGUI {
     public static TextArea textArea;
     public static TextField textField;
 
-    public static String username = "parsa";
+    public static String username = "ashkan";
     public static int portNumber = 1234;
     private String defaultHost;
 
@@ -34,9 +34,9 @@ public class ClientGUI {
         client.sendMessage(new ChatMessage(ChatMessage.MESSAGE, msg));
     }
 
-    public static void sendLocation(Location location) {
-        client.sendLocation(location);
-    }
+//    public static void sendLocation(Location location) {
+//        client.sendLocation(location);
+//    }
 
     public static void sendSingleMessage(SingleMessage message) {
         client.sendSingle(message);

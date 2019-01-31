@@ -9,13 +9,6 @@ public class Location implements Serializable {
     private String name;
     private double x, y;
 
-    public Location(double x, double y, String name, boolean isInVillage) {
-        this.x = x;
-        this.y = y;
-        this.name = name;
-        this.isInVillage = isInVillage;
-    }
-
     public double getX() {
         return x;
     }

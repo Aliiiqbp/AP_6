@@ -4,6 +4,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import src.GUI.GraphicHandler;
 import java.awt.*;
@@ -13,6 +14,12 @@ import static javafx.scene.text.FontWeight.BOLD;
 public class Custom {
     public static void custom() {
         CustomMenu.customMenu();
+
+//        javafx.scene.shape.Rectangle fade = new Rectangle(960, 712.5);
+//        fade.setOpacity(0.5);
+//        fade.setFill(Color.DARKGREEN);
+//        CustomMenu.root.getChildren().add(fade);
+
 
         Label nameLable = new Label("Choose a name for your warehouse: ");
         nameLable.setLayoutX(200);

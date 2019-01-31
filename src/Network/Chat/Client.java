@@ -1,25 +1,25 @@
 package src.Network.Chat;
 
-import src.GUI.*;
+import javafx.application.Platform;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import src.Network.Network;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.Optional;
 import java.util.Scanner;
 
-/*
- * The Client that can be run both as a console or a GUI
- */
 public class Client  {
 
-    // for I/O
-    private ObjectInputStream sInput;		// to read from the socket
-    private ObjectOutputStream sOutput;		// to write on the socket
+    private ObjectInputStream sInput;
+    private ObjectOutputStream sOutput;
     private Socket socket;
 
-    // if I use a GUI or not
-    private ClientGUI cg;
+    // whether I use a GUI or not
+    private ClientGUI clientGUI;
 
     // the server, the port and the username
     private String server, username;
@@ -32,7 +32,6 @@ public class Client  {
      *  username: the username
      */
     Client(String server, int port, String username) {
-        // which calls the common constructor with the GUI set to null
         this(server, port, username, null);
     }
 
@@ -40,23 +39,17 @@ public class Client  {
      * Constructor call when used from a GUI
      * in console mode the ClienGUI parameter is null
      */
-    Client(String server, int port, String username, ClientGUI cg) {
+    Client(String server, int port, String username, ClientGUI clientGUI) {
         this.server = server;
         this.port = port;
         this.username = username;
-        // save if we are in GUI mode or not
-        this.cg = cg;
+        this.clientGUI = clientGUI;
     }
 
-    /*
-     * To start the dialog
-     */
     public boolean start() {
-        // try to connect to the server
         try {
             socket = new Socket(server, port);
         }
-        // if it failed not much I can so
         catch(Exception ec) {
             display("Error connecting to server:" + ec);
             return false;
@@ -94,10 +87,10 @@ public class Client  {
      * To send a message to the console or the GUI
      */
     private void display(String msg) {
-        if(cg == null)
+        if(clientGUI == null)
             System.out.println(msg);      // println in console mode
         else
-            cg.append(msg + "\n");		// append to the ClientGUI JTextArea (or whatever)
+            clientGUI.append(msg + "\n");		// append to the ClientGUI JTextArea (or whatever)
     }
 
     /*
@@ -250,7 +243,7 @@ public class Client  {
                     System.out.println(object.getClass());
                     if(object instanceof String) {
                         String msg = (String) object;
-                        if (cg == null) {
+                        if (clientGUI == null) {
                             System.out.println(msg);
                             System.out.print("> ");
                         } else {
@@ -260,7 +253,7 @@ public class Client  {
                     if(object instanceof SingleMessage) {
                         System.out.println(3);
                         SingleMessage message = (SingleMessage) object;
-                        /*if (message.getTo().equals(Network.clientString) && !message.isCanChat()) {
+                        if (message.getTo().equals(Network.clientString) && !message.isCanChat()) {
                             System.out.println(2);
                             Platform.runLater(() -> {
                                     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -273,7 +266,7 @@ public class Client  {
                                     }
                                 }
                             );
-                        }*/
+                        }
                     }
 //                    if(object instanceof Location) {
 //                        Location location = (Location) object;

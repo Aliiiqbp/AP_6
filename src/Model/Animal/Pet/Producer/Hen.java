@@ -28,7 +28,7 @@ public class Hen extends ProducerAnimal {
 
     public void ShowHen(Group root) {
         try {
-            Image henImage = new Image(new FileInputStream("src/Resources/Textures/Animals/GuineaFowl/" + this.getMovement().getDirection() + ".png")); // TODO: 01/25/2019 get correct address for animations
+            Image henImage = new Image(new FileInputStream("src/src/Resources/Textures/Animals/GuineaFowl/" + this.getMovement().getDirection() + ".png")); // TODO: 01/25/2019 get correct address for animations
             ImageView henView = new ImageView(henImage);
             henView.setX(this.getMovement().getCurrentX());
             henView.setY(this.getMovement().getCurrentY());

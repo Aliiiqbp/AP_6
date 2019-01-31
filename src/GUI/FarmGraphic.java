@@ -1,14 +1,12 @@
 package src.GUI;
 
+import javafx.scene.control.*;
 import src.GUI.Menu.Menu;
 import src.GUI.Menu.MenuItem;
 import javafx.animation.*;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
@@ -18,7 +16,15 @@ import javafx.util.Duration;
 import src.Controller.Controller;
 import src.Controller.Static;
 import src.Model.Animal.AnimalType;
+import src.Model.Farm.Bank;
 import src.Model.Farm.Farm;
+import src.Network.Chat.ClientGUI;
+import src.Network.Chat.SingleMessage;
+import src.Network.Chat.Status;
+import src.Network.Network;
+
+import java.io.FileReader;
+import java.util.ArrayList;
 
 
 public class FarmGraphic {
@@ -28,6 +34,7 @@ public class FarmGraphic {
     private static Menu activeMenu = null;
     public static TextArea textArea = new TextArea();
     public static TextField textField = new TextField();
+    public static Bank bank;
 
     public static void farmScene(String where) {
         ImageView background = new ImageView(new Image("src/Resources/Textures/back.png"));
@@ -118,7 +125,7 @@ public class FarmGraphic {
         });
 
         buyHenIcon.setOnMouseClicked(event -> {
-            controller.buyAnimal(AnimalType.HEN, Math.random()*700 + 50, Math.random()*500 +50);
+            controller.buyAnimal(AnimalType.HEN, Math.random() * 700 + 50, Math.random() * 500 + 50);
         });
 
         root.getChildren().addAll(buyHenIcon, buyHenIconBack, buyHenIconLab);
@@ -157,7 +164,7 @@ public class FarmGraphic {
         });
 
         buySheepIcon.setOnMouseClicked(event -> {
-            controller.buyAnimal(AnimalType.SHEEP, Math.random()*700 + 50, Math.random()*500 +50);
+            controller.buyAnimal(AnimalType.SHEEP, Math.random() * 700 + 50, Math.random() * 500 + 50);
         });
 
         root.getChildren().addAll(buySheepIcon, buySheepIconBack, buySheepIconLab);
@@ -196,7 +203,7 @@ public class FarmGraphic {
         });
 
         buyCowIcon.setOnMouseClicked(event -> {
-            controller.buyAnimal(AnimalType.COW, Math.random()*700 + 50, Math.random()*500 +50);
+            controller.buyAnimal(AnimalType.COW, Math.random() * 700 + 50, Math.random() * 500 + 50);
         });
 
         root.getChildren().addAll(buyCowIcon, buyCowIconBack, buyCowIconLab);
@@ -235,7 +242,7 @@ public class FarmGraphic {
         });
 
         buyCatIcon.setOnMouseClicked(event -> {
-           controller.buyAnimal(AnimalType.CAT, Math.random()*700 + 50, Math.random()*500 +50);
+            controller.buyAnimal(AnimalType.CAT, Math.random() * 700 + 50, Math.random() * 500 + 50);
         });
 
         root.getChildren().addAll(buyCatIcon, buyCatIconBack, buyCatIconLab);
@@ -274,13 +281,12 @@ public class FarmGraphic {
         });
 
         buyDogIcon.setOnMouseClicked(event -> {
-            controller.buyAnimal(AnimalType.DOG, Math.random()*700 + 50, Math.random()*500 +50);
+            controller.buyAnimal(AnimalType.DOG, Math.random() * 700 + 50, Math.random() * 500 + 50);
         });
 
         root.getChildren().addAll(buyDogIcon, buyDogIconBack, buyDogIconLab);
 
         ////////////////////////////////////////////
-
 
 
         controller.initializeGame();
@@ -296,7 +302,7 @@ public class FarmGraphic {
 
             @Override
             public void handle(long now) {
-                long nowInt = now / (2*constant);
+                long nowInt = now / (2 * constant);
                 if (nowInt > beforeInt) {
                     beforeInt = nowInt;
                     System.out.println("A second Passed");
@@ -307,6 +313,10 @@ public class FarmGraphic {
         };
         timer.start();
 
+        if (GraphicHandler.isOnline) {
+            addOnlineButtons();
+            System.out.println("addOnlineButtons");
+        }
 
         Scene scene = new Scene(root, 800, 600);
         GraphicHandler.game.setScene(scene);
@@ -345,5 +355,178 @@ public class FarmGraphic {
             activeMenu = null;
 //            requestFocus();
         }
+    }
+
+
+    /////////////////////////////////////////
+
+    public static Rectangle other = new Rectangle(64, 64, Color.WHITE);
+
+    private static boolean isOnPublicChatWindow = false;
+    private static boolean isOnChatSelectWindow = false;
+    private static boolean isOnStatusWindow = false;
+
+    public static TextArea textArea1 = new TextArea();
+    public static TextField textField1 = new TextField();
+    private static ListView<String> chatList = new ListView<>();
+    private static Button sendChatRequest = new Button("Send Request");
+    private static Button getPlayerStatus = new Button("Get Status");
+
+    //private final static int TIME_RATE = 100;
+    public static void addOnlineButtons() {
+        sendChatRequest.setMinSize(440, 50);
+        sendChatRequest.setLayoutX(800);
+        sendChatRequest.setLayoutY(600 - 50);
+        sendChatRequest.setOnMouseClicked(event -> {
+            if (chatList.getSelectionModel().getSelectedItems().size() == 0) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle(null);
+                alert.setHeaderText(null);
+                alert.setContentText("You have to choose a member to start chat.");
+                alert.show();
+            } else {
+                String to = chatList.getSelectionModel().getSelectedItem();
+                String from = Network.clientString;
+                SingleMessage singleMessage = new SingleMessage(from, to, false);
+                ClientGUI.sendSingleMessage(singleMessage);
+            }
+        });
+
+        getPlayerStatus.setMinSize(440, 50);
+        getPlayerStatus.setLayoutX(800);
+        getPlayerStatus.setLayoutY(600 - 50);
+        getPlayerStatus.setOnMouseClicked(event -> {
+            if (chatList.getSelectionModel().getSelectedItems().size() == 0) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle(null);
+                alert.setHeaderText(null);
+                alert.setContentText("You have to choose a member to see status.");
+                alert.show();
+            } else {
+                Status status = new Status(Network.clientString, (int) bank.getMoney());
+
+            }
+        });
+
+        other.setOpacity(0);
+        other.setLayoutX(500);
+        other.setLayoutY(650);
+
+        chatList.setLayoutX(800);
+        chatList.setMinWidth(440);
+        chatList.setMinHeight(600);
+
+        textArea1.setLayoutX(800);
+        textArea1.setMinWidth(440);
+        textArea1.setMinHeight(600 - 50);
+        textArea1.setEditable(false);
+
+        textField1.setLayoutX(800);
+        textField1.setLayoutY(550);
+        textField1.setMinWidth(440);
+        textField1.setMinHeight(50);
+
+        ImageView groupChat = new ImageView(new Image("src/Resources/Online/groupChat.png"));
+        groupChat.setFitWidth(30);
+        groupChat.setFitHeight(30);
+        groupChat.setLayoutX(700);
+        groupChat.setLayoutY(15);
+        groupChat.setOnMouseClicked(event -> {
+            if (isOnPublicChatWindow) {
+                GraphicHandler.game.setWidth(800);
+                GraphicHandler.game.setX(GraphicHandler.game.getX() + 220);
+                root.getChildren().removeAll(textArea1, textField1);
+            } else {
+                GraphicHandler.game.setWidth(1240);
+                GraphicHandler.game.setX(GraphicHandler.game.getX() - 220);
+                root.getChildren().addAll(textArea1, textField1);
+            }
+            isOnPublicChatWindow = !isOnPublicChatWindow;
+        });
+
+        ImageView chat = new ImageView(new Image("src/Resources/Online/chat.png"));
+        chat.setFitWidth(35);
+        chat.setFitHeight(35);
+        chat.setLayoutY(550);
+        chat.setLayoutX(600);
+        chat.setOnMouseClicked(event -> {
+            if (isOnChatSelectWindow) {
+                GraphicHandler.game.setWidth(800);
+                GraphicHandler.game.setX(GraphicHandler.game.getX() + 220);
+                root.getChildren().removeAll(chatList, sendChatRequest);
+            } else {
+                for (String string : getNames()) {
+                    if (!chatList.getItems().contains(string)) {
+                        chatList.getItems().add(string);
+                    }
+                }
+                GraphicHandler.game.setWidth(1240);
+                GraphicHandler.game.setX(GraphicHandler.game.getX() - 220);
+                root.getChildren().addAll(chatList, sendChatRequest);
+            }
+            isOnChatSelectWindow = !isOnChatSelectWindow;
+        });
+
+        ImageView friend = new ImageView(new Image("src/Resources/Online/friends.png"));
+        friend.setFitWidth(35);
+        friend.setFitHeight(35);
+        friend.setLayoutY(550);
+        friend.setLayoutX(650);
+        friend.setOnMouseClicked(event -> {
+
+        });
+
+        ImageView trade = new ImageView(new Image("src/Resources/Online/trade.png"));
+        trade.setFitWidth(35);
+        trade.setFitHeight(35);
+        trade.setLayoutY(550);
+        trade.setLayoutX(700);
+
+        ImageView status = new ImageView(new Image("src/Resources/Online/status.png"));
+        status.setFitWidth(35);
+        status.setFitHeight(35);
+        status.setLayoutY(550);
+        status.setLayoutX(750);
+        status.setOnMouseClicked(event -> {
+            if (isOnStatusWindow) {
+                GraphicHandler.game.setWidth(800);
+                root.getChildren().removeAll(chatList, getPlayerStatus);
+                GraphicHandler.game.setX(GraphicHandler.game.getX() + 220);
+            } else {
+                for (String string : getNames()) {
+                    if (!chatList.getItems().contains(string)) {
+                        chatList.getItems().add(string);
+                    }
+                }
+                GraphicHandler.game.setWidth(1240);
+                root.getChildren().addAll(chatList, getPlayerStatus);
+                GraphicHandler.game.setX(GraphicHandler.game.getX() - 220);
+            }
+            isOnStatusWindow = !isOnStatusWindow;
+        });
+
+        root.getChildren().addAll(chat, friend, trade, status, groupChat);
+    }
+
+    private static ArrayList<String> getNames() {
+        ArrayList<String> names = new ArrayList<>();
+        try {
+            FileReader namesToChat = new FileReader("src/src/Resources/Network/serverInfo/" + Network.serverString + "/info.txt");
+            StringBuilder result = new StringBuilder();
+            int ascii = namesToChat.read();
+            while (ascii != -1) {
+                result.append((char) ascii);
+                ascii = namesToChat.read();
+            }
+            String[] servers = result.toString().split("\n");
+            for (String string : servers) {
+                if (!string.equals(Network.clientString)) {
+                    names.add(string);
+                }
+            }
+        } catch (java.io.IOException e) {
+            e.printStackTrace();
+        }
+        return names;
     }
 }

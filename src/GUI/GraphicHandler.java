@@ -3,6 +3,8 @@ package src.GUI;
 //import custom.sub_menus.farm_custom.vegs_custom.Vegs_Custom;
 //import graphic.Handle.environment.farm.Farm_Graphic;
 
+import javafx.scene.control.*;
+import src.Controller.Controller;
 import src.GUI.FarmGraphic;
 import javafx.animation.Animation;
 import javafx.animation.FadeTransition;
@@ -11,10 +13,6 @@ import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
@@ -27,9 +25,15 @@ import javafx.util.Duration;
 import src.GUI.CustomMenu.Custom;
 
 import java.io.File;
+import java.io.FileReader;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.Optional;
 
+import src.Model.Farm.Bank;
+import src.Network.Chat.ClientGUI;
+import src.Network.Chat.SingleMessage;
+import src.Network.Chat.Status;
 import src.Network.Network;
 
 public class GraphicHandler extends Application {
@@ -128,7 +132,7 @@ public class GraphicHandler extends Application {
         exitLab.setLayoutX(845);
         exitLab.setOpacity(0);
 
-        MediaPlayer MainMusic = new MediaPlayer(new Media(new File("src/Resources/Music/MammadNobari.mp3").toURI().toString()));
+        MediaPlayer MainMusic = new MediaPlayer(new Media(new File("src/src/Resources/Music/MammadNobari.mp3").toURI().toString()));
         MainMusic.setVolume(0.4);
         MainMusic.setCycleCount(MediaPlayer.INDEFINITE);
         MainMusic.play();
@@ -325,7 +329,6 @@ public class GraphicHandler extends Application {
         multi.setOnMouseClicked(event -> {
             if (multi.getOpacity() >= 0.8) {
                 MainMusic.stop();
-                MainMusic.stop();
                 Network.networkScene();
             }
         });
@@ -351,7 +354,10 @@ public class GraphicHandler extends Application {
             fadeMainMenu(customLab, customLab.getOpacity(), 0, 500).play();
         });
 
-        custom.setOnMouseClicked(event -> Custom.custom());
+        custom.setOnMouseClicked(event -> {
+            MainMusic.stop();
+            Custom.custom();
+        });
 
         setting.setOnMouseEntered(event -> {
             if (setting.getOpacity() >= 0.8) {
@@ -477,4 +483,5 @@ public class GraphicHandler extends Application {
         translateTransition.setAutoReverse(false);
         return translateTransition;
     }
+
 }

@@ -14,7 +14,7 @@ public class Status implements Serializable {
     private double maxSatiety;
     private int money;
 
-    public Status(String name, double health, double maxHealth, double energy, double maxEnergy, double stamina, double maxStamina, double satiety, double maxSatiety, int money) {
+    public Status(String name, int money) {
         this.name = name;
         this.health = health;
         this.maxHealth = maxHealth;

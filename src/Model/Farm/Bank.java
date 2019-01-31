@@ -10,6 +10,10 @@ public class Bank {
         money = Static.BANK_FIRST_MONEY;
     }
 
+    public double getMoney() {
+        return money;
+    }
+
     public void increase(double amount) {
         this.money += amount;
     }
