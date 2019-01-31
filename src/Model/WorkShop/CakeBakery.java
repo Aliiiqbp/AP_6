@@ -1,9 +1,13 @@
-package Model.WorkShop;
+package src.Model.WorkShop;
 
-import Controller.Static;
-import Model.Product.Egg;
-import Model.Product.ProductType;
+import javafx.scene.Group;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import src.Controller.Static;
+import src.Model.Product.Egg;
+import src.Model.Product.ProductType;
 
+import java.io.FileInputStream;
 import java.util.HashMap;
 
 public class CakeBakery extends WorkShop {
@@ -12,6 +16,17 @@ public class CakeBakery extends WorkShop {
         super(WorkShopType.CAKE_BAKERY, ProductType.CAKE);
         this.getRequirements().put(ProductType.COOKIE, (int) Static.LVL1);
         this.getRequirements().put(ProductType.FLOUR, (int) Static.LVL1);
+    }
+
+    public void showCakeBakery(Group root) {
+        try {
+            Image CakeBakeryImage = new Image(new FileInputStream("src/src/Resources/Textures/Workshops/CAKE_BAKERY/" + this.level + ".png"));
+            ImageView CakeBakeryView = new ImageView(CakeBakeryImage);
+            CakeBakeryView.setX(200);
+            CakeBakeryView.setY(200);
+            root.getChildren().add(CakeBakeryView);
+        } catch (Exception e) {
+        }
     }
 
 }

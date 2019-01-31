@@ -1,4 +1,4 @@
-package Model.Animal.Pet.Producer;
+package src.Model.Animal.Pet.Producer;
 
 import javafx.animation.Animation;
 import javafx.geometry.Rectangle2D;
@@ -6,11 +6,11 @@ import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
-import Controller.Static;
-import GUI.AnimalSpriteAnimation;
-import Model.Animal.AnimalType;
-import Model.Product.Egg;
-import Model.Product.Product;
+import src.Controller.Static;
+import src.GUI.AnimalSpriteAnimation;
+import src.Model.Animal.AnimalType;
+import src.Model.Product.Egg;
+import src.Model.Product.Product;
 
 import java.io.FileInputStream;
 
@@ -38,9 +38,9 @@ public class Hen extends ProducerAnimal {
             ImageView henView = new ImageView(henImage);
             henView.setX(this.getMovement().getCurrentX());
             henView.setY(this.getMovement().getCurrentY());
+            root.getChildren().remove(lastImageView);
 
-
-            final int count = 24;
+            final int count = 25;
             final int durationTime = 2000, offsetX = 0, offsetY = 0;
             int columns = 0, width = (int) henImage.getWidth(), height = (int) henImage.getHeight();
 
@@ -71,7 +71,7 @@ public class Hen extends ProducerAnimal {
                     henView.setScaleX(-1);
                     break;
                 case RIGHT:
-                    columns = 6;
+                    columns = 5;
                     henView.setScaleX(-1);
                     break;
 
@@ -83,10 +83,11 @@ public class Hen extends ProducerAnimal {
                     Duration.millis(durationTime),
                     count, columns,
                     offsetX, offsetY,
-                    width / columns, height / (count / columns)
+                    (int) Math.ceil(1.0 * width / columns), (int) Math.ceil(1.0 * height / (1.0 * count / columns))
             );
             animation.setCycleCount(Animation.INDEFINITE);
             animation.play();
+            lastImageView = henView;
         } catch (Exception e) {
         }
     }

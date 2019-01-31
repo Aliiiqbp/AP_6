@@ -1,10 +1,10 @@
-package Model.Farm;
+package src.Model.Farm;
 
-import Controller.Static;
-import Model.Farm.Extra.WareHouse;
-import Model.Farm.Extra.Well;
-import Model.Farm.Map.Map;
-import Model.Entity;
+import src.Controller.Static;
+import src.Model.Farm.Extra.WareHouse;
+import src.Model.Farm.Extra.Well;
+import src.Model.Farm.Map.Map;
+import src.Model.Entity;
 
 public class Farm extends Entity {
     private Map map;

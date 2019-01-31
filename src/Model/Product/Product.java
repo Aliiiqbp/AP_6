@@ -1,15 +1,11 @@
-package Model.Product;
+package src.Model.Product;
 
-import javafx.animation.Animation;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.util.Duration;
-import GUI.AnimalSpriteAnimation;
-import Model.Coordinate.Movement;
-import Model.Entity;
-import Model.Salable;
+import src.Model.Coordinate.Movement;
+import src.Model.Entity;
+import src.Model.Salable;
 
 import java.io.FileInputStream;
 
@@ -37,9 +33,9 @@ public abstract class Product extends Salable {
         this.productState = productState;
     }
 
-    public void showProduct(Group root, ProductType productType) {
+    public void showProduct(Group root) {
         try {
-            Image productImage = new Image(new FileInputStream("src/src/Resources/Textures/Products/" + productType + "/normal.png"));
+            Image productImage = new Image(new FileInputStream("src/Resources/Textures/Products/" + this.getProductType() + "/normal.png"));
             ImageView productView = new ImageView(productImage);
             productView.setX(this.getMovement().getCurrentX());
             productView.setY(this.getMovement().getCurrentY());

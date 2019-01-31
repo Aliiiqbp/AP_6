@@ -1,9 +1,9 @@
-package Model.Animal.Wild;
+package src.Model.Animal.Wild;
 
-import Controller.Static;
-import GUI.AnimalSpriteAnimation;
-import Model.Animal.AnimalType;
-import Model.Coordinate.Direction;
+import src.Controller.Static;
+import src.GUI.AnimalSpriteAnimation;
+import src.Model.Animal.AnimalType;
+import src.Model.Coordinate.Direction;
 import javafx.animation.Animation;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Group;
@@ -24,13 +24,13 @@ public class Lion extends Wild {
         // TODO: 1/31/2019 destroy
     }
 
-    public void showLion(Group root, Direction direction) {
+    public void ShowLion(Group root) {
         try {
-            Image lionImage = new Image(new FileInputStream("src/src/Resources/Textures/Animal/Africa/Lion/" + this.getMovement().getDirection() + ".png")); // TODO: 01/25/2019 get correct address for animations
+            Image lionImage = new Image(new FileInputStream("src/Resources/Textures/Animal/Africa/Lion/" + this.getMovement().getDirection() + ".png")); // TODO: 01/25/2019 get correct address for animations
             ImageView lionView = new ImageView(lionImage);
             lionView.setX(this.getMovement().getCurrentX());
             lionView.setY(this.getMovement().getCurrentY());
-
+            root.getChildren().remove(lastImageView);
 
             final int count = 24;
             final int durationTime = 2000, offsetX = 0, offsetY = 0;
@@ -76,10 +76,11 @@ public class Lion extends Wild {
                     Duration.millis(durationTime),
                     count, columns,
                     offsetX, offsetY,
-                    width / columns, height / (count / columns)
+                    (int) Math.ceil(1.0 * width / columns), (int) Math.ceil(1.0 * height / (1.0 * count / columns))
             );
             animation.setCycleCount(Animation.INDEFINITE);
             animation.play();
+            lastImageView = lionView;
         } catch (Exception e) {
         }
     }

@@ -1,4 +1,4 @@
-package GUI.Menu;
+package src.GUI.Menu;
 
 import javafx.geometry.Pos;
 import javafx.scene.input.KeyCode;
@@ -6,11 +6,11 @@ import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.*;
 
-public class MenuItem extends HBox{
+public class MenuItem extends HBox {
     Text text;
     Menu parent, goesTo;
 
-    public MenuItem (String name){
+    public MenuItem(String name) {
         text = new Text(name);
         text.setFont(new Font("Snickles", 50));
         getChildren().add(text);
@@ -21,21 +21,21 @@ public class MenuItem extends HBox{
         goesTo = parent = null;
     }
 
-    public MenuItem (String name, Menu par){
+    public MenuItem(String name, Menu par) {
         this(name);
         parent = par;
         goesTo = null;
     }
 
-    public void setParent(Menu par){
+    public void setParent(Menu par) {
         parent = par;
     }
 
-    public void setText(String s){
+    public void setText(String s) {
         text.setText(s);
     }
 
-    public void setGoesTo(Menu menu){
+    public void setGoesTo(Menu menu) {
         goesTo = menu;
         goesTo.setRoot(parent.getRoot());
         goesTo.setParent(parent);
@@ -45,15 +45,15 @@ public class MenuItem extends HBox{
         });
     }
 
-    public void setGoesTo(Runnable runnable){
+    public void setGoesTo(Runnable runnable) {
         setOnKeyPressed(event -> {
-            if (event.getCode() == KeyCode.ENTER){
+            if (event.getCode() == KeyCode.ENTER) {
                 runnable.run();
             }
         });
     }
 
-    void setActive(boolean b){
+    void setActive(boolean b) {
         text.setFill(b ? Color.MIDNIGHTBLUE : Color.CADETBLUE);
     }
 }

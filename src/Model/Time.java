@@ -1,4 +1,4 @@
-package Model;
+package src.Model;
 
 public class Time {
     // TODO: 1/31/2019 set it in a while

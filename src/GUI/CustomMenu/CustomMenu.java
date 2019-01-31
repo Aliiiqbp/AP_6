@@ -1,10 +1,10 @@
-package GUI.CustomMenu;
+package src.GUI.CustomMenu;
 
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import GUI.GraphicHandler;
+import src.GUI.GraphicHandler;
 
 public class CustomMenu {
     protected static Group root;

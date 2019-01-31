@@ -1,4 +1,4 @@
-package Model.Animal.Pet.NoneProducer;
+package src.Model.Animal.Pet.NoneProducer;
 
 import Model.Farm.Extra.WareHouse;
 import Model.Farm.Map.Map;
@@ -8,12 +8,12 @@ import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
-import Controller.Static;
-import GUI.AnimalSpriteAnimation;
-import Model.Animal.AnimalType;
-import Model.Coordinate.Direction;
-import Model.Coordinate.Movement;
-import Model.Product.Product;
+import src.Controller.Static;
+import src.GUI.AnimalSpriteAnimation;
+import src.Model.Animal.AnimalType;
+import src.Model.Coordinate.Direction;
+import src.Model.Coordinate.Movement;
+import src.Model.Product.Product;
 
 import java.io.FileInputStream;
 
@@ -74,7 +74,7 @@ public class Cat extends NoneProducerAnimal {
 
     public void ShowCat(Group root) {
         try {
-            Image CatImage = new Image(new FileInputStream("src/src/Resources/Textures/Animals/Cat/" + this.getMovement().getDirection() + ".png"));
+            Image CatImage = new Image(new FileInputStream("src/Resources/Textures/Animals/Cat/" + this.getMovement().getDirection() + ".png"));
             ImageView CatView = new ImageView(CatImage);
             CatView.setX(this.getMovement().getCurrentX());
             CatView.setY(this.getMovement().getCurrentY());
@@ -122,7 +122,7 @@ public class Cat extends NoneProducerAnimal {
                     Duration.millis(durationTime),
                     count, columns,
                     offsetX, offsetY,
-                    width / columns, height / (count / columns)
+                    (int) Math.ceil(1.0 * width / columns), (int) Math.ceil(1.0 * height / (1.0 * count / columns))
             );
             animation.setCycleCount(Animation.INDEFINITE);
             animation.play();
