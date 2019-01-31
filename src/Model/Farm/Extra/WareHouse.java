@@ -1,22 +1,23 @@
 package Model.Farm.Extra;
 
 import Controller.Static;
+import Model.Building;
 import Model.Capacity;
 import Model.Entity;
 import Model.Salable;
 
 import java.util.ArrayList;
 
-public class WareHouse extends Entity {
+public class WareHouse extends Building {
     private Capacity capacity;
 
     public WareHouse() {
         this.capacity = new Capacity(Static.WAREHOUSE_CAPACITY_LVL_0);
     }
 
-    public void add(Salable salable, int count) {
-        this.capacity.add(salable, count);
-    }
+//    public void add(Salable salable, int count) {
+//        this.capacity.add(salable, count);
+//    }
 
     public void add(Salable salable) {
         this.capacity.add(salable);
@@ -34,15 +35,15 @@ public class WareHouse extends Entity {
         return capacity.canAdd(salables);
     }
 
-    public void remove(Salable salable, int count) {
-        this.capacity.remove(salable, count);
-    }
+//    public void remove(Salable salable, int count) {
+//        this.capacity.remove(salable, count);
+//    }
 
     public void remove(Salable salable) {
         this.capacity.remove(salable);
     }
 
-    public int getNumberOfSalable(Salable salable) {
+    public int getNumberOfSalable(String salable) {
         return this.capacity.getNumberOfSalable(salable);
     }
 

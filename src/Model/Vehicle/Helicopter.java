@@ -1,6 +1,8 @@
 package Model.Vehicle;
 
 import Controller.Static;
+import Model.Product.Product;
+import Model.Product.ProductType;
 import Model.Salable;
 
 public class Helicopter extends Vehicle {
@@ -11,10 +13,26 @@ public class Helicopter extends Vehicle {
         this.scatteringRadius = Static.HELI_SCATTERING_RADIUS_LVL_0;
     }
 
-    public void buy(Salable salable, int count) {
-        addToList(salable, count);
-        // TODO: 12/30/2018 money
+    public void addToArrayList(ProductType productType) {
+        Product product = getFarm().getMarket().getProduct(productType, 0, 0); // TODO: 1/31/2019 handle movement
+        if (getFarm().getBank().canDecrease(product.getBuyPrice()) && getFarm().getMarket().contain(product.getProductType())) {
+            getFarm().getBank().buy(product.getBuyPrice());
+            addToList(product);
+        }
     }
+
+    public void removeFromArrayList(Product product) {
+        if (getCapacity().getList().contains(product)) {
+            getFarm().getBank().sell(product.getBuyPrice());
+        }
+    }
+
+    public void buy() {
+        getFarm().getMap().addSalables(this.getCapacity().getList());
+        this.getCapacity().clear();
+        // TODO: 1/31/2019 check
+    }
+
 
     @Override
     public void upgradeLevel() {

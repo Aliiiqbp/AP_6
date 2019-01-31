@@ -1,5 +1,6 @@
 package Model.Farm.Map;
 
+import Model.Coordinate.Movement;
 import Model.Entity;
 import Model.Salable;
 
@@ -68,6 +69,12 @@ public class Map extends Entity {
         }
     } //ok
 
+    public void addSalables(ArrayList<Salable> salables) {
+        for (Salable salable: salables) {
+            addSalable(salable);
+        }
+    }
+
     public void removeObject(Salable salable, Cell cell) {
         if (salables.contains(salable)) {
             salables.remove(salable);
@@ -103,6 +110,15 @@ public class Map extends Entity {
     public Cell getCellThatContainsObject(Salable salable) {
         return cellMap.get(salable);
     } //ok
+
+    public static boolean isInSameCell(Movement first, Movement second) {
+        double x = Math.abs(Math.floor(first.getCurrentX()) - Math.floor(second.getCurrentX()));
+        double y = Math.abs(Math.floor(first.getCurrentY()) - Math.floor(second.getCurrentY()));
+        if (x == 0f && y == 0f) {
+            return true;
+        }
+        return false;
+    }
 
     public int getWidth() {
         return width;

@@ -1,11 +1,12 @@
 package Model.Farm.Extra;
 
 import Controller.Static;
+import Model.Building;
 import Model.Coordinate.Movement;
 import Model.Entity;
 import Model.Product.Water;
 
-public class Well extends Entity {
+public class Well extends Building {
     private int wellCapacity;
     private int amountOfWater;
     private double fillWellCost;
@@ -63,7 +64,8 @@ public class Well extends Entity {
             return new Water(this.movement.getCurrentX(), this.movement.getCurrentY());
         }
         return null;
-    }
+    } // TODO: 1/31/2019 fix this shit
+
 
     private void setFillWellCost(double fillWellCost) {
         this.fillWellCost = fillWellCost;

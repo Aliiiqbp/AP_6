@@ -1,5 +1,7 @@
 package Model.Animal.Pet.NoneProducer;
 
+import Model.Animal.AnimalState;
+import Model.Farm.Map.Map;
 import javafx.animation.Animation;
 import javafx.application.Application;
 import javafx.geometry.Rectangle2D;
@@ -23,20 +25,34 @@ public class Dog extends NoneProducerAnimal {
 
     private Wild wild;
 
-
     public Dog(double x, double y) {
         super(AnimalType.DOG, Static.DOG_SELL_VALUE, Static.DOG_BUY_COST, Static.DOG_VOLUME, Static.DOG_SPEED, x, y);
     }
 
     @Override // cage
-    public void noneProducer() {
+    public void play() {
         if (wild != null) {
-            this.getMovement().setDirection(Movement.bfs(this.getMovement(), wild.getMovement()));
+            if (Map.isInSameCell(wild.getMovement(), this.movement)) {
+                wild.die();
+                this.die();
+            } else {
+                this.getMovement().setDirection(Movement.bfs(this.getMovement(), wild.getMovement()));
+            }
+        } else {
+            // TODO: 1/31/2019 move randomly
         }
     }
 
     public void setWild(Wild wild) {
         this.wild = wild;
+    }
+    
+    private void findWild() {
+        // TODO: 1/31/2019
+    }
+
+    private void die() {
+        this.animalState = AnimalState.DYING;
     }
 
     public void ShowDog(Group root) {

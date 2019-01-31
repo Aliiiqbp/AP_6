@@ -7,16 +7,17 @@ public class Movement {
     Direction direction;
     private double speed;
     private double currentX, currentY;
-    private double targetX, targetY;
+    private boolean isInFastRun;
 
     private  double fixedX = -1, fixedY = -1;
 
     public Movement(double speed, double currentX, double currentY) {
-        // Directioon is set arbitrary to right
+        // Direction is set arbitrary to right
         this.direction = Direction.RIGHT; // TODO: 12/28/2018 set direction
         this.speed = speed;
         this.currentX = currentX;
         this.currentY = currentY;
+        this.isInFastRun = false;
     }
 
     public Movement() {
@@ -34,6 +35,20 @@ public class Movement {
         return speed;
     }
 
+    public void boostSpeed() {
+        if (!isInFastRun) {
+            isInFastRun = true;
+            speed *= 2;
+        }
+    }
+
+    public void reduceSpeed() {
+        if (isInFastRun) {
+            isInFastRun = false;
+            speed /= 2;
+        }
+    }
+
     public double getCurrentX() {
         return currentX;
     }
@@ -42,15 +57,8 @@ public class Movement {
         return currentY;
     }
 
-    public double getTargetX() {
-        return targetX;
-    }
-
-    public double getTargetY() {
-        return targetY;
-    }
-
     public void move() {
+        // TODO: 1/31/2019 things have to be in map
         switch (direction) {
             case UP:
                 currentY -= speed;
@@ -86,6 +94,15 @@ public class Movement {
 
         // TODO: 12/28/2018 set next Direction
         return;
+    }
+
+    public void stop() { // TODO: 12/29/2018 we need a better name for this function
+        this.speed = 0;
+        this.direction = Direction.NONE;
+    }
+
+    public void setDirection(Direction direction) {
+        this.direction = direction;
     }
 
     public static Direction bfs(Movement start, Movement finish){
@@ -125,15 +142,6 @@ public class Movement {
         return result;
     }
 
-    public void setDirection(Direction direction) {
-        this.direction = direction;
-    }
-    
-    public void stop() { // TODO: 12/29/2018 we need a better name for this function
-        this.speed = 0;
-        this.direction = Direction.NONE;
-    }
-    
     public void moveToWareHouse() { 
         // TODO: 12/29/2018  
     }

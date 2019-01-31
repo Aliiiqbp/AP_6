@@ -10,11 +10,11 @@ public class Bank {
         money = Static.BANK_FIRST_MONEY;
     }
 
-    public void increase(double amount) {
+    public void sell(double amount) {
         this.money += amount;
     }
 
-    public void decrease(double amount) {
+    public void buy(double amount) {
         if (canDecrease(amount)) {
             this.money -= amount;
         }

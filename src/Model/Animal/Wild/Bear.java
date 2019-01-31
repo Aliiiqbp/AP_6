@@ -19,6 +19,10 @@ public class Bear extends Wild {
 
     }
 
+    @Override
+    public void play() {
+        // TODO: 1/31/2019 destroy
+    }
 
     public void ShowBear(Group root) {
         try {

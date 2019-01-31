@@ -5,7 +5,7 @@ import Model.Entity;
 import Model.Salable;
 
 public abstract class Vehicle extends Entity {
-    Capacity capacity;
+    private Capacity capacity;
     public double travelDuration;
 
     public Vehicle(double capacityVolume , double travelDuration) {
@@ -13,24 +13,20 @@ public abstract class Vehicle extends Entity {
         this.capacity = new Capacity(capacityVolume);
     }
 
-    public double getCapacityVolume() {
-        return this.capacity.getCapacityVolume();
+//    public void addToList(Salable... salables) {
+////        this.capacity.add(salables);
+//    }
+
+    public Capacity getCapacity() {
+        return capacity;
     }
 
-    public double getOccupiedCapacity() {
-        return this.capacity.getOccupiedCapacity();
+    public void addToList(Salable salable) {
+        this.capacity.add(salable);
     }
 
-    public void addToList(Salable... salables) {
-//        this.capacity.add(salables);
-    }
-
-    public void addToList(Salable salable, int count) {
-        this.capacity.add(salable, count);
-    }
-
-    public void get(Salable salable, int count) {
-        capacity.remove(salable, count);
+    public void get(Salable salable) {
+        capacity.remove(salable);
     }
 
     public void clearLit() {
@@ -38,18 +34,14 @@ public abstract class Vehicle extends Entity {
     }
 
     public int getNumberOfSalable(Salable salable) {
-        return this.capacity.getNumberOfSalable(salable);
+        return this.capacity.getNumberOfSalable(salable.getClass().getName());
     }
-
-//    public String getList() {
-//        return this.capacity.getList();
-//    }
-
-//    public void update() {
-//        this.capacity.update();
-//    }
 
     public void setTravelDuration(double travelDuration) {
         this.travelDuration = travelDuration;
+    }
+
+    public void setCapacity(double capacity) {
+        this.capacity.update(capacity);
     }
 }

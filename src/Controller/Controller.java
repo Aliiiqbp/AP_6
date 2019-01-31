@@ -138,5 +138,5 @@ public class Controller {
     } // TODO: 12/25/2018  print info of object
 
     private void turn(int n) {
-    } // TODO: 12/25/2018 increase turn n time
+    } // TODO: 12/25/2018 sell turn n time
 }

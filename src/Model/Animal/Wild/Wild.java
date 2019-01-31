@@ -18,9 +18,9 @@ public abstract class Wild extends Animal {
         super(animalType, sellPrice, buyPrice, volume, speed, x, y);
     }
 
-    public void destroy(Map map) {
+    public void destroy() {
         // TODO: 12/28/2018 we need to save destroyed objects
-        Cell cell = map.getMappedCell(this.getMovement().getCurrentX(), this.getMovement().getCurrentY());
+        Cell cell = getFarm().getMap().getMappedCell(this.getMovement().getCurrentX(), this.getMovement().getCurrentY());
         ArrayList<Entity> arrayList = cell.getSalables();
         int size = arrayList.size();
         for (Entity entity: arrayList) {

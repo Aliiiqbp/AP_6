@@ -1,5 +1,7 @@
 package Model.Animal.Pet.NoneProducer;
 
+import Model.Farm.Extra.WareHouse;
+import Model.Farm.Map.Map;
 import javafx.animation.Animation;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Group;
@@ -16,10 +18,12 @@ import Model.Product.Product;
 import java.io.FileInputStream;
 
 public class Cat extends NoneProducerAnimal {
-    Product product;
+    private Product product;
+    private boolean hasProduct;
 
     public Cat(double x, double y) {
         super(AnimalType.CAT, Static.CAT_SELL_VALUE, Static.CAT_BUY_COST, Static.CAT_VOLUME, Static.CAT_SPEED, x, y);
+        hasProduct = false;
     }
 
     public void setProduct(Product product) {
@@ -27,15 +31,46 @@ public class Cat extends NoneProducerAnimal {
     }
 
     @Override // catch
-    public void noneProducer() {
-        this.getMovement().setDirection(Movement.bfs(this.getMovement(), product.getMovement()));
+    public void play() {
+        if (product != null) {
+            if (Map.isInSameCell(getFarm().getWareHouse().getMovement(), this.getMovement()) && hasProduct) {
+                giveToCapacity();
+                this.product = null;
+                hasProduct = false;
+            } else if (Map.isInSameCell(product.getMovement(), this.getMovement()) && !hasProduct) {
+                catchProduct();
+            } else if (!hasProduct){
+                this.getMovement().setDirection(Movement.bfs(this.getMovement(), product.getMovement()));
+            } else if(hasProduct) {
+                this.getMovement().setDirection(Movement.bfs(this.movement, getFarm().getWareHouse().getMovement()));
+            }
+        } else {
+            Product target = findProduct();
+            if (target != null) {
+                product = target;
+            } else {
+                // TODO: 1/31/2019 move randomly
+            }
+        }
+
     }
 
-    public Product giveToCapacity() {
+    private void giveToCapacity() {
         // TODO: 1/21/2019 change product state
-        return product;
+        getFarm().getWareHouse().add(product);
+        product = null;
     }
 
+    private void catchProduct() {
+        getFarm().getMap().removeSalable(product);
+        hasProduct = true;
+        // TODO: 1/31/2019 handle product place during cat moving
+    }
+
+    private Product findProduct() {
+        // TODO: 1/31/2019 find nearest product
+        return null;
+    }
 
     public void ShowCat(Group root) {
         try {

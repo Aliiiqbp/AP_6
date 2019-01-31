@@ -1,5 +1,6 @@
 package Model.WorkShop;
 
+import Model.Building;
 import Model.Product.Product;
 import Model.Product.ProductType;
 import Model.Coordinate.Movement;
@@ -7,7 +8,7 @@ import Model.Entity;
 import java.util.HashMap;
 import java.util.Set;
 
-public abstract class WorkShop extends Entity {
+public abstract class WorkShop extends Building {
 
     private ProductType productType;
     private WorkShopType workShopType;

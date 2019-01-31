@@ -8,7 +8,5 @@ public abstract class NoneProducerAnimal extends Pet {
         super(animalType, sellPrice, buyPrice, volume, speed, x, y);
     }
 
-    public abstract void noneProducer();
-
 //    public void noneProducer();
 }

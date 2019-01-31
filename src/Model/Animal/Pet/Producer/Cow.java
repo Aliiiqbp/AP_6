@@ -23,6 +23,12 @@ public class Cow extends ProducerAnimal {
     }
 
     @Override
+    public void play() {
+        // TODO: 1/31/2019 eat and produce
+        // TODO: 1/31/2019 move randomly
+    }
+
+    @Override
     public Product Produce() {
         return new Milk(this.getMovement().getCurrentX(), this.getMovement().getCurrentY());
     }

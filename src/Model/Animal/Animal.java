@@ -29,6 +29,8 @@ public abstract class Animal extends Salable {
         return animalState;
     }
 
+    public abstract void play();
+
     public void changeState(AnimalState state) {
         this.animalState = state;
     }

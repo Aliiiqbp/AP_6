@@ -13,13 +13,24 @@ public class Truck extends Vehicle {
         this.boxCount = Static.TRUCK_BOX_COUNT_LVL_0;
     }
 
-    public void sell(Salable salable, int count) {
-        get(salable, count);
-        // TODO: 12/30/2018 money
+    public void addToCapacity(Salable salable) {
+        if (getCapacity().canAdd(salable)) {
+            getCapacity().add(salable);
+            getFarm().getWareHouse().remove(salable);
+        }
+    }
+
+    public void sell() {
+        // TODO: 1/31/2019 check
+        double totalMoney = 0;
+        for (Salable salable: getCapacity().getList()) {
+            totalMoney += getCapacity().getNumberOfSalable(salable.getClass().getName())*salable.getSellPrice();
+        }
+        getFarm().getBank().sell(totalMoney);
     }
 
     @Override
-    public void upgradeLevel() { // TODO: 1/1/2019 increase Level
+    public void upgradeLevel() { // TODO: 1/1/2019 sell Level
         switch (level){
             case 0 :
                 this.setTravelDuration( Static.TRUCK_TRAVEL_DURATION_LVL_1 );
