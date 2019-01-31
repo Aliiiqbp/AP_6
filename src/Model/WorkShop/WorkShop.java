@@ -1,10 +1,10 @@
-package Model.WorkShop;
+package src.Model.WorkShop;
 
-import Model.Building;
-import Model.Product.Product;
-import Model.Product.ProductType;
-import Model.Coordinate.Movement;
-import Model.Entity;
+import src.Model.Building;
+import src.Model.Product.Product;
+import src.Model.Product.ProductType;
+import src.Model.Coordinate.Movement;
+import src.Model.Entity;
 import java.util.HashMap;
 import java.util.Set;
 

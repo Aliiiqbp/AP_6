@@ -1,8 +1,8 @@
-package Model.Vehicle;
+package src.Model.Vehicle;
 
-import Model.Capacity;
-import Model.Entity;
-import Model.Salable;
+import src.Model.Capacity;
+import src.Model.Entity;
+import src.Model.Salable;
 
 public abstract class Vehicle extends Entity {
     private Capacity capacity;

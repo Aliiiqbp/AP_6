@@ -1,10 +1,10 @@
-package Model.Farm.Extra;
+package src.Model.Farm.Extra;
 
-import Controller.Static;
-import Model.Building;
-import Model.Coordinate.Movement;
-import Model.Entity;
-import Model.Product.Water;
+import src.Controller.Static;
+import src.Model.Building;
+import src.Model.Coordinate.Movement;
+import src.Model.Entity;
+import src.Model.Product.Water;
 
 public class Well extends Building {
     private int wellCapacity;

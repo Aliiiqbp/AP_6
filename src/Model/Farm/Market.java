@@ -1,8 +1,8 @@
-package Model.Farm;
+package src.Model.Farm;
 
-import Model.Entity;
-import Model.Product.Product;
-import Model.Product.ProductType;
+import src.Model.Entity;
+import src.Model.Product.Product;
+import src.Model.Product.ProductType;
 
 import java.util.ArrayList;
 

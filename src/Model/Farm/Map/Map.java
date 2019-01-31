@@ -1,8 +1,8 @@
-package Model.Farm.Map;
+package src.Model.Farm.Map;
 
-import Model.Coordinate.Movement;
-import Model.Entity;
-import Model.Salable;
+import src.Model.Coordinate.Movement;
+import src.Model.Entity;
+import src.Model.Salable;
 
 import java.util.ArrayList;
 import java.util.HashMap;

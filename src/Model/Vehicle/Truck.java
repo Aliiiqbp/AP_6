@@ -63,8 +63,8 @@ public class Truck extends Vehicle {
         try {
             Image truckImage = new Image(new FileInputStream("src/src/Resources/Textures/Service/Truck" + this.level + ".png"));
             ImageView truckView = new ImageView(truckImage);
-            truckView.setX(this.getMovement().getCurrentX());
-            truckView.setY(this.getMovement().getCurrentY());
+//            truckView.setX(this.getMovement().getCurrentX());
+//            truckView.setY(this.getMovement().getCurrentY());
             root.getChildren().add(truckView);
         } catch (Exception e) {
         }

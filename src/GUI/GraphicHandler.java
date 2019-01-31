@@ -1,9 +1,6 @@
-package GUI;
+package src.GUI;
 
-//import custom.sub_menus.farm_custom.vegs_custom.Vegs_Custom;
-//import graphic.Handle.environment.farm.Farm_Graphic;
-
-import GUI.FarmGraphic;
+import src.GUI.FarmGraphic;
 import javafx.animation.Animation;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
@@ -24,7 +21,8 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import GUI.CustomMenu.Custom;
+import src.GUI.CustomMenu.Custom;
+import src.Network.Network;
 
 import java.io.File;
 import java.time.LocalTime;
@@ -128,7 +126,7 @@ public class GraphicHandler extends Application {
         exitLab.setLayoutX(845);
         exitLab.setOpacity(0);
 
-        MediaPlayer MainMusic = new MediaPlayer(new Media(new File("src/Resources/Music/MammadNobari.mp3").toURI().toString()));
+        MediaPlayer MainMusic = new MediaPlayer(new Media(new File("src/src/Resources/Music/MammadNobari.mp3").toURI().toString()));
 //        MediaPlayer MammadNobari = new MediaPlayer(new Media(new File("src/Resources/Music/MammadNobari.mp3").toURI().toString()));
         MainMusic.setVolume(0.4);
 //        MammadNobari.setVolume(0.2);
@@ -331,7 +329,7 @@ public class GraphicHandler extends Application {
             if (multi.getOpacity() >= 0.8) {
 //                MammadNobari.stop();
                 MainMusic.stop();
-//                Network.networkScene();
+                Network.networkScene();
             }
         });
 

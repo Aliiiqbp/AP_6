@@ -1,12 +1,12 @@
-package Model.Animal.Pet.Producer;
+package src.Model.Animal.Pet.Producer;
 
-import Model.Animal.AnimalType;
-import Model.Animal.Pet.Pet;
-import Model.Coordinate.Movement;
-import Model.Farm.Map.Map;
-import Model.Product.Grass;
-import Model.Product.Product;
-import Model.Product.ProductType;
+import src.Model.Animal.AnimalType;
+import src.Model.Animal.Pet.Pet;
+import src.Model.Coordinate.Movement;
+import src.Model.Farm.Map.Map;
+import src.Model.Product.Grass;
+import src.Model.Product.Product;
+import src.Model.Product.ProductType;
 
 public abstract class ProducerAnimal extends Pet {
 

@@ -1,4 +1,4 @@
-package Model.Animal.Pet.Producer;
+package src.Model.Animal.Pet.Producer;
 
 import javafx.animation.Animation;
 import javafx.geometry.Rectangle2D;
@@ -6,12 +6,12 @@ import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
-import Controller.Static;
-import GUI.AnimalSpriteAnimation;
-import Model.Animal.AnimalType;
-import Model.Coordinate.Direction;
-import Model.Product.Product;
-import Model.Product.Wool;
+import src.Controller.Static;
+import src.GUI.AnimalSpriteAnimation;
+import src.Model.Animal.AnimalType;
+import src.Model.Coordinate.Direction;
+import src.Model.Product.Product;
+import src.Model.Product.Wool;
 
 import java.io.FileInputStream;
 
@@ -31,7 +31,7 @@ public class Sheep extends ProducerAnimal {
         return new Wool(this.getMovement().getCurrentX(), this.getMovement().getCurrentY());
     }
 
-    public void ShowSheep(Group root, Direction direction) {
+    public void ShowSheep(Group root) {
         try {
             Image sheepImage = new Image(new FileInputStream("src/src/Resources/Textures/Animals/Sheep/" + this.getMovement().getDirection() + ".png")); // TODO: 01/25/2019 get correct address for animations
             ImageView sheepView = new ImageView(sheepImage);

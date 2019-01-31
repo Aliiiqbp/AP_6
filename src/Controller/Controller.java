@@ -95,7 +95,7 @@ public class Controller {
             if (salable instanceof Product)
                 ((Product) salable).showProduct(root);
         }
-        farm.getWell().ShowWell(root);
+//        farm.getWell().ShowWell(root);
 
     }
 

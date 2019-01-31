@@ -1,7 +1,7 @@
 package src.Model.Animal.Pet.NoneProducer;
 
-import Model.Farm.Extra.WareHouse;
-import Model.Farm.Map.Map;
+import src.Model.Farm.Extra.WareHouse;
+import src.Model.Farm.Map.Map;
 import javafx.animation.Animation;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Group;

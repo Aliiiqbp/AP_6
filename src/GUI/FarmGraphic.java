@@ -403,7 +403,7 @@ public class FarmGraphic {
                 alert.setContentText("You have to choose a member to see status.");
                 alert.show();
             } else {
-                Status status = new Status(Network.clientString, (int) bank.getMoney());
+                Status status = new Status(Network.clientString, /*(int) bank.getMoney()*/ 2);
 
             }
         });

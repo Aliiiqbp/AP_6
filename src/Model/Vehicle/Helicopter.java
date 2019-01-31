@@ -1,9 +1,9 @@
-package Model.Vehicle;
+package src.Model.Vehicle;
 
-import Controller.Static;
-import Model.Product.Product;
-import Model.Product.ProductType;
-import Model.Salable;
+import src.Controller.Static;
+import src.Model.Product.Product;
+import src.Model.Product.ProductType;
+import src.Model.Salable;
 
 public class Helicopter extends Vehicle {
     private double scatteringRadius;
