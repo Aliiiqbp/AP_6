@@ -18,6 +18,7 @@ public class Farm extends Entity {
         this.bank = new Bank();
         this.well = new Well();
         this.market = new Market();
+        this.wareHouse = new WareHouse();
     }
 
     public Map getMap() {

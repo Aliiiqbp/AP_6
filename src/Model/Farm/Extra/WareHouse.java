@@ -5,10 +5,16 @@ import src.Model.Building;
 import src.Model.Capacity;
 import src.Model.Entity;
 import src.Model.Salable;
+import javafx.scene.Group;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
+
+import java.io.FileInputStream;
 import java.util.ArrayList;
 
 public class WareHouse extends Building {
+    ImageView lastImageView = null;
     private Capacity capacity;
 
     public WareHouse() {
@@ -63,5 +69,28 @@ public class WareHouse extends Building {
                 break; // can't remove upgraded
         }
         increaseLevel();
+    }
+
+    public void showWarehouse(Group root){
+
+        try {
+            Image warehouseImage = new Image(new FileInputStream("src/Resources/Textures/Service/Depot/" + Integer.toString(0)  + Integer.toString(this.getLevel()) +".png"));
+            ImageView warehouseView = new ImageView(warehouseImage);
+            warehouseView.setX(250);
+            warehouseView.setY(450);
+            root.getChildren().remove(lastImageView);
+            root.getChildren().add(warehouseView);
+
+
+            warehouseView.setOnMouseClicked(event -> {
+                // what should we do?
+
+            });
+
+            lastImageView = warehouseView;
+        } catch (Exception e) {
+        }
+
+
     }
 }

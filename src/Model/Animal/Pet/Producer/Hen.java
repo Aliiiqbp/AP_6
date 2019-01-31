@@ -8,6 +8,7 @@ import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 import src.Controller.Static;
 import src.GUI.AnimalSpriteAnimation;
+import src.Model.Animal.AnimalState;
 import src.Model.Animal.AnimalType;
 import src.Model.Product.Egg;
 import src.Model.Product.Product;
@@ -34,7 +35,16 @@ public class Hen extends ProducerAnimal {
 
     public void ShowHen(Group root) {
         try {
-            Image henImage = new Image(new FileInputStream("src/src/Resources/Textures/Animals/GuineaFowl/" + this.getMovement().getDirection() + ".png")); // TODO: 01/25/2019 get correct address for animations
+            Image henImage;
+            if (this.animalState == AnimalState.EATING){
+                henImage = new Image(new FileInputStream("src/Resources/Textures/Animals/GuineaFowl/EAT.png"));
+
+            }else if (this.animalState == AnimalState.DYING){
+                henImage = new Image(new FileInputStream("src/Resources/Textures/Animals/GuineaFowl/DEATH.png"));
+            }else{
+                henImage = new Image(new FileInputStream("src/Resources/Textures/Animals/GuineaFowl/" + this.getMovement().getDirection() + ".png")); // TODO: 01/25/2019 get correct address for animations
+            }
+
             ImageView henView = new ImageView(henImage);
             henView.setX(this.getMovement().getCurrentX());
             henView.setY(this.getMovement().getCurrentY());

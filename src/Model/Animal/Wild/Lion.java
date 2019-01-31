@@ -2,6 +2,7 @@ package src.Model.Animal.Wild;
 
 import src.Controller.Static;
 import src.GUI.AnimalSpriteAnimation;
+import src.Model.Animal.AnimalState;
 import src.Model.Animal.AnimalType;
 import src.Model.Coordinate.Direction;
 import javafx.animation.Animation;
@@ -23,10 +24,16 @@ public class Lion extends Wild {
     public void play() {
         // TODO: 1/31/2019 destroy
     }
-
     public void ShowLion(Group root) {
         try {
-            Image lionImage = new Image(new FileInputStream("src/Resources/Textures/Animal/Africa/Lion/" + this.getMovement().getDirection() + ".png")); // TODO: 01/25/2019 get correct address for animations
+            Image lionImage;
+            if (this.animalState == AnimalState.CAGED){
+                lionImage = new Image(new FileInputStream("src/Resources/Textures/Animals/Lion/CAGED.png"));
+
+            }else{
+                lionImage = new Image(new FileInputStream("src/Resources/Textures/Animals/Lion/" + this.getMovement().getDirection() + ".png"));
+            }
+
             ImageView lionView = new ImageView(lionImage);
             lionView.setX(this.getMovement().getCurrentX());
             lionView.setY(this.getMovement().getCurrentY());

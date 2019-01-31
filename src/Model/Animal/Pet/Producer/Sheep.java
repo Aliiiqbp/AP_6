@@ -8,6 +8,7 @@ import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 import src.Controller.Static;
 import src.GUI.AnimalSpriteAnimation;
+import src.Model.Animal.AnimalState;
 import src.Model.Animal.AnimalType;
 import src.Model.Coordinate.Direction;
 import src.Model.Product.Product;
@@ -33,11 +34,20 @@ public class Sheep extends ProducerAnimal {
 
     public void ShowSheep(Group root) {
         try {
-            Image sheepImage = new Image(new FileInputStream("src/src/Resources/Textures/Animals/Sheep/" + this.getMovement().getDirection() + ".png")); // TODO: 01/25/2019 get correct address for animations
+            Image sheepImage;
+            if (this.animalState == AnimalState.EATING){
+                sheepImage = new Image(new FileInputStream("src/Resources/Textures/Animals/Sheep/EAT.png"));
+
+            }else if (this.animalState == AnimalState.DYING){
+                sheepImage = new Image(new FileInputStream("src/Resources/Textures/Animals/Sheep/DEATH.png"));
+            }else{
+                sheepImage = new Image(new FileInputStream("src/Resources/Textures/Animals/Sheep/" + this.getMovement().getDirection() + ".png")); // TODO: 01/25/2019 get correct address for animations
+            }
+
             ImageView sheepView = new ImageView(sheepImage);
             sheepView.setX(this.getMovement().getCurrentX());
             sheepView.setY(this.getMovement().getCurrentY());
-
+            root.getChildren().remove(lastImageView);
 
             final int count = 24;
             final int durationTime = 2000, offsetX = 0, offsetY = 0;
@@ -70,7 +80,7 @@ public class Sheep extends ProducerAnimal {
                     sheepView.setScaleX(-1);
                     break;
                 case RIGHT:
-                    columns = 6;
+                    columns = 4;
                     sheepView.setScaleX(-1);
                     break;
 
@@ -82,10 +92,11 @@ public class Sheep extends ProducerAnimal {
                     Duration.millis(durationTime),
                     count, columns,
                     offsetX, offsetY,
-                    width / columns, height / (count / columns)
+                    (int) Math.ceil(1.0 * width / columns), (int) Math.ceil(1.0 * height / (1.0 * count / columns))
             );
             animation.setCycleCount(Animation.INDEFINITE);
             animation.play();
+            lastImageView = sheepView;
         } catch (Exception e) {
         }
     }

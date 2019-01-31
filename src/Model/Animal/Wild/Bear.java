@@ -2,6 +2,7 @@ package src.Model.Animal.Wild;
 
 import src.Controller.Static;
 import src.GUI.AnimalSpriteAnimation;
+import src.Model.Animal.AnimalState;
 import src.Model.Animal.AnimalType;
 import javafx.animation.Animation;
 import javafx.geometry.Rectangle2D;
@@ -26,7 +27,13 @@ public class Bear extends Wild {
 
     public void ShowBear(Group root) {
         try {
-            Image bearImage = new Image(new FileInputStream("src/src/Resources/Textures/Animals/Bear/" + this.getMovement().getDirection() + ".png")); // TODO: 01/25/2019 get correct address for animations
+            Image bearImage;
+            if (this.animalState == AnimalState.CAGED){
+                bearImage = new Image(new FileInputStream("src/Resources/Textures/Animals/Bear/CAGED.png"));
+
+            }else{
+                bearImage = new Image(new FileInputStream("src/Resources/Textures/Animals/Bear/" + this.getMovement().getDirection() + ".png"));
+            }
             ImageView bearView = new ImageView(bearImage);
             bearView.setX(this.getMovement().getCurrentX());
             bearView.setY(this.getMovement().getCurrentY());

@@ -2,6 +2,7 @@ package src.Model.Animal.Pet.Producer;
 
 import src.Controller.Static;
 import src.GUI.AnimalSpriteAnimation;
+import src.Model.Animal.AnimalState;
 import src.Model.Animal.AnimalType;
 import src.Model.Coordinate.Direction;
 import src.Model.Product.Milk;
@@ -35,7 +36,16 @@ public class Cow extends ProducerAnimal {
 
     public void ShowCow(Group root) {
         try {
-            Image cowImage = new Image(new FileInputStream("src/Resources/Textures/Animals/Cow/" + this.getMovement().getDirection() + ".png")); // TODO: 01/25/2019 get correct address for animations
+            Image cowImage;
+            if (this.animalState == AnimalState.EATING){
+                cowImage = new Image(new FileInputStream("src/Resources/Textures/Animals/Cow/EAT.png"));
+
+            }else if (this.animalState == AnimalState.DYING){
+                cowImage = new Image(new FileInputStream("src/Resources/Textures/Animals/Cow/DEATH.png"));
+            }else{
+                cowImage = new Image(new FileInputStream("src/Resources/Textures/Animals/Cow/" + this.getMovement().getDirection() + ".png")); // TODO: 01/25/2019 get correct address for animations
+            }
+
             ImageView cowView = new ImageView(cowImage);
             cowView.setX(this.getMovement().getCurrentX());
             cowView.setY(this.getMovement().getCurrentY());
