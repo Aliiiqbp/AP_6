@@ -14,6 +14,8 @@ import java.util.ArrayList;
 
 public abstract class Wild extends Animal {
 
+    protected int numberofclicks = 0;
+
     public Wild(AnimalType animalType, double sellPrice, double buyPrice, double volume, double speed, double x, double y) {
         super(animalType, sellPrice, buyPrice, volume, speed, x, y);
     }
@@ -34,6 +36,17 @@ public abstract class Wild extends Animal {
             }
         }
     } // TODO: 12/31/2018 it may change to private
+
+    public void clicked(){
+        ///// it should first make it caged
+        if ( this.numberofclicks == 0){
+            this.cage();
+            this.numberofclicks ++;
+        } else if (this.numberofclicks == 5){  // here it moves to warehouse
+            this.getFarm().getWareHouse().add(this);
+            this.getFarm().getMap().removeSalable(this);
+        }
+    }
 
     public void cage() {
         this.changeState(AnimalState.CAGED);
