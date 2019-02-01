@@ -194,7 +194,7 @@ public class Static {
     public static final double FIRST_OCCUPIED_CAPACITY = 0;
 
     //Bank
-    public static final double BANK_FIRST_MONEY = 0;
+    public static final double BANK_FIRST_MONEY = 6000.0;
 
     //water
     public static final double WATER_SELL_PRICE = 0;

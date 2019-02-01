@@ -35,7 +35,6 @@ public class Controller {
     private Farm farm;
     private Time time;
     private WareHouse wareHouse;
-    private CakeBakery cakeBakery;
 
     public Controller(Farm farm) {
         this.farm = farm;
@@ -103,6 +102,7 @@ public class Controller {
     public void buyAnimal(AnimalType animalType, double x, double y) {
         Animal animal = AnimalType.getPet(animalType, x, y);
         farm.getMap().addSalable(animal);
+
     } //ok
 
     private void pickUp(double x, double y) {
