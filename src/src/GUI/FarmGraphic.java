@@ -53,6 +53,29 @@ public class FarmGraphic {
         statusBar.setArcWidth(40);
         statusBar.setArcHeight(40);
 
+        root.getChildren().addAll(statusBar);
+        
+        ////////////////////////////////////////Money
+
+        ImageView money = new ImageView(new Image("src/Resources/Menu/coin.png"));
+        money.setFitWidth(30);
+        money.setFitHeight(30);
+        money.setLayoutX(700);
+        money.setLayoutY(15);
+
+        Rectangle moneyIconBack = new Rectangle(51, 25);
+        moneyIconBack.setLayoutY(19);
+        moneyIconBack.setLayoutX(640);
+        moneyIconBack.setFill(Color.WHITE);
+        moneyIconBack.setOpacity(1);
+        Label moneyIconLab = new Label(Integer.toString(6000)/*Integer.toString((int) bank.getMoney())*/);
+        moneyIconLab.setFont(new Font("georgia", 20));
+        moneyIconLab.setLayoutY(19);
+        moneyIconLab.setLayoutX(642);
+        moneyIconLab.setOpacity(1);
+
+        root.getChildren().addAll(money, moneyIconBack, moneyIconLab);
+
         ///////////////////////pauseButton and pauseMenu
 
         ImageView pauseButton = new ImageView(new Image("src/Resources/Menu/pause.png"));
@@ -89,7 +112,7 @@ public class FarmGraphic {
 //            }
         });
 
-        root.getChildren().addAll(statusBar, pauseButton);
+        root.getChildren().addAll(pauseButton);
 
         ///////////////////////buyHenIcon
 
@@ -387,7 +410,7 @@ public class FarmGraphic {
             } else {
                 String to = chatList.getSelectionModel().getSelectedItem();
                 String from = Network.clientString;
-                SingleMessage singleMessage = new SingleMessage(from, to, false);
+                SingleMessage singleMessage = new SingleMessage(from, to, true);
                 ClientGUI.sendSingleMessage(singleMessage);
             }
         });
@@ -511,7 +534,7 @@ public class FarmGraphic {
     private static ArrayList<String> getNames() {
         ArrayList<String> names = new ArrayList<>();
         try {
-            FileReader namesToChat = new FileReader("src/src/Resources/Network/serverInfo/" + Network.serverString + "/info.txt");
+            FileReader namesToChat = new FileReader("src/Resources/Network/serverInfo/" + Network.serverString + "/info.txt");
             StringBuilder result = new StringBuilder();
             int ascii = namesToChat.read();
             while (ascii != -1) {

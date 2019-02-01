@@ -11,6 +11,7 @@ import src.Model.Animal.Pet.Producer.Sheep;
 import src.Model.Animal.Wild.Bear;
 import src.Model.Animal.Wild.Lion;
 import src.Model.Animal.Wild.Wild;
+import src.Model.Farm.Extra.WareHouse;
 import src.Model.Farm.Farm;
 import src.Model.Farm.Map.Cell;
 
@@ -18,22 +19,30 @@ import src.Model.Entity;
 import src.Model.Product.*;
 import src.Model.Salable;
 import src.Model.Time;
+import src.Model.WorkShop.*;
 import src.Model.WorkShop.WorkShop;
+import src.Model.WorkShop.WorkShopType;
+import src.View.IO;
+import src.Controller.Static;
 
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Controller {
 
     private double money;
     private Farm farm;
     private Time time;
+    private WareHouse wareHouse;
+    private CakeBakery cakeBakery;
 
     public Controller(Farm farm) {
         this.farm = farm;
         time = new Time();
         money = Static.INITIAL_MONEY;
     }
+
 
     public void initializeGame() {
 //        Dog dog = new Dog(100, 100);
@@ -99,18 +108,18 @@ public class Controller {
     private void pickUp(double x, double y) {
         Cell cell = farm.getMap().getMappedCell(x, y);
         ArrayList<Salable> salables = cell.getSalables();
-        if (farm.getWareHouse().canAdd(salables)) {
-            farm.getFarm().getWareHouse().add(salables);
+        if (wareHouse.canAdd(salables)) {
+            wareHouse.add(salables);
             cell.clear();
         }
         cell.clear();
-    }
+    } // TODO: 12/24/2018 pickUp product
 
-    private void pickUp(Salable salable) {
+    public void pickUp(Salable salable) {
         Cell cell = farm.getMap().getMappedCell(salable.getMovement().getCurrentX(), salable.getMovement().getCurrentY());
-        if (farm.getWareHouse().canAdd(salable)) {
-            farm.getWareHouse().add(salable);
-            farm.getWareHouse().remove(salable);
+        if (wareHouse.canAdd(salable)) {
+            wareHouse.add(salable);
+            wareHouse.remove(salable);
         }
     }
 
@@ -121,30 +130,21 @@ public class Controller {
         wild.cage();
     }
 
-    private void plant(double x, double y) {
+    private void plant(double x, double y, Water water) {
         Cell cell = farm.getMap().getMappedCell(x, y);
-        Water water = farm.getWell().getWater();
-        if (water != null) {
-            Grass grass = Grass.getGrass(x, y, water);
-            cell.addToCell(grass);
-        }
-    }
+        Grass grass = Grass.getGrass(x, y, water);
+        cell.addToCell(grass);
+    } // TODO: 12/24/2018 plant Grass
 
     private void fillWell() {
-        if (farm.getBank().canDecrease(farm.getWell().getFillWellCost())) {
-            farm.getBank().buy(farm.getWell().getFillWellCost());
-            farm.getWell().chargeWell();
-        }
+        farm.getWell().chargeWell();
     } // TODO: 12/24/2018 fill well
 
-    private void clickWorkShop(WorkShop workShop) {
-        ProductType requirement = workShop.getRequirement();
-        Product product = ProductType.getProduct(requirement, workShop.getMovement().getCurrentX(), workShop.getMovement().getCurrentY());
-        if (farm.getWareHouse().contain(product)) {
-            farm.getWareHouse().remove(product);
-            Product p = workShop.produce(product);
-            farm.getMap().addSalable(p);
+    private Product clickWorkShop(WorkShop workShop, Product... products) {
+        if (workShop.canProduce(products)) {
+            return workShop.produce(products);
         }
+        return null;
     }// TODO: 12/25/2018 start[workshop_name]
 
     private void upgradeLevel(Entity object) {

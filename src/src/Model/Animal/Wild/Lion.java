@@ -55,7 +55,6 @@ public class Lion extends Wild {
                     break;
                 case DOWN_LEFT:
                     columns = 5;
-                    ;
                     break;
                 case LEFT:
                     columns = 6;
@@ -67,14 +66,16 @@ public class Lion extends Wild {
                     columns = 6;
                     break;
                 case UP_RIGHT:
-                    columns = 5;
+                    columns = 3;
                     lionView.setScaleX(-1);
                     break;
                 case RIGHT:
-                    columns = 6;
+                    columns = 3;
                     lionView.setScaleX(-1);
                     break;
-
+                case NONE:
+                    columns = 6;
+                    break;
             }
 
             lionView.setViewport(new Rectangle2D(0, 0, width, height));    //sprite animation  useful for your project
@@ -87,6 +88,14 @@ public class Lion extends Wild {
             );
             animation.setCycleCount(Animation.INDEFINITE);
             animation.play();
+
+
+            lionView.setOnMouseClicked(event -> {
+                this.clicked();
+            });
+
+
+
             lastImageView = lionView;
         } catch (Exception e) {
         }

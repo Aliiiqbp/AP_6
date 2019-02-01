@@ -127,13 +127,9 @@ public class GraphicHandler extends Application {
         exitLab.setOpacity(0);
 
         MediaPlayer MainMusic = new MediaPlayer(new Media(new File("src/Resources/Music/MammadNobari.mp3").toURI().toString()));
-//        MediaPlayer MammadNobari = new MediaPlayer(new Media(new File("src/Resources/Music/MammadNobari.mp3").toURI().toString()));
         MainMusic.setVolume(0.4);
-//        MammadNobari.setVolume(0.2);
         MainMusic.setCycleCount(MediaPlayer.INDEFINITE);
-//        MammadNobari.setCycleCount(MediaPlayer.INDEFINITE);
         MainMusic.play();
-//        MammadNobari.play();
 
         ImageView background = new ImageView();
         ImageView toggle = new ImageView();
@@ -299,7 +295,6 @@ public class GraphicHandler extends Application {
 
         single.setOnMouseClicked(event -> {
             MainMusic.stop();
-            //            MammadNobari.stop();
             isOnline = false;
             FarmGraphic.farmScene("start");
         });
@@ -327,7 +322,6 @@ public class GraphicHandler extends Application {
 
         multi.setOnMouseClicked(event -> {
             if (multi.getOpacity() >= 0.8) {
-//                MammadNobari.stop();
                 MainMusic.stop();
                 Network.networkScene();
             }
@@ -354,7 +348,10 @@ public class GraphicHandler extends Application {
             fadeMainMenu(customLab, customLab.getOpacity(), 0, 500).play();
         });
 
-        custom.setOnMouseClicked(event -> Custom.custom());
+        custom.setOnMouseClicked(event -> {
+            MainMusic.stop();
+            Custom.custom();
+        });
 
         setting.setOnMouseEntered(event -> {
             if (setting.getOpacity() >= 0.8) {

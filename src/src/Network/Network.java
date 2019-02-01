@@ -45,7 +45,7 @@ public class Network {
         getBack.setOpacity(0);
 
         TextField getName = new TextField("");
-        getName.setFont(Font.font("georgia", ITALIC,15));
+        getName.setFont(Font.font("georgia", ITALIC, 15));
         getName.setOpacity(0);
         getName.setLayoutX(420);
         getName.setLayoutY(390);
@@ -53,7 +53,7 @@ public class Network {
 
         Label thisName = new Label("Name");
         thisName.setTextFill(Color.WHITE);
-        thisName.setFont(Font.font("georgia", ITALIC,  20));
+        thisName.setFont(Font.font("georgia", ITALIC, 20));
         thisName.setLayoutX(350);
         thisName.setLayoutY(392);
         thisName.setOpacity(0);
@@ -63,7 +63,7 @@ public class Network {
         fade.setFill(Color.MIDNIGHTBLUE);
 
         Label multiplayer = new Label("Multiplayer");
-        multiplayer.setFont(Font.font("Death Star", BOLD,70));
+        multiplayer.setFont(Font.font("Death Star", BOLD, 70));
         multiplayer.setTextFill(Color.web("#ef6c00"));
         multiplayer.setLayoutX(350);
         multiplayer.setLayoutY(100);
@@ -220,40 +220,45 @@ public class Network {
                         int socket = 1234;
                         String startName = getName.getText();
                         String serverName = serverNames.getSelectionModel().getSelectedItem();
-                        try {
-                            FileReader fileReader = new FileReader("src/src/Resources/Network/serverInfo/info.txt");
-                            StringBuilder result = new StringBuilder();
-                            int ascii = fileReader.read();
-                            while (ascii != -1) {
-                                result.append((char) ascii);
-                                ascii = fileReader.read();
-                            }
-                            String[] servers = result.toString().split("\n");
-                            for (String server : servers) {
-                                if (server.split(" : ")[0].equals(serverName)) {
-                                    socket = Integer.valueOf(server.split(" : ")[1]);
-                                    break;
+                        if (checkName(serverName, startName)) {
+                            try {
+
+                                FileReader fileReader = new FileReader("src/src/Resources/Network/serverInfo/info.txt");
+                                StringBuilder result = new StringBuilder();
+                                int ascii = fileReader.read();
+                                while (ascii != -1) {
+                                    result.append((char) ascii);
+                                    ascii = fileReader.read();
                                 }
-                            }FileWriter writeServerFile = new FileWriter("src/Resources/Network/serverInfo/" + serverName + "/info.txt", true);
-                            writeServerFile.append(startName).append("\n");
-                            writeServerFile.close();
-                            ClientGUI.textArea = FarmGraphic.textArea1;
-                            ClientGUI.textField = FarmGraphic.textField1;
-                            ClientGUI.portNumber = socket;
-                            ClientGUI.username = startName;
+                                String[] servers = result.toString().split("\n");
+                                for (String server : servers) {
+                                    if (server.split(" : ")[0].equals(serverName)) {
+                                        socket = Integer.valueOf(server.split(" : ")[1]);
+                                        break;
+                                    }
+                                }
+                                FileWriter writeServerFile = new FileWriter("src/Resources/Network/serverInfo/" + serverName + "/info.txt", true);
+                                writeServerFile.append(startName).append("\n");
+                                writeServerFile.close();
+                                ClientGUI.textArea = FarmGraphic.textArea1;
+                                ClientGUI.textField = FarmGraphic.textField1;
+                                ClientGUI.portNumber = socket;
+                                ClientGUI.username = startName;
 
-                            serverString = serverName;
-                            clientString = startName;
+                                serverString = serverName;
+                                clientString = startName;
 
-                            new ClientGUI("localhost");
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
+                                new ClientGUI("localhost");
+
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
 
 //                        setLocation();
 
-                        GraphicHandler.isOnline = true;
-                        FarmGraphic.farmScene("start");
+                            GraphicHandler.isOnline = true;
+                            FarmGraphic.farmScene("start");
+                        }
                     } else if (!getName.getText().equals("")) {
                         Alert alert = new Alert(Alert.AlertType.WARNING);
                         alert.setHeaderText(null);
@@ -278,8 +283,8 @@ public class Network {
         });
 
         ImageView server = new ImageView(new Image("src/Resources/Server/server.png"));
-        server.setFitWidth(200);
-        server.setFitHeight(200);
+        server.setFitWidth(150);
+        server.setFitHeight(150);
         server.setLayoutX(20);
         server.setLayoutY(20);
 
@@ -309,6 +314,36 @@ public class Network {
             e.printStackTrace();
         }
         return socketNumber;
+    }
+
+    public static boolean checkName(String serverName, String startName) {
+
+        boolean check = true;
+
+        try {
+            FileReader fileReader = new FileReader("src/Resources/Network/serverInfo/" + serverName + "/info.txt");
+            StringBuilder result = new StringBuilder();
+            int ascii = fileReader.read();
+            while (ascii != -1) {
+                result.append((char) ascii);
+                ascii = fileReader.read();
+            }
+            String[] users = result.toString().split("\n");
+            for (String user : users) {
+                if (user.equals(startName)) {
+                    check = false;
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setHeaderText(null);
+                    alert.setTitle(null);
+                    alert.setContentText("This username is not available :(\nPlease choose a differnet username");
+                    alert.show();
+                    break;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return check;
     }
 
 //    private static void setLocation() {

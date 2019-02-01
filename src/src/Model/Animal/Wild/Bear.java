@@ -41,7 +41,7 @@ public class Bear extends Wild {
             final int count = 24;
             final int durationTime = 2000, offsetX = 0, offsetY = 0;
             int columns = 0, width = (int) bearImage.getWidth(), height = (int) bearImage.getHeight();
-
+            root.getChildren().remove(lastImageView);
             root.getChildren().add(bearView);
 
             switch (this.getMovement().getDirection()) {
@@ -69,11 +69,14 @@ public class Bear extends Wild {
                     bearView.setScaleX(-1);
                     break;
                 case RIGHT:
-                    columns = 6;
+                    columns = 4;
                     bearView.setScaleX(-1);
                     break;
-
+                case NONE:
+                    columns = 6;
+                    break;
             }
+
 
             bearView.setViewport(new Rectangle2D(0, 0, width, height));    //sprite animation  useful for your project
             final Animation animation = new AnimalSpriteAnimation(
@@ -85,6 +88,12 @@ public class Bear extends Wild {
             );
             animation.setCycleCount(Animation.INDEFINITE);
             animation.play();
+
+            bearView.setOnMouseClicked(event -> {
+                this.clicked();
+            });
+
+            lastImageView = bearView;
         } catch (Exception e) {
         }
     }
