@@ -8,25 +8,25 @@ import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 import src.Controller.Static;
 import src.GUI.AnimalSpriteAnimation;
-import src.Model.Building;
-import src.Model.Coordinate.Movement;
 import src.Model.Entity;
 import src.Model.Product.Water;
 
 import java.io.FileInputStream;
 
-public class Well extends Building {
+public class Well extends Entity {
     private int wellCapacity;
     private int amountOfWater;
     private double fillWellCost;
-    private Movement movement;
+    private double chargingTime;
+    private boolean isCharging;
     protected ImageView lastImageView = null;
 
     public Well() {
         wellCapacity = Static.WELL_CAPACITY_LVL_0;
         amountOfWater = wellCapacity;
         fillWellCost = Static.WELL_FILL_COST_LVL_0;
-        movement = new Movement();
+        chargingTime = Static.WELL_CHARGING_TIME;
+        isCharging = false;
     }
 
     @Override
@@ -47,7 +47,17 @@ public class Well extends Building {
             case 3: //it's not upgradable :)
                 break;
         }
-        increaseLevel();
+        this.upgradeLevel();
+    }
+
+    @Override
+    public void play() {
+        getTime().turn();
+        if (isCharging && getTime().getDuration() >= chargingTime ) {
+            this.amountOfWater = this.wellCapacity;
+            getTime().restart();
+            isCharging = false;
+        }
     }
 
     public double getAmountOfWater() {
@@ -63,12 +73,10 @@ public class Well extends Building {
     }
 
     public void chargeWell() {
-        // TODO: 2/1/2019 handle time
         if (getFarm().getBank().canDecrease(fillWellCost)) {
             getFarm().getBank().buy(fillWellCost);
-            this.amountOfWater = this.wellCapacity;
+            isCharging = true;
         }
-
     }
 
     public boolean canGetWater() {
@@ -78,10 +86,10 @@ public class Well extends Building {
         return false;
     }
 
-    public Water getWater() {
+    public Water getWater(double x, double y) {
         if (canGetWater()) {
             amountOfWater -= 1;
-            return new Water(this.movement.getCurrentX(), this.movement.getCurrentY());
+            return new Water(x, y);
         }
         return null;
     }
@@ -92,6 +100,10 @@ public class Well extends Building {
 
     private void setWellCapacity(int wellCapacity) {
         this.wellCapacity = wellCapacity;
+    }
+
+    public double getFillWellCost() {
+        return fillWellCost;
     }
 
     public void showWell(Group root){
@@ -129,9 +141,5 @@ public class Well extends Building {
         } catch (Exception e) {
         }
 
-    }
-
-    public double getFillWellCost() {
-        return fillWellCost;
     }
 }

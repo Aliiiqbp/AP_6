@@ -20,10 +20,6 @@ public class Lion extends Wild {
         super(AnimalType.LION, Static.LION_SELL_VALUE, Static.LION_BUY_COST, Static.LION_VOLUME, Static.LION_SPEED, x, y);
     }
 
-    @Override
-    public void play() {
-        // TODO: 1/31/2019 destroy
-    }
     public void ShowLion(Group root) {
         try {
             Image lionImage;

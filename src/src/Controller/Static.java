@@ -13,14 +13,14 @@ public class Static {
     public static final double CAT_SLEEP_TIME = 10;
     public static final double CAT_SPEED = 2;
     public static final double CAT_BUY_COST = 2500;
-    public static final double CAT_VOLUME = 0;      // value was not in doc
-    public static final double CAT_SELL_VALUE = 0;  // value was not in doc
+    public static final double CAT_VOLUME = 1;
+    public static final double CAT_SELL_VALUE = 1;
 
     //Dog
     public static final double DOG_SPEED = 4;
-    public static final double DOG_VOLUME = 0;
-    public static final double DOG_SELL_VALUE = 0;  // value was not in doc
-    public static final double DOG_BUY_COST = 3000;    // value was not in doc
+    public static final double DOG_VOLUME = 1;
+    public static final double DOG_SELL_VALUE = 1;
+    public static final double DOG_BUY_COST = 3000;
 
     //Sheep
     public static final double SHEEP_SPEED = 55;
@@ -31,8 +31,11 @@ public class Static {
     public static final double SHEEP_HUNGRY_SPEED = 9;
     public static final double SHEEP_HUNGRY_VALUE = 150;
     public static final double SHEEP_BUY_COST = 1000;
-    public static final double SHEEP_VOLUME = 0;       // value was not in doc
-    public static final double SHEEP_SELL_VALUE = 0;  // value was not in doc
+    public static final double SHEEP_VOLUME = 1;
+    public static final double SHEEP_SELL_VALUE = 1;
+    public static final int SHEEP_HUNGRY_TIME = 10;
+    public static final int SHEEP_DEATH_TIME = 10;
+    public static final int SHEEP_EATING_TIME = 5;
 
     //Hen
     public static final double HEN_SPEED = 50;
@@ -43,8 +46,11 @@ public class Static {
     public static final double HEN_HUNGRY_SPEED = 3;
     public static final double HEN_HUNGRY_VALUE = 50;
     public static final double HEN_BUY_COST = 100;
-    public static final double HEN_VOLUME = 0;       // value was not in doc
-    public static final double HEN_SELL_VALUE = 0;  // value was not in doc
+    public static final double HEN_VOLUME = 1;
+    public static final double HEN_SELL_VALUE = 1;
+    public static final int HEN_HUNGRY_TIME = 10;
+    public static final int HEN_DEATH_TIME = 10;
+    public static final int HEN_EATING_TIME = 5;
 
     //Cow
     public static final double COW_SPEED = 40;
@@ -55,8 +61,11 @@ public class Static {
     public static final double COW_HUNGRY_SPEED = 18;
     public static final double COW_HUNGRY_VALUE = 300;
     public static final double COW_BUY_COST = 10000;
-    public static final double COW_VOLUME = 0;      // value was not in doc
-    public static final double COW_SELL_VALUE = 0;  // value was not in doc
+    public static final double COW_VOLUME = 1;
+    public static final double COW_SELL_VALUE = 1;
+    public static final int COW_HUNGRY_TIME = 10;
+    public static final int COW_DEATH_TIME = 10;
+    public static final int COW_EATING_TIME = 5;
 
     //Bear            // its brow bear's property
     public static final double BEAR_SPEED = 40;      //value was not in doc
@@ -83,18 +92,18 @@ public class Static {
 
     //Truck
     public static final double TRUCK_BOX_CAPACITY = 20;
-    public static final double TRUCK_BOX_COUNT_LVL_0 = 2;
-    public static final double TRUCK_BOX_COUNT_LVL_1 = 3;
-    public static final double TRUCK_BOX_COUNT_LVL_2 = 4;
-    public static final double TRUCK_BOX_COUNT_LVL_3 = 5;
-    public static final double TRUCK_TRAVEL_DURATION_LVL_0 = 20;
-    public static final double TRUCK_TRAVEL_DURATION_LVL_1 = 15;
-    public static final double TRUCK_TRAVEL_DURATION_LVL_2 = 10;
-    public static final double TRUCK_TRAVEL_DURATION_LVL_3 = 5;
-    public static final double TRUCK_CAPACITY_VOLUME_RADIUS_LVL_0 = 0;
-    public static final double TRUCK_CAPACITY_VOLUME_RADIUS_LVL_1 = 0;
-    public static final double TRUCK_CAPACITY_VOLUME_RADIUS_LVL_2 = 0;
-    public static final double TRUCK_CAPACITY_VOLUME_RADIUS_LVL_3 = 0;
+    public static final int TRUCK_BOX_COUNT_LVL_0 = 2;
+    public static final int TRUCK_BOX_COUNT_LVL_1 = 3;
+    public static final int TRUCK_BOX_COUNT_LVL_2 = 4;
+    public static final int TRUCK_BOX_COUNT_LVL_3 = 5;
+    public static final int TRUCK_TRAVEL_DURATION_LVL_0 = 20;
+    public static final int TRUCK_TRAVEL_DURATION_LVL_1 = 15;
+    public static final int TRUCK_TRAVEL_DURATION_LVL_2 = 10;
+    public static final int TRUCK_TRAVEL_DURATION_LVL_3 = 5;
+    public static final int TRUCK_CAPACITY_VOLUME_RADIUS_LVL_0 = 1;
+    public static final double TRUCK_CAPACITY_VOLUME_RADIUS_LVL_1 = 2;
+    public static final double TRUCK_CAPACITY_VOLUME_RADIUS_LVL_2 = 3;
+    public static final double TRUCK_CAPACITY_VOLUME_RADIUS_LVL_3 = 4;
 
     //Helicopter
     public static final double HELI_TRAVEL_DURATION_LVL_0 = 12;
@@ -105,10 +114,10 @@ public class Static {
     public static final double HELI_SCATTERING_RADIUS_LVL_1 = 100;
     public static final double HELI_SCATTERING_RADIUS_LVL_2 = 60;
     public static final double HELI_SCATTERING_RADIUS_LVL_3 = 20;
-    public static final double HELI_CAPACITY_VOLUME_RADIUS_LVL_0 = 0;
-    public static final double HELI_CAPACITY_VOLUME_RADIUS_LVL_1 = 0;
-    public static final double HELI_CAPACITY_VOLUME_RADIUS_LVL_2 = 0;
-    public static final double HELI_CAPACITY_VOLUME_RADIUS_LVL_3 = 0;
+    public static final double HELI_CAPACITY_VOLUME_RADIUS_LVL_0 = 1;
+    public static final double HELI_CAPACITY_VOLUME_RADIUS_LVL_1 = 2;
+    public static final double HELI_CAPACITY_VOLUME_RADIUS_LVL_2 = 3;
+    public static final double HELI_CAPACITY_VOLUME_RADIUS_LVL_3 = 4;
 
     //Well
     public static final int WELL_CAPACITY_LVL_0 = 5;
@@ -119,7 +128,7 @@ public class Static {
     public static final double WELL_FILL_COST_LVL_1 = 17;
     public static final double WELL_FILL_COST_LVL_2 = 15;
     public static final double WELL_FILL_COST_LVL_3 = 7;
-    public static final double WELL_FILL_CHARGE_TIME = 4; // TODO: 2/2/2019 set this shit
+    public static final double WELL_CHARGING_TIME = 5;
 
     //Cage
     public static final double CAGE_BROKE_TIME_LVL_0 = 6;
@@ -200,9 +209,9 @@ public class Static {
     public static final double BANK_FIRST_MONEY = 0;
 
     //water
-    public static final double WATER_SELL_PRICE = 0;
-    public static final double WATER_BUY_PRICE = 0;
-    public static final double WATER_VOLUME = 0;
+    public static final double WATER_SELL_PRICE = 1;
+    public static final double WATER_BUY_PRICE = 1;
+    public static final double WATER_VOLUME = 1;
 
     //well
     public static final double WELL_WATER_AMOUNT = 0;
@@ -213,7 +222,7 @@ public class Static {
 
     //Workshop
 
-    public static final double WORKSHOP_WORK_DURATION = 10;
+    public static final int WORKSHOP_WORK_DURATION = 10;
 //CAKEBAKERY;
     public static final double CACKEBAKERY_MAXLEVEL = 5.0;
 
@@ -552,21 +561,22 @@ public class Static {
 
 
     //GRASS
-    public static final double GRASS_SELL_VALUE = 0;
-    public static final double GRASS_BUY_COST = 0;
-    public static final double GRASS_VOLUME = 0;
+    public static final double GRASS_SELL_VALUE = 1;
+    public static final double GRASS_BUY_COST = 1;
+    public static final double GRASS_VOLUME = 1;
+    public static final int GRASS_MAX_GRASS = 5;
 
 
     //Cookie
-    public static final double COOKIE_SELL_VALUE = 0;
-    public static final double COOKIE_BUY_COST = 0;
-    public static final double COOKIE_VOLUME = 0;
+    public static final double COOKIE_SELL_VALUE = 1;
+    public static final double COOKIE_BUY_COST = 1;
+    public static final double COOKIE_VOLUME = 1;
 
 
     //EGG_POWDER
-    public static final double EGGPOWDER_SELL_VALUE = 0;
-    public static final double EGGPOWDER_BUY_COST = 0;
-    public static final double EGGPOWDER_VOLUME = 0;
+    public static final double EGGPOWDER_SELL_VALUE = 1;
+    public static final double EGGPOWDER_BUY_COST = 1;
+    public static final double EGGPOWDER_VOLUME = 1;
 
 
     public static final double LVL1 = 1;

@@ -10,7 +10,6 @@ import src.Model.Salable;
 import java.io.FileInputStream;
 
 public abstract class Product extends Salable {
-    // TODO: 12/29/2018 add movement
     protected ProductType productType;
     protected ProductState productState;
 
@@ -42,5 +41,10 @@ public abstract class Product extends Salable {
             root.getChildren().add(productView);
         } catch (Exception e) {
         }
+    }
+
+    @Override
+    public void play() {
+
     }
 }

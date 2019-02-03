@@ -11,31 +11,52 @@ import java.io.FileInputStream;
 public class Truck extends Vehicle {
     private double boxCount;
     private double boxCapacity;
+    private boolean isWorking;
+    private int added;
 
     public Truck() {
         super(Static.TRUCK_CAPACITY_VOLUME_RADIUS_LVL_0 , Static.TRUCK_TRAVEL_DURATION_LVL_0);
         this.boxCapacity = Static.TRUCK_BOX_CAPACITY;
         this.boxCount = Static.TRUCK_BOX_COUNT_LVL_0;
+        isWorking = false;
+        added = 0;
     }
 
     public void addToCapacity(Salable salable) {
-        if (getCapacity().canAdd(salable)) {
+        added++;
+        for (Salable s: getCapacity().getList()) {
+            if (s.getClass().equals(salable.getClass())) {
+                added--;
+                break;
+            }
+        }
+
+        if (getCapacity().canAdd(salable) && (added <= boxCount)) {
             getCapacity().add(salable);
             getFarm().getWareHouse().remove(salable);
         }
     }
 
     public void sell() {
-        // TODO: 1/31/2019 check
-        double totalMoney = 0;
-        for (Salable salable: getCapacity().getList()) {
-            totalMoney += getCapacity().getNumberOfSalable(salable.getClass().getName())*salable.getSellPrice();
-        }
-        getFarm().getBank().sell(totalMoney);
+        isWorking = true;
     }
 
     @Override
-    public void upgradeLevel() { // TODO: 1/1/2019 sell Level
+    public void play() {
+        getTime().turn();
+        if (getTime().getDuration() >= travelDuration) {
+            double totalMoney = 0;
+            for (Salable salable : getCapacity().getList()) {
+                totalMoney += getCapacity().getNumberOfSalable(salable.getClass().getName()) * salable.getSellPrice();
+            }
+            getFarm().getBank().sell(totalMoney);
+            clearLit();
+            getTime().restart();
+        }
+    }
+
+    @Override
+    public void upgradeLevel() {
         switch (level){
             case 0 :
                 this.setTravelDuration( Static.TRUCK_TRAVEL_DURATION_LVL_1 );
@@ -52,7 +73,7 @@ public class Truck extends Vehicle {
             case 3 : //it's not upgradable :)
                 break;
         }
-        increaseLevel();
+        this.upgradeLevel();
     }
 
     public void setBoxCount(double boxCount) {

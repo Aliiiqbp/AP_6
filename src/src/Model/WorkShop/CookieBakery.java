@@ -17,8 +17,8 @@ public class CookieBakery extends WorkShop {
         try {
             Image CookieBakeryImage = new Image(new FileInputStream("src/src/Resources/Textures/Workshops/COOKIE_BAKERY/" + this.level + ".png"));
             ImageView CookieBakeryView = new ImageView(CookieBakeryImage);
-            CookieBakeryView.setX(this.getMovement().getCurrentX());
-            CookieBakeryView.setY(this.getMovement().getCurrentY());
+//            CookieBakeryView.setX(this.getMovement().getCurrentX());
+//            CookieBakeryView.setY(this.getMovement().getCurrentY());
             root.getChildren().add(CookieBakeryView);
         } catch (Exception e) {
         }

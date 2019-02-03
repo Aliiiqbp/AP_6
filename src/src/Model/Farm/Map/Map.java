@@ -128,10 +128,16 @@ public class Map extends Entity {
         return height;
     } //ok
 
-    public void run() {
-        for (Salable salable: salables) {
-            salable.getMovement().move();
-            // TODO: 1/25/2019 salables works
+    @Override
+    public void play() {
+        for (Salable salable : salables) {
+            Cell cell1 = getMappedCell(salable.getMovement().getCurrentX(), salable.getMovement().getCurrentY());
+            salable.play();
+            Cell cell2 = getMappedCell(salable.getMovement().getCurrentX(), salable.getMovement().getCurrentY());
+            if (!cell1.equals(cell2)) {
+                cell1.removeFromCell(salable);
+                cell2.addToCell(salable);
+            }
         }
     }
 }

@@ -9,7 +9,7 @@ public class Movement {
     private double speed;
     private double currentX, currentY;
     private boolean isInFastRun;
-    private Map map;
+    private static Map map;
 
     private  double fixedX = -1, fixedY = -1;
 
@@ -38,13 +38,6 @@ public class Movement {
 
     public void setMap(Map map) {
         this.map = map;
-    }
-
-    public Movement() {
-        this.direction = Direction.NONE; // TODO: 12/28/2018 set direction
-        this.speed = 0.0;
-        this.currentX = fixedX;
-        this.currentY = fixedY; // TODO: 1/25/2019 set well movement 
     }
 
     public Direction getDirection() {
@@ -119,9 +112,7 @@ public class Movement {
         }
     }
 
-
-
-    public void stop() { // TODO: 12/29/2018 we need a better name for this function
+    public void stop() {
         this.speed = 0;
         this.direction = Direction.NONE;
     }
@@ -165,5 +156,13 @@ public class Movement {
         }
 
         return result;
+    }
+
+    public static double getRandomX() {
+        return Math.random()*(map.getWidth());
+    }
+
+    public static double getRandomY() {
+        return Math.random()*(map.getHeight());
     }
 }

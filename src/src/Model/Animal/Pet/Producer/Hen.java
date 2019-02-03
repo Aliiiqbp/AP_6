@@ -12,19 +12,14 @@ import src.Model.Animal.AnimalState;
 import src.Model.Animal.AnimalType;
 import src.Model.Product.Egg;
 import src.Model.Product.Product;
+import src.Model.Product.ProductType;
 
 import java.io.FileInputStream;
 
 public class Hen extends ProducerAnimal {
 
     public Hen(double x, double y) {
-        super(AnimalType.HEN, Static.HEN_SELL_VALUE, Static.HEN_BUY_COST, Static.HEN_VOLUME, Static.HEN_SPEED, x, y);
-    }
-
-    @Override
-    public void play() {
-        // TODO: 1/31/2019 eat and produce
-        // TODO: 1/31/2019 move randomly
+        super(AnimalType.HEN, Static.HEN_SELL_VALUE, Static.HEN_BUY_COST, Static.HEN_VOLUME, Static.HEN_SPEED, x, y, Static.HEN_HUNGRY_TIME, Static.HEN_DEATH_TIME, Static.HEN_EATING_TIME, ProductType.EGG);
     }
 
     @Override

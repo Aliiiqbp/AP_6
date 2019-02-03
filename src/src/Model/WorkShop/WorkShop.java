@@ -1,89 +1,37 @@
 package src.Model.WorkShop;
 
-import src.Model.Building;
+import src.Model.Coordinate.Movement;
 import src.Model.Product.Product;
 import src.Model.Product.ProductType;
-import src.Model.Coordinate.Movement;
 import src.Model.Entity;
-import java.util.HashMap;
-import java.util.Set;
+import src.Model.Salable;
 
-public abstract class WorkShop extends Building {
+public abstract class WorkShop extends Entity {
 
     private ProductType productType;
     private WorkShopType workShopType;
     private ProductType requirement;
-    private double produceTime;
-//    private HashMap<ProductType, Integer> requirements;
-    private Movement movement;
+    private int producingTime;
+    private boolean isProducing;
 
-    public WorkShop(WorkShopType workShopType, ProductType productType, ProductType requirement, double produceTime) {
+    public WorkShop(WorkShopType workShopType, ProductType productType, ProductType requirement, int produceTime) {
         this.workShopType = workShopType;
         this.productType = productType;
         this.requirement = requirement;
-        this.produceTime = produceTime;
-        movement = new Movement();
+        this.producingTime = produceTime;
+        isProducing = false;
     }
 
-//    public Product produce(Product... products) {
-//        // TODO: 12/31/2018 send error message if requirements not found
-//        if (canProduce(products)) {
-//            return ProductType.getProduct(this.productType, this.movement.getCurrentX(), this.movement.getCurrentY());
-//        }
-//
-//        return null;
-//    }
+    public boolean canProduce() {
+        Product product = ProductType.getProduct(productType, Movement.getRandomX(), Movement.getRandomY());
+        return getFarm().getWareHouse().contain(product);
+    }
 
-//    public boolean canProduce(Product... products) {
-//        Set<ProductType> productTypeSet = requirements.keySet();
-//        HashMap<ProductType, Integer> productList = ProductType.changeToHashMap(products);
-//
-//        boolean result = true;
-//        for (ProductType productType :productTypeSet) {
-//            if (!productList.containsKey(productType)) {
-//                result = false;
-//                break;
-//            }
-//            if (requirements.get(productType) != productList.get(productType)) {
-//                result = false;
-//                break;
-//            }
-//        }
-//        return result;
-//    } // TODO: 1/25/2019 complete with ArrayList
-
-//    public void setRequirments(HashMap<ProductType, Integer> requirements) {
-//        this.requirements = requirements;
-//    }
-
-//    public void addToRequirments(ProductType productType, int count) {
-//        this.requirements.put(productType, count);
-//    }
-
-//    public WorkShopType getWorkShopType() {
-//        return workShopType;
-//    }
-
-//    public HashMap<ProductType, Integer> getRequirements() {
-//        return requirements;
-//    }
-
-    public boolean canProduce(Product product) {
-        if (product.getProductType() == requirement) {
-            return true;
+    public void produce() {
+        if (canProduce()) {
+            getFarm().getWareHouse().getSalable(ProductType.getProduct(productType, Movement.getRandomX(), Movement.getRandomY()));
+            isProducing = true;
         }
-        return false;
-    }
-
-    public Product produce(Product product) {
-        if (canProduce(product)) {
-            return ProductType.getProduct(productType, movement.getCurrentX(), movement.getCurrentY());
-        }
-        return  null;
-    }
-
-    public Movement getMovement() {
-        return movement;
     }
 
     public ProductType getProductType() {
@@ -94,11 +42,22 @@ public abstract class WorkShop extends Building {
         return workShopType;
     }
 
+    public double getProducingTime() {
+        return producingTime;
+    }
+
     public ProductType getRequirement() {
         return requirement;
     }
 
-    public double getProduceTime() {
-        return produceTime;
+    @Override
+    public void play() {
+        getTime().turn();
+        if (isProducing && getTime().getDuration() >= producingTime) {
+            isProducing = false;
+            getTime().restart();
+            Product product = ProductType.getProduct(productType, Movement.getRandomX(), Movement.getRandomY());
+            getFarm().getMap().addSalable(product);
+        }
     }
 }

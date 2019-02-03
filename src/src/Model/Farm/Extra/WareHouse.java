@@ -1,7 +1,6 @@
 package src.Model.Farm.Extra;
 
 import src.Controller.Static;
-import src.Model.Building;
 import src.Model.Capacity;
 import src.Model.Entity;
 import src.Model.Salable;
@@ -13,7 +12,7 @@ import javafx.scene.image.ImageView;
 import java.io.FileInputStream;
 import java.util.ArrayList;
 
-public class WareHouse extends Building {
+public class WareHouse extends Entity {
     ImageView lastImageView = null;
     private Capacity capacity;
 
@@ -76,7 +75,12 @@ public class WareHouse extends Building {
             case 3:
                 break; // can't remove upgraded
         }
-        increaseLevel();
+        this.upgradeLevel();
+    }
+
+    @Override
+    public void play() {
+
     }
 
     public void showWarehouse(Group root){

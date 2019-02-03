@@ -13,6 +13,7 @@ import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
+import src.Model.Product.ProductType;
 
 import java.io.FileInputStream;
 
@@ -20,13 +21,7 @@ import static src.Model.Coordinate.Direction.*;
 
 public class Cow extends ProducerAnimal {
     public Cow(double x, double y) {
-        super(AnimalType.COW, Static.COW_SELL_VALUE, Static.COW_BUY_COST, Static.COW_VOLUME, Static.COW_SPEED, x, y);
-    }
-
-    @Override
-    public void play() {
-        // TODO: 1/31/2019 eat and produce
-        // TODO: 1/31/2019 move randomly
+        super(AnimalType.COW, Static.COW_SELL_VALUE, Static.COW_BUY_COST, Static.COW_VOLUME, Static.COW_SPEED, x, y, Static.COW_HUNGRY_TIME, Static.COW_DEATH_TIME, Static.COW_EATING_TIME, ProductType.MILK);
     }
 
     @Override

@@ -11,6 +11,7 @@ import src.Model.Animal.Pet.Producer.Sheep;
 import src.Model.Animal.Wild.Bear;
 import src.Model.Animal.Wild.Lion;
 import src.Model.Animal.Wild.Wild;
+import src.Model.Coordinate.Movement;
 import src.Model.Farm.Farm;
 import src.Model.Farm.Map.Cell;
 
@@ -52,7 +53,7 @@ public class Controller {
 //        farm.getMap().addSalable(cow);
 //        Egg egg = new Egg(150,145);
 //        farm.getMap().addSalable(egg);
-    this.buyAnimal(AnimalType.HEN, 200,200);
+//    this.buyAnimal(AnimalType.HEN, 200,200);
 
 
     }
@@ -91,8 +92,9 @@ public class Controller {
 
     }
 
-    public void buyAnimal(AnimalType animalType, double x, double y) {
-        Animal animal = AnimalType.getPet(animalType, x, y);
+    public void buyAnimal(AnimalType animalType) {
+        Animal animal = AnimalType.getPet(animalType, Movement.getRandomX(), Movement.getRandomY());
+        animal.setFarm(this.farm);
         if (farm.getBank().canDecrease(animal.getBuyPrice())) {
             farm.getBank().buy(animal.getBuyPrice());
             farm.getMap().addSalable(animal);
@@ -117,18 +119,16 @@ public class Controller {
         }
     }
 
-    private void cageWild(double x, double y) {
-    } // TODO: 12/24/2018  cage wild animal
-
     private void cageWild(Wild wild) {
         wild.cage();
     }
 
     private void plant(double x, double y) {
         Cell cell = farm.getMap().getMappedCell(x, y);
-        Water water = farm.getWell().getWater();
+        Water water = farm.getWell().getWater(x, y);
         if (water != null) {
-            Grass grass = Grass.getGrass(x, y, water);
+            Grass grass = new Grass(x, y);
+            grass.setFarm(farm);
             cell.addToCell(grass);
         }
     }
@@ -142,25 +142,16 @@ public class Controller {
 
     private void clickWorkShop(WorkShop workShop) {
         ProductType requirement = workShop.getRequirement();
-        Product product = ProductType.getProduct(requirement, workShop.getMovement().getCurrentX(), workShop.getMovement().getCurrentY());
+        Product product = ProductType.getProduct(requirement, Movement.getRandomX(), Movement.getRandomY());
         if (farm.getWareHouse().contain(product)) {
             farm.getWareHouse().remove(product);
-            Product p = workShop.produce(product);
-            farm.getMap().addSalable(p);
+            workShop.produce();
         }
     }// TODO: 12/25/2018 start[workshop_name]
 
     private void upgradeLevel(Entity object) {
         object.upgradeLevel();
-    } // TODO: 12/25/2018 upgrade[workshop|cat|well]...]
-
-    private void loadCustom(Path path) {
-    } // TODO: 12/25/2018 load custom[path_to_custom_directory]
-
-    private void run() {
-        farm.getMap().run();
-        // TODO: 1/25/2019 fix margin
-    } // TODO: 12/25/2018 run the game
+    }
 
     private void saveGame(Path path) {
     } // TODO: 12/25/2018 save game [path_to_json_file]
@@ -169,8 +160,10 @@ public class Controller {
     } // TODO: 12/25/2018 save game [path_to_json_file]
 
     private void printInfo(Entity object) {
-    } // TODO: 12/25/2018  print info of object
+        //it's hard to handle (O_O)
+    }
 
-    private void turn(int n) {
-    } // TODO: 12/25/2018 sell turn n time
+    private void turn() {
+        farm.play();
+    }
 }

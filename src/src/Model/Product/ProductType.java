@@ -48,7 +48,6 @@ public enum ProductType {
             case SEWING:
                 result = new Sewing(x, y);
                 break;
-            // TODO: 12/31/2018 complete this shit
             default:
                 result = null;
                 break;

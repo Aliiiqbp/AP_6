@@ -17,8 +17,8 @@ public class SewingFactory extends WorkShop {
         try {
             Image SewingFactoryImage = new Image(new FileInputStream("src/src/Resources/Textures/Workshops/SEWING_FACTORY/" + this.level + ".png"));
             ImageView SewingFactoryView = new ImageView(SewingFactoryImage);
-            SewingFactoryView.setX(this.getMovement().getCurrentX());
-            SewingFactoryView.setY(this.getMovement().getCurrentY());
+//            SewingFactoryView.setX(this.getMovement().getCurrentX());
+//            SewingFactoryView.setY(this.getMovement().getCurrentY());
             root.getChildren().add(SewingFactoryView);
         } catch (Exception e) {
         }

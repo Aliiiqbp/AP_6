@@ -17,8 +17,8 @@ public class Spinnery extends WorkShop {
         try {
             Image SpinneryImage = new Image(new FileInputStream("src/src/Resources/Textures/Workshops/SPINNERY/" + this.level + ".png"));
             ImageView SpinneryView = new ImageView(SpinneryImage);
-            SpinneryView.setX(this.getMovement().getCurrentX());
-            SpinneryView.setY(this.getMovement().getCurrentY());
+//            SpinneryView.setX(this.getMovement().getCurrentX());
+//            SpinneryView.setY(this.getMovement().getCurrentY());
             root.getChildren().add(SpinneryView);
         } catch (Exception e) {
         }

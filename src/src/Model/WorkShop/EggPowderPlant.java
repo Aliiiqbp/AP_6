@@ -17,8 +17,8 @@ public class EggPowderPlant extends WorkShop {
         try {
             Image EggPowderPlantImage = new Image(new FileInputStream("src/src/Resources/Textures/Workshops/EGG_POWDER_PLANT/" + this.level + ".png"));
             ImageView EggPowderPlantView = new ImageView(EggPowderPlantImage);
-            EggPowderPlantView.setX(this.getMovement().getCurrentX());
-            EggPowderPlantView.setY(this.getMovement().getCurrentY());
+//            EggPowderPlantView.setX(this.getMovement().getCurrentX());
+//            EggPowderPlantView.setY(this.getMovement().getCurrentY());
             root.getChildren().add(EggPowderPlantView);
         } catch (Exception e) {
         }

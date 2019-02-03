@@ -6,6 +6,9 @@ import src.Model.Farm.Extra.Well;
 import src.Model.Farm.Map.Map;
 import src.Model.Entity;
 import src.Model.Time;
+import src.Model.WorkShop.WorkShop;
+
+import java.util.ArrayList;
 
 public class Farm extends Entity {
     private Map map;
@@ -14,6 +17,7 @@ public class Farm extends Entity {
     private WareHouse wareHouse;
     private Market market;
     private Time time;
+    private ArrayList<WorkShop> workShops;
 
     public Farm() {
         this.map = new Map(Static.MAP_BASE_WIDTH, Static.MAP_BASE_HEIGHT);
@@ -21,6 +25,7 @@ public class Farm extends Entity {
         this.well = new Well();
         this.market = new Market();
         this.wareHouse = new WareHouse();
+        this.workShops = new ArrayList<>();
     }
 
     public Map getMap() {
@@ -41,5 +46,15 @@ public class Farm extends Entity {
 
     public Market getMarket() {
         return market;
+    }
+
+    @Override
+    public void play() {
+        map.play();
+        well.play();
+        wareHouse.play();
+        for (WorkShop workshop: workShops) {
+            workshop.play();
+        }
     }
 }

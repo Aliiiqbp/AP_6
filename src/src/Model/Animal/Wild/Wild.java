@@ -3,6 +3,8 @@ package src.Model.Animal.Wild;
 import src.Model.Animal.Animal;
 import src.Model.Animal.AnimalState;
 import src.Model.Animal.AnimalType;
+import src.Model.Animal.Pet.NoneProducer.NoneProducerAnimal;
+import src.Model.Animal.Pet.Producer.ProducerAnimal;
 import src.Model.Entity;
 import src.Model.Farm.Map.Cell;
 import src.Model.Farm.Map.Map;
@@ -19,29 +21,24 @@ public abstract class Wild extends Animal {
     }
 
     public void destroy() {
-        // TODO: 12/28/2018 we need to save destroyed objects
         Cell cell = getFarm().getMap().getMappedCell(this.getMovement().getCurrentX(), this.getMovement().getCurrentY());
-        ArrayList<Entity> arrayList = cell.getSalables();
-        int size = arrayList.size();
-        for (Entity entity: arrayList) {
-            if (entity.getClass().isInstance(Salable.class)) {
-                if (entity.getClass().isInstance(Animal.class)) {
-                    ((Animal) entity).changeState(AnimalState.DYING);
-                } else if (entity.getClass().isInstance(Product.class)) {
-                    ((Product) entity).changeProductState(ProductState.DESTROYED);
-                }
-                entity = null;
+        ArrayList<Salable> arrayList = cell.getSalables();
+        for (Salable salable: arrayList) {
+            if (salable.getClass().getSuperclass().equals(NoneProducerAnimal.class) || salable.getClass().getSuperclass().equals(ProducerAnimal.class)) {
+                ((Animal) salable).die();
             }
         }
-    } // TODO: 12/31/2018 it may change to private
-
-    public void cage() {
-        this.changeState(AnimalState.CAGED);
-        this.getMovement().stop();
     }
 
-    public void die() {
-        this.changeState(AnimalState.DYING);
+    public void cage() {
         this.getMovement().stop();
-    } // TODO: 12/29/2018
+        this.changeState(AnimalState.CAGED);
+    }
+
+    @Override
+    public void play() {
+        getTime().turn();
+        destroy();
+        move();
+    }
 }

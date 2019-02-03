@@ -38,20 +38,6 @@ public class Capacity { //this class created for WareHouse and Vehicles
         }
     }
 
-//    public void add(Salable salable, int count) {
-//        String salableName = salable.getClass().getName();
-//        double totalVolume = salable.getVolume() * count;
-//        if (canAdd(salable, count)) { // if not this function does not thing
-//            if (hashMap.containsKey(salableName)) {
-//                hashMap.replace(salableName, hashMap.get(salableName) + count);
-//            } else {
-//                hashMap.put(salableName, count);
-//                list.add(salableName);
-//            }
-//            occupiedCapacity += totalVolume;
-//        }
-//    }
-
     public void add(ArrayList<Salable> salables) {
         if (canAdd(salables)) {
             for (Salable salable : salables) {
@@ -59,8 +45,6 @@ public class Capacity { //this class created for WareHouse and Vehicles
             }
         }
     }
-
-    // TODO: 1/22/2019 maybe we need remove in other type
 
     public void remove(Salable salable) {
         String salableName = salable.getClass().getName();
@@ -97,28 +81,12 @@ public class Capacity { //this class created for WareHouse and Vehicles
     private Salable searchSalable(Salable salable) {
         String name = salable.getClass().getName();
         for (Salable s:list) {
-            if (s.getClass().getName() == name) {
+            if (s.getClass().getName().equals(name)) {
                 return s;
             }
         }
         return null;
     }
-
-//    public void remove(Salable salable, int count) {
-//        String salableName = salable.getClass().getName();
-//        if (hashMap.containsKey(salableName)) {
-//            int numberOfSalable = hashMap.get(salableName);
-//            if (numberOfSalable >= count) {
-//                if (count == numberOfSalable) {
-//                    hashMap.remove(salableName);
-//                    list.remove(salableName);
-//                } else {
-//                    hashMap.replace(salableName, numberOfSalable - count);
-//                }
-//                occupiedCapacity -= count * salable.getVolume();
-//            }
-//        }
-//    }
 
     public void clear() {
         hashMap.clear();
@@ -135,13 +103,6 @@ public class Capacity { //this class created for WareHouse and Vehicles
         }
         return false;
     }
-
-//    public boolean canAdd(Salable salable, int count) {
-//        if (salable.getVolume()*count <= (capacityVolume - occupiedCapacity)) {
-//            return true;
-//        }
-//        return false;
-//    }
 
     public boolean canAdd(ArrayList<Salable> salables) {
         double totalVolume = 0;
@@ -170,11 +131,6 @@ public class Capacity { //this class created for WareHouse and Vehicles
     }
 
     public void update(double capacityVolume) {
-        // TODO: 12/30/2018 it is need to overwrite in all objects
         this.capacityVolume = capacityVolume;
-    }
-
-    public int getNumber(String string) {
-        return hashMap.get(string);
     }
 }

@@ -1,20 +1,22 @@
 package src.Model.Vehicle;
 
 import src.Controller.Static;
+import src.Model.Coordinate.Movement;
 import src.Model.Product.Product;
 import src.Model.Product.ProductType;
-import src.Model.Salable;
 
 public class Helicopter extends Vehicle {
     private double scatteringRadius;
+    private boolean isWorking;
 
     public Helicopter() {
         super(Static.HELI_CAPACITY_VOLUME_RADIUS_LVL_0, Static.HELI_TRAVEL_DURATION_LVL_0);
         this.scatteringRadius = Static.HELI_SCATTERING_RADIUS_LVL_0;
+        isWorking = false;
     }
 
     public void addToArrayList(ProductType productType) {
-        Product product = getFarm().getMarket().getProduct(productType, 0, 0); // TODO: 1/31/2019 handle movement
+        Product product = getFarm().getMarket().getProduct(productType, Movement.getRandomX(), Movement.getRandomY());
         if (getFarm().getBank().canDecrease(product.getBuyPrice()) && getFarm().getMarket().contain(product.getProductType())) {
             getFarm().getBank().buy(product.getBuyPrice());
             addToList(product);
@@ -28,11 +30,18 @@ public class Helicopter extends Vehicle {
     }
 
     public void buy() {
-        getFarm().getMap().addSalables(this.getCapacity().getList());
-        this.getCapacity().clear();
-        // TODO: 1/31/2019 check
+        isWorking = true;
     }
 
+    @Override
+    public void play() {
+        getTime().turn();
+        if (isWorking && getTime().getDuration() >= travelDuration) {
+            getFarm().getMap().addSalables(this.getCapacity().getList());
+            this.getCapacity().clear();
+            isWorking = false;
+        }
+    }
 
     @Override
     public void upgradeLevel() {
@@ -52,10 +61,8 @@ public class Helicopter extends Vehicle {
             case 3 : //it's not upgradable :)
                 break;
         }
-        increaseLevel();
+        this.upgradeLevel();
     }
-
-
 
     public void setScatteringRadius(double scatteringRadius) {
         this.scatteringRadius = scatteringRadius;

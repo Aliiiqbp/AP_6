@@ -17,8 +17,8 @@ public class WeavingFactory extends WorkShop{
         try {
             Image WeavingFactoryImage = new Image(new FileInputStream("src/src/Resources/Textures/Workshops/WEAVING_FACTORY/" + this.level + ".png"));
             ImageView WeavingFactoryView = new ImageView(WeavingFactoryImage);
-            WeavingFactoryView.setX(this.getMovement().getCurrentX());
-            WeavingFactoryView.setY(this.getMovement().getCurrentY());
+//            WeavingFactoryView.setX(this.getMovement().getCurrentX());
+//            WeavingFactoryView.setY(this.getMovement().getCurrentY());
             root.getChildren().add(WeavingFactoryView);
         } catch (Exception e) {
         }

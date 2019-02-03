@@ -1,10 +1,22 @@
 package src.Model;
 
-public class Time implements Runnable {
+public class Time {
 
+    private int turn;
 
-    @Override
-    public void run() {
+    public Time() {
+        turn = 0;
+    }
 
+    public void turn() {
+        turn++;
+    }
+
+    public int getDuration() {
+        return turn;
+    }
+
+    public void restart() {
+        turn = 0;
     }
 }

@@ -17,6 +17,8 @@ import src.Model.Animal.AnimalType;
 import src.Model.Animal.Wild.Wild;
 import src.Model.Coordinate.Direction;
 import src.Model.Coordinate.Movement;
+import src.Model.Product.Product;
+import src.Model.Salable;
 
 import java.io.FileInputStream;
 
@@ -31,6 +33,7 @@ public class Dog extends NoneProducerAnimal {
 
     @Override // cage
     public void play() {
+        getTime().turn();
         if (wild != null) {
             if (Map.isInSameCell(wild.getMovement(), this.movement)) {
                 wild.die();
@@ -39,20 +42,23 @@ public class Dog extends NoneProducerAnimal {
                 this.getMovement().setDirection(Movement.bfs(this.getMovement(), wild.getMovement()));
             }
         } else {
-            // TODO: 1/31/2019 move randomly
+            Wild target = findWild();
+            if (target != null) {
+                this.wild = target;
+            } else {
+                movement.setRandomDirection();
+            }
         }
+        move();
     }
 
-    public void setWild(Wild wild) {
-        this.wild = wild;
-    }
-    
-    private void findWild() {
-        // TODO: 1/31/2019
-    }
-
-    private void die() {
-        this.animalState = AnimalState.DYING;
+    private Wild findWild() {
+        for (Salable salable: getFarm().getMap().getSalables()) {
+            if (salable.getClass().getSuperclass().getName().equals(Wild.class.getName())) {
+                return (Wild) salable;
+            }
+        }
+        return null;
     }
 
     public void ShowDog(Group root) {

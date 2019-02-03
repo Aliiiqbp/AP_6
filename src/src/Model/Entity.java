@@ -6,12 +6,14 @@ import src.Model.Farm.Map.Map;
 
 public abstract class Entity {
     public int level;
-    private int maxLevel;// TODO: 12/30/2018 set it in constructor
+    private int maxLevel;
     private Farm farm;
+    private Time time;
 
     public Entity() {
         level = Static.firstLevel;
-        // TODO: 2/1/2019 setMax Level
+        maxLevel = (int)Double.POSITIVE_INFINITY;
+        time = new Time();
     }
 
     public boolean canUpgradeLevel(double money) {
@@ -22,12 +24,11 @@ public abstract class Entity {
         return 0;
     }
 
-    public void upgradeLevel() {
-        // TODO: 12/30/2018 with switch complete this function
-        //may be it's better to create a new interface as upgradable
+    public void setMaxLevel(int maxLevel) {
+        this.maxLevel= maxLevel;
     }
 
-    public void increaseLevel() {
+    public void upgradeLevel() {
         if (level < maxLevel) {
             level++;
         }
@@ -48,4 +49,10 @@ public abstract class Entity {
     public Farm getFarm() {
         return farm;
     }
+
+    public Time getTime() {
+        return time;
+    }
+
+    public abstract void play();
 }

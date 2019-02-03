@@ -12,19 +12,14 @@ import src.Model.Animal.AnimalState;
 import src.Model.Animal.AnimalType;
 import src.Model.Coordinate.Direction;
 import src.Model.Product.Product;
+import src.Model.Product.ProductType;
 import src.Model.Product.Wool;
 
 import java.io.FileInputStream;
 
 public class Sheep extends ProducerAnimal {
     public Sheep(double x, double y) {
-        super(AnimalType.SHEEP, Static.SHEEP_SELL_VALUE, Static.SHEEP_BUY_COST, Static.SHEEP_VOLUME, Static.SHEEP_SPEED, x, y);
-    }
-
-    @Override
-    public void play() {
-        // TODO: 1/31/2019 eat and produce
-        // TODO: 1/31/2019 move randomly
+        super(AnimalType.SHEEP, Static.SHEEP_SELL_VALUE, Static.SHEEP_BUY_COST, Static.SHEEP_VOLUME, Static.SHEEP_SPEED, x, y, Static.SHEEP_HUNGRY_TIME, Static.SHEEP_DEATH_TIME, Static.SHEEP_EATING_TIME, ProductType.WOOL);
     }
 
     @Override

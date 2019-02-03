@@ -8,15 +8,7 @@ public class Grass extends Product {
 
     public Grass(double x, double y){
         super(ProductType.GRASS, Static.GRASS_SELL_VALUE, Static.GRASS_BUY_COST, Static.GRASS_VOLUME, x, y);
-        // TODO: 1/31/2019 fix max grass
-    }
-
-    public static Grass getGrass(double x, double y, Water water) {
-        if (water != null) {
-            water = null;
-            return new Grass(x, y);
-        }
-        return null;
+        this.maxGrass = Static.GRASS_MAX_GRASS;
     }
 
     public void eaten() {
